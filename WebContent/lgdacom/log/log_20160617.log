@@ -1,0 +1,933 @@
+2016-06-17 14:48:49 [FATAL] [] Key for MID [ttdongjak04835] does not exist in mall.conf
+2016-06-17 14:48:49 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 14:48:49 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 14:48:49 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 14:48:49 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 14:48:50 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 14:48:50 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 14:48:50 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 14:48:50 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_CLOSEDATE = 2016-06-20
+2016-06-17 14:48:50 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/res/casNoteUrl.json
+2016-06-17 14:48:50 [DEBUG] [null] LGD_TAXFREEAMOUNT = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_BUYER = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_ACCOUNTPID = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_BUYERPHONE = 
+2016-06-17 14:48:50 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 14:48:50 [DEBUG] [null] javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+	at sun.security.ssl.SSLSessionImpl.getPeerCertificateChain(Unknown Source)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.verifyHostname(LgdacomSSLProtocolSocketFactory.java:337)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.createSocket(LgdacomSSLProtocolSocketFactory.java:284)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323)
+	at lgdacom.XPayClient.CTX.RequestHTTP(CTX.java:297)
+	at lgdacom.XPayClient.CTX.TX(CTX.java:383)
+	at lgdacom.XPayClient.XPayClient.TX(XPayClient.java:180)
+	at egovframework.dfmc.res.web.PaymentManageController.saveQuarter(PaymentManageController.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:747)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:676)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:938)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:870)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:863)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.bufferAndPostProcess(ContentBufferingFilter.java:169)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.doFilter(ContentBufferingFilter.java:126)
+	at org.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:120)
+	at org.sitemesh.config.ConfigurableSiteMeshFilter.doFilter(ConfigurableSiteMeshFilter.java:163)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:108)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:154)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:50)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at egovframework.rte.ptl.mvc.filter.HTMLTagFilter.doFilter(HTMLTagFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2016-06-17 14:48:50 [FATAL] [null] TX failed: res code = 20010; msg = IO error; javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+2016-06-17 15:04:29 [FATAL] [] Key for MID [ttdongjak04835] does not exist in mall.conf
+2016-06-17 15:04:29 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 15:04:29 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 15:04:29 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 15:04:29 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 15:04:29 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:04:29 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 15:04:29 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:04:29 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 15:04:29 [DEBUG] [null] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:04:29 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:04:29 [DEBUG] [null] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:04:29 [DEBUG] [null] LGD_BUYER = 유기주
+2016-06-17 15:04:29 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 15:04:29 [DEBUG] [null] LGD_ACCOUNTPID = 
+2016-06-17 15:04:29 [DEBUG] [null] LGD_BUYERPHONE = 010-9978-0154
+2016-06-17 15:04:29 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 15:04:30 [DEBUG] [null] javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+	at sun.security.ssl.SSLSessionImpl.getPeerCertificateChain(Unknown Source)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.verifyHostname(LgdacomSSLProtocolSocketFactory.java:337)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.createSocket(LgdacomSSLProtocolSocketFactory.java:284)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323)
+	at lgdacom.XPayClient.CTX.RequestHTTP(CTX.java:297)
+	at lgdacom.XPayClient.CTX.TX(CTX.java:383)
+	at lgdacom.XPayClient.XPayClient.TX(XPayClient.java:180)
+	at egovframework.dfmc.res.web.PaymentManageController.saveQuarter(PaymentManageController.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:747)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:676)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:938)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:870)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:863)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.bufferAndPostProcess(ContentBufferingFilter.java:169)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.doFilter(ContentBufferingFilter.java:126)
+	at org.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:120)
+	at org.sitemesh.config.ConfigurableSiteMeshFilter.doFilter(ConfigurableSiteMeshFilter.java:163)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:108)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:154)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:50)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at egovframework.rte.ptl.mvc.filter.HTMLTagFilter.doFilter(HTMLTagFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2016-06-17 15:04:30 [FATAL] [null] TX failed: res code = 20010; msg = IO error; javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+2016-06-17 15:19:33 [FATAL] [] Key for MID [ttdongjak04835] does not exist in mall.conf
+2016-06-17 15:19:33 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 15:19:33 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 15:19:33 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 15:19:33 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 15:19:33 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:19:33 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 15:19:33 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:19:33 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 15:19:33 [DEBUG] [null] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:19:33 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:19:33 [DEBUG] [null] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:19:33 [DEBUG] [null] LGD_BUYER = 유기주
+2016-06-17 15:19:33 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 15:19:33 [DEBUG] [null] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:19:33 [DEBUG] [null] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:19:33 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 15:19:33 [DEBUG] [null] javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+	at sun.security.ssl.SSLSessionImpl.getPeerCertificateChain(Unknown Source)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.verifyHostname(LgdacomSSLProtocolSocketFactory.java:337)
+	at lgdacom.XPayClient.LgdacomSSLProtocolSocketFactory.createSocket(LgdacomSSLProtocolSocketFactory.java:284)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323)
+	at lgdacom.XPayClient.CTX.RequestHTTP(CTX.java:297)
+	at lgdacom.XPayClient.CTX.TX(CTX.java:383)
+	at lgdacom.XPayClient.XPayClient.TX(XPayClient.java:180)
+	at egovframework.dfmc.res.web.PaymentManageController.saveQuarter(PaymentManageController.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:747)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:676)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:938)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:870)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:863)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.bufferAndPostProcess(ContentBufferingFilter.java:169)
+	at org.sitemesh.webapp.contentfilter.ContentBufferingFilter.doFilter(ContentBufferingFilter.java:126)
+	at org.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:120)
+	at org.sitemesh.config.ConfigurableSiteMeshFilter.doFilter(ConfigurableSiteMeshFilter.java:163)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:108)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:154)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:50)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at egovframework.rte.ptl.mvc.filter.HTMLTagFilter.doFilter(HTMLTagFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2016-06-17 15:19:33 [FATAL] [null] TX failed: res code = 20010; msg = IO error; javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated
+2016-06-17 15:31:33 [FATAL] [] Key for MID [ttdongjak04835] does not exist in mall.conf
+2016-06-17 15:31:33 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 15:31:33 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 15:31:33 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 15:31:33 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 15:31:33 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:31:33 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 15:31:33 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:31:33 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 15:31:33 [DEBUG] [null] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:31:33 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:31:33 [DEBUG] [null] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:31:33 [DEBUG] [null] LGD_BUYER = 유기주
+2016-06-17 15:31:33 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 15:31:33 [DEBUG] [null] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:31:33 [DEBUG] [null] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:31:33 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 15:31:33 [DEBUG] [null] HTTP Status Code = 200
+2016-06-17 15:31:33 [DEBUG] [null] HTTP Content-Type = application/json
+2016-06-17 15:31:33 [DEBUG] [null] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.","LGD_RESPONSE":[{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다."}]}
+
+2016-06-17 15:31:33 [DEBUG] [null] LGD_RESPCODE = 
+2016-06-17 15:31:33 [DEBUG] [null] 	XC01
+2016-06-17 15:31:33 [DEBUG] [null] LGD_RESPMSG = 
+2016-06-17 15:31:33 [DEBUG] [null] 	LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:31:33 [INFO ] [null] m_szResCode = XC01
+2016-06-17 15:31:33 [INFO ] [null] m_szResMsg = LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:31:33 [DEBUG] [null] TX Success Complete.
+2016-06-17 15:35:28 [FATAL] [] Key for MID [ttdongjak04835] does not exist in mall.conf
+2016-06-17 15:35:28 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 15:35:28 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 15:35:28 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 15:35:28 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 15:35:28 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:35:28 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 15:35:28 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:35:28 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 15:35:28 [DEBUG] [null] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:35:28 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:35:28 [DEBUG] [null] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:35:28 [DEBUG] [null] LGD_BUYER = 유기주
+2016-06-17 15:35:28 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 15:35:28 [DEBUG] [null] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:35:28 [DEBUG] [null] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:35:28 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 15:35:28 [DEBUG] [null] HTTP Status Code = 200
+2016-06-17 15:35:28 [DEBUG] [null] HTTP Content-Type = application/json
+2016-06-17 15:35:28 [DEBUG] [null] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.","LGD_RESPONSE":[{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다."}]}
+
+2016-06-17 15:35:28 [DEBUG] [null] LGD_RESPCODE = 
+2016-06-17 15:35:28 [DEBUG] [null] 	XC01
+2016-06-17 15:35:28 [DEBUG] [null] LGD_RESPMSG = 
+2016-06-17 15:35:28 [DEBUG] [null] 	LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:35:28 [INFO ] [null] m_szResCode = XC01
+2016-06-17 15:35:28 [INFO ] [null] m_szResMsg = LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:35:28 [DEBUG] [null] TX Success Complete.
+2016-06-17 15:38:36 [FATAL] [] Key for MID [tdongjak04835] does not exist in mall.conf
+2016-06-17 15:38:36 [DEBUG] [null] LGD_TXNAME = CyberAccount
+2016-06-17 15:38:36 [DEBUG] [null] LGD_METHOD = ASSIGN
+2016-06-17 15:38:36 [DEBUG] [null] LGD_OID = 20160617_00000000001
+2016-06-17 15:38:36 [DEBUG] [null] LGD_AMOUNT = 54600
+2016-06-17 15:38:36 [DEBUG] [null] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:38:36 [DEBUG] [null] LGD_BANKCODE = 004
+2016-06-17 15:38:36 [DEBUG] [null] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:38:36 [DEBUG] [null] LGD_CASHCARDNUM = 
+2016-06-17 15:38:36 [DEBUG] [null] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:38:36 [DEBUG] [null] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:38:36 [DEBUG] [null] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:38:36 [DEBUG] [null] LGD_BUYER = 유기주
+2016-06-17 15:38:36 [DEBUG] [null] LGD_ACCOUNTOWNER = 
+2016-06-17 15:38:36 [DEBUG] [null] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:38:36 [DEBUG] [null] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:38:36 [DEBUG] [null] LGD_BUYEREMAIL = 
+2016-06-17 15:38:37 [DEBUG] [null] HTTP Status Code = 200
+2016-06-17 15:38:37 [DEBUG] [null] HTTP Content-Type = application/json
+2016-06-17 15:38:37 [DEBUG] [null] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.","LGD_RESPONSE":[{"LGD_RESPCODE":"XC01","LGD_RESPMSG":"LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다."}]}
+
+2016-06-17 15:38:37 [DEBUG] [null] LGD_RESPCODE = 
+2016-06-17 15:38:37 [DEBUG] [null] 	XC01
+2016-06-17 15:38:37 [DEBUG] [null] LGD_RESPMSG = 
+2016-06-17 15:38:37 [DEBUG] [null] 	LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:38:37 [INFO ] [null] m_szResCode = XC01
+2016-06-17 15:38:37 [INFO ] [null] m_szResMsg = LGD_MID 필드가 누락되었습니다. Init_TX(LGD_MID)를 해주시기 바랍니다. 또는 mall.conf 에 상점키가 셋팅되어 있지 않습니다.
+2016-06-17 15:38:37 [DEBUG] [null] TX Success Complete.
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_TXID = tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_AUTHCODE = 23ef04a64b99ee249ab857574b49594964ab55e0
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_MID = tdongjak04835
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_TXNAME = CyberAccount
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_METHOD = ASSIGN
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_OID = 20160617_00000000001
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_AMOUNT = 54600
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_BANKCODE = 004
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASHCARDNUM = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_BUYER = 유기주
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_ACCOUNTOWNER = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_BUYEREMAIL = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] HTTP Status Code = 200
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] HTTP Content-Type = application/json
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"A021","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"국민","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_PAYDATE":"20160617153951","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"03b11d1376912e952d6a2aae3899a3c4","LGD_TID":"","LGD_RESPCODE":"A021","LGD_TIMESTAMP":"20160617153951","LGD_FINANCECODE":"06","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"","LGD_PAYER":""}]}
+
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASTAMOUNT = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	0
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_FINANCENAME = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	국민
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_PAYDATE = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	20160617153951
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_PAYTYPE = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	SC0040
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_ACCOUNTNUM = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASSEQNO = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	000
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_TIMESTAMP = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	20160617153951
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_RESPMSG = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	실고객명을 입력하시기 바랍니다#
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_PAYER = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_BUYERSSN = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	.
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASFLAG = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	R
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_TID = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_FINANCECODE = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	06
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_OID = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	20160617_00000000001
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_CASCAMOUNT = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	0
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_HASHDATA = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	03b11d1376912e952d6a2aae3899a3c4
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_RESPCODE = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	A021
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_AMOUNT = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	54600
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_SAOWNER = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] LGD_MID = 
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] 	tdongjak04835
+2016-06-17 15:39:47 [INFO ] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] m_szResCode = A021
+2016-06-17 15:39:47 [INFO ] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] m_szResMsg = 실고객명을 입력하시기 바랍니다#
+2016-06-17 15:39:47 [DEBUG] [tdongjak04835-0120160617153947ce0f0e821b49b7924113ed589bce1c24b0f2d50f] TX Success Complete.
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_TXID = tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_AUTHCODE = e822c1c4a2ee15a60a58fe04e387a99c1ed1d6e4
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_MID = tdongjak04835
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_TXNAME = CyberAccount
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_METHOD = ASSIGN
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_OID = 20160617_00000000001
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_AMOUNT = 54600
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_BANKCODE = 020
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASHCARDNUM = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_BUYER = 유기주
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_ACCOUNTOWNER = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_ACCOUNTPID = kijuz2004
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_BUYEREMAIL = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] HTTP Status Code = 200
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] HTTP Content-Type = application/json
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"A021","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"우리","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_PAYDATE":"20160617154326","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"3185cd06542dfe55dd40062341dcb7ff","LGD_TID":"","LGD_RESPCODE":"A021","LGD_TIMESTAMP":"20160617154326","LGD_FINANCECODE":"20","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"","LGD_PAYER":""}]}
+
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASTAMOUNT = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	0
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_FINANCENAME = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	우리
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_PAYDATE = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	20160617154326
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_PAYTYPE = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	SC0040
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_ACCOUNTNUM = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASSEQNO = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	000
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_TIMESTAMP = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	20160617154326
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_RESPMSG = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	실고객명을 입력하시기 바랍니다#
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_PAYER = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_BUYERSSN = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	.
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASFLAG = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	R
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_TID = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_FINANCECODE = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	20
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_OID = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	20160617_00000000001
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_CASCAMOUNT = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	0
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_HASHDATA = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	3185cd06542dfe55dd40062341dcb7ff
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_RESPCODE = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	A021
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_AMOUNT = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	54600
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_SAOWNER = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] LGD_MID = 
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] 	tdongjak04835
+2016-06-17 15:43:22 [INFO ] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] m_szResCode = A021
+2016-06-17 15:43:22 [INFO ] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] m_szResMsg = 실고객명을 입력하시기 바랍니다#
+2016-06-17 15:43:22 [DEBUG] [tdongjak04835-0120160617154322abe1d4953c4c8d0343ed5fd98f3b348b9916aa22] TX Success Complete.
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_TXID = tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_AUTHCODE = 2a529f39bcb5d87e1cba9845a0bfe40af25b058f
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_MID = tdongjak04835
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_TXNAME = CyberAccount
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_METHOD = ASSIGN
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_OID = 20160617_00000000001
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_AMOUNT = 54600
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_BANKCODE = 020
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASHCARDNUM = 
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_BUYER = 유기주
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_ACCOUNTOWNER = 
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_ACCOUNTPID = 
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:48:07 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_BUYEREMAIL = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] HTTP Status Code = 200
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] HTTP Content-Type = application/json
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"A021","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"우리","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_PAYDATE":"20160617154812","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"97426937e8f55c29ade7fb8aa1a558fb","LGD_TID":"","LGD_RESPCODE":"A021","LGD_TIMESTAMP":"20160617154812","LGD_FINANCECODE":"20","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"","LGD_PAYER":""}]}
+
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASTAMOUNT = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	0
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_FINANCENAME = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	우리
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_PAYDATE = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	20160617154812
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_PAYTYPE = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	SC0040
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_ACCOUNTNUM = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASSEQNO = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	000
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_TIMESTAMP = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	20160617154812
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_RESPMSG = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	실고객명을 입력하시기 바랍니다#
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_PAYER = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_BUYERSSN = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	.
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASFLAG = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	R
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_TID = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_FINANCECODE = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	20
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_OID = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	20160617_00000000001
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_CASCAMOUNT = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	0
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_HASHDATA = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	97426937e8f55c29ade7fb8aa1a558fb
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_RESPCODE = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	A021
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_AMOUNT = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	54600
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_SAOWNER = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] LGD_MID = 
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] 	tdongjak04835
+2016-06-17 15:48:08 [INFO ] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] m_szResCode = A021
+2016-06-17 15:48:08 [INFO ] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] m_szResMsg = 실고객명을 입력하시기 바랍니다#
+2016-06-17 15:48:08 [DEBUG] [tdongjak04835-01201606171548073869f2fb67d361b80dcb8ce38f27dc708ffe7e33] TX Success Complete.
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_TXID = tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_AUTHCODE = 13c20a6b186a1eb808605266c0c5f3255fb76294
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_MID = tdongjak04835
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_TXNAME = CyberAccount
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_METHOD = ASSIGN
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_OID = 20160617_00000000001
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_AMOUNT = 54600
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_BANKCODE = 020
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASHCARDNUM = 
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_BUYER = 허평강
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_ACCOUNTOWNER = 
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_ACCOUNTPID = 
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_BUYERPHONE = 01025017177
+2016-06-17 15:52:55 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_BUYEREMAIL = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] HTTP Status Code = 200
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] HTTP Content-Type = application/json
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"A021","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"우리","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"실고객명을 입력하시기 바랍니다#","LGD_PAYDATE":"20160617155300","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"0dffa22c97238829fa4c0c0593c4ad64","LGD_TID":"","LGD_RESPCODE":"A021","LGD_TIMESTAMP":"20160617155300","LGD_FINANCECODE":"20","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"","LGD_PAYER":""}]}
+
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASTAMOUNT = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	0
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_FINANCENAME = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	우리
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_PAYDATE = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	20160617155300
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_PAYTYPE = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	SC0040
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_ACCOUNTNUM = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASSEQNO = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	000
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_TIMESTAMP = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	20160617155300
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_RESPMSG = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	실고객명을 입력하시기 바랍니다#
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_PAYER = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_BUYERSSN = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	.
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASFLAG = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	R
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_TID = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_FINANCECODE = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	20
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_OID = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	20160617_00000000001
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_CASCAMOUNT = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	0
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_HASHDATA = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	0dffa22c97238829fa4c0c0593c4ad64
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_RESPCODE = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	A021
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_AMOUNT = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	54600
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_SAOWNER = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] LGD_MID = 
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] 	tdongjak04835
+2016-06-17 15:52:56 [INFO ] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] m_szResCode = A021
+2016-06-17 15:52:56 [INFO ] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] m_szResMsg = 실고객명을 입력하시기 바랍니다#
+2016-06-17 15:52:56 [DEBUG] [tdongjak04835-0120160617155255afd2f6d0dcaca6b5dabff01eb9823314ce966ff7] TX Success Complete.
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_TXID = tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_AUTHCODE = 31ec27dcc24b2c5e3526befe78ab45b84cad91d4
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_MID = tdongjak04835
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_TXNAME = CyberAccount
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_METHOD = ASSIGN
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_OID = 20160617_00000000001
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_AMOUNT = 54600
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_BANKCODE = 020
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASHCARDNUM = 
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_BUYER = 허평강
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_ACCOUNTOWNER = 허평강
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_ACCOUNTPID = 
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_BUYERPHONE = 01025017177
+2016-06-17 15:55:28 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_BUYEREMAIL = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] HTTP Status Code = 200
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] HTTP Content-Type = application/json
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"0000","LGD_RESPMSG":"발급성공","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"우리","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"발급성공","LGD_PAYDATE":"20160617155533","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"063f8f4ed11a3144f0bc3d937de4eaab","LGD_TID":"tdong2016061715553267797","LGD_RESPCODE":"0000","LGD_TIMESTAMP":"20160617155533","LGD_FINANCECODE":"020","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"X1644200118589","LGD_PAYER":"허평강"}]}
+
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASTAMOUNT = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	0
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_FINANCENAME = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	우리
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_PAYDATE = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	20160617155533
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_PAYTYPE = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	SC0040
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_ACCOUNTNUM = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	X1644200118589
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASSEQNO = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	000
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_TIMESTAMP = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	20160617155533
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_RESPMSG = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	발급성공
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_PAYER = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	허평강
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_BUYERSSN = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	.
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASFLAG = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	R
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_TID = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	tdong2016061715553267797
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_FINANCECODE = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	020
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_OID = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	20160617_00000000001
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_CASCAMOUNT = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	0
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_HASHDATA = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	063f8f4ed11a3144f0bc3d937de4eaab
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_RESPCODE = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	0000
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_AMOUNT = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	54600
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_SAOWNER = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] LGD_MID = 
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] 	tdongjak04835
+2016-06-17 15:55:29 [INFO ] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] m_szResCode = 0000
+2016-06-17 15:55:29 [INFO ] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] m_szResMsg = 발급성공
+2016-06-17 15:55:29 [DEBUG] [tdongjak04835-0120160617155528dfc98e09308b755cdb92c120f6d7b7a6d83d9317] TX Success Complete.
+2016-06-17 15:58:15 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_TXID = tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d
+2016-06-17 15:58:15 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_AUTHCODE = 22cb31226d0c31c592f8c6c279976a0731905f0a
+2016-06-17 15:58:15 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_MID = tdongjak04835
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_TXNAME = CyberAccount
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_METHOD = ASSIGN
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_OID = 20160617_00000000001
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_AMOUNT = 54600
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_PRODUCTINFO = 거주지 분기 주차요금
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_BANKCODE = 020
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASHRECEIPTUSE = 0
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASHCARDNUM = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CLOSEDATE = 20160620000000
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASNOTEURL = http://221.149.1.134:8080/dfmc-web/res/casNoteUrl.json
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_TAXFREEAMOUNT = 0
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_BUYER = 유기주
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_ACCOUNTOWNER = 유기주
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_ACCOUNTPID = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_BUYERPHONE = 01099780154
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_BUYEREMAIL = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] HTTP Status Code = 200
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] HTTP Content-Type = application/json
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] HTTP Response = 
+
+
+
+
+
+
+
+
+
+{"LGD_RESPCODE":"P015","LGD_RESPMSG":"요청정보가 이전 거래정보(은행,금액,예금주명,주민등록번호)와 상이하여 처리결과를 확인할수 없습니다.<BR>이전 거래정보를 확인하시고 재확인하십시오#","LGD_RESPONSE":[{"LGD_PAYTYPE":"SC0040","LGD_MID":"tdongjak04835","LGD_CASFLAG":"R","LGD_FINANCENAME":"우리","LGD_CASCAMOUNT":"0","LGD_CASTAMOUNT":"0","LGD_AMOUNT":"54600","LGD_BUYERSSN":".","LGD_RESPMSG":"요청정보가 이전 거래정보(은행,금액,예금주명,주민등록번호)와 상이하여 처리결과를 확인할수 없습니다.<BR>이전 거래정보를 확인하시고 재확인하십시오#","LGD_PAYDATE":"20160617155820","LGD_OID":"20160617_00000000001","LGD_CASSEQNO":"000","LGD_HASHDATA":"8ff71b714aa6172dc750ac4767b4b777","LGD_TID":"tdong2016061715553267797","LGD_RESPCODE":"P015","LGD_TIMESTAMP":"20160617155820","LGD_FINANCECODE":"020","LGD_SAOWNER":"","LGD_ACCOUNTNUM":"    ","LGD_PAYER":"유기주"}]}
+
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASTAMOUNT = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	0
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_FINANCENAME = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	우리
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_PAYDATE = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	20160617155820
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_PAYTYPE = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	SC0040
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_ACCOUNTNUM = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	    
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASSEQNO = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	000
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_TIMESTAMP = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	20160617155820
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_RESPMSG = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	요청정보가 이전 거래정보(은행,금액,예금주명,주민등록번호)와 상이하여 처리결과를 확인할수 없습니다.<BR>이전 거래정보를 확인하시고 재확인하십시오#
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_PAYER = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	유기주
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_BUYERSSN = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	.
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASFLAG = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	R
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_TID = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	tdong2016061715553267797
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_FINANCECODE = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	020
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_OID = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	20160617_00000000001
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_CASCAMOUNT = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	0
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_HASHDATA = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	8ff71b714aa6172dc750ac4767b4b777
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_RESPCODE = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	P015
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_AMOUNT = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	54600
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_SAOWNER = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] LGD_MID = 
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] 	tdongjak04835
+2016-06-17 15:58:16 [INFO ] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] m_szResCode = P015
+2016-06-17 15:58:16 [INFO ] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] m_szResMsg = 요청정보가 이전 거래정보(은행,금액,예금주명,주민등록번호)와 상이하여 처리결과를 확인할수 없습니다.<BR>이전 거래정보를 확인하시고 재확인하십시오#
+2016-06-17 15:58:16 [DEBUG] [tdongjak04835-01201606171558157c5f01405596f6f475f39087535e1354fac8051d] TX Success Complete.

@@ -1,0 +1,706 @@
+@charset "UTF-8";
+
+/*  ------------------------------   거주자우선주차 : 주차장 소개 페이지 - 소스   ------------------------------  */
+
+.res .ct_body { height: 100%; }
+
+.pkintro_top {
+    position: relative; width: 100%; height: 285px;
+}
+
+.pkintro_img {
+    position: relative;
+    width: 45%; height: 250px;
+    margin-right: 3%;
+    border-radius: 7px;
+    background-image: url(../images/parkingintro_img.png);
+    display: inline-block;
+}
+
+.pkintro_right {
+    position: absolute; top: -3.5%; width: 45%; height: 250px;
+    display: inline-block;
+}
+.pkintro_right h1 { position: relative; font-size: 50px; left: -3px; }
+.pkintro_right h3 { font-size: 23px; }
+.pkintro_right h4 {
+    position: absolute;
+    font-size: 16px;
+    color: #777;
+    margin-top: 5%;
+    line-height: 135%;
+    font-weight: normal;
+}
+
+.pkintro_right h4 a { color: #da4a4a; font-weight: normal; }
+
+.pkintro_bottom { position: relative; width: 100%; }
+
+.pkintro_bottom .bd_title { margin: 0; }
+
+.pkintro_bottom .bd_title a { display: block; padding-left: 2.2%; line-height: 135%; }
+
+.pkintro_bottom i { position: relative; left: -2px; }
+
+.pkintro_bottom .bd_title div {
+    position: relative;
+    width: 100%; height: 230px;
+    margin-top: 0.5%;
+    background-color: skyblue;
+}
+
+.pkintro_bottom p { margin-top: 2%; }
+
+
+/*  ------------------------------   거주자우선주차 : 시행 근거 & 단속근거 페이지 - 소스   ------------------------------  */
+
+.regulateBasis_top {
+    position: relative; width: 100%;
+}
+
+.enforcementBasis_img {
+    position: relative;
+    width: 50%; height: 300px;
+    margin-right: 3%;
+    border-radius: 7px;
+    background-image: url(../images/enforcementBasis_img.png);
+    display: inline-block;
+}
+
+.regulateBasis_img {
+    position: relative;
+    width: 50%; height: 300px;
+    margin-right: 3%;
+    border-radius: 7px;
+    background-image: url(../images/regulateBasis_img.png);
+    display: inline-block;
+}
+
+.regulateBasis_right {
+    position: absolute; top: -0.5%; width: 45%; height: 250px;
+    display: inline-block;
+}
+.regulateBasis_right h2, .regulateBasis_right h3 {font-size: 16px; }
+
+.regulateBasis_right h3 { margin-top: 5%; line-height: 135%; }
+
+.regulateBasis_right i {
+    display: block;
+    font-size: 10px;
+    position: relative;
+    top: 15px;
+}
+
+.regulateBasis_right a {
+    position: relative;
+    left: 20px;
+    font-size: 16px;
+    color: #7D7D7D;
+    line-height: 135%;
+}
+
+
+/*  ------------------------------   거주자우선주차 : 주차장 현황 페이지 - 소스   ------------------------------  */
+
+.pkcondition {
+    position: relative; width: 100%;
+}
+
+.pkcondition .bd_title {
+    position: relative;
+    margin: 0 0 0 0;
+    top: -13px;
+}
+
+/*  ------------------------------   거주자우선주차 : 모두의주차장소개 페이지 - 소스   ------------------------------  */
+
+.modupkintro_a { position: relative; width: 100%; height: 250px; }
+.modupkintro_b { position: relative; width: 100%; margin-top: 20px; }
+.modupkintro_c { position: relative; width: 100%; height: 150px; }
+.modupkintro_d { position: relative; width: 100%; margin: 40px 0 0 0; }
+.modupkintro_e { position: relative; width: 100%; margin: 40px 0 0 0; }
+.modupkintro_f { position: relative; width: 100%; margin: 40px 0 0 0; }
+
+.modupkintro_img {
+    position: relative;
+    width: 100%; height: 100%;
+    background-image: url(../../resource/images/modu_title.png);
+    display: inline-block;
+}
+
+.modupkintro_img2, .modupkintro_img3 {
+    position: absolute;
+    width: 49%; height: 150px;
+    border-radius: 9px;
+    background-color: white;
+    display: inline-block;
+}
+
+.modupkintro_img2 p, .modupkintro_img3 p {
+    height: 27%;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    background-color: #54ACD2;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.modupkintro_img2 a, .modupkintro_img3 a {
+    position: absolute;
+    width: 100%;
+    height: 73%;
+    line-height: 135%;
+    padding: 15px 0 0 15px;
+    border-left: 1px solid #B7B7B7;
+    border-right: 1px solid #B7B7B7;
+    border-bottom: 1px solid #B7B7B7;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.modupkintro_img3 { right: 0; }
+
+.modupkintro_video {
+    position: relative;
+    margin-top: 5px;
+    width: 100%; height: 507px;
+    background-color: #54ACD2;
+    border: 1px solid #54ACD2;
+}
+
+.modu_won {
+    margin-top: 5px;
+    display: flex;
+}
+
+.modupkintro_b .bd_title { margin: 0; }
+
+.modupkintro_b .bd_title a {
+    display: block;
+    padding-left: 2.2%;
+    line-height: 135%;
+    margin-bottom: 20px;
+}
+
+.modupkintro_d .bd_title a {
+    display: block;
+    line-height: 135%;
+    margin-bottom: 20px;
+}
+
+.modupkintro_f .bd_title a {
+    display: block;
+    line-height: 180%;
+    margin-bottom: 20px;
+    padding-left: 2.2%;
+}
+
+.modupkintro_e .bd_title a {
+    position: absolute;
+    left: 0;
+    color: #777;
+    line-height: 135%;
+}
+
+.modupkintro_e .bd_title a p { color: #54acd2; margin-bottom: 5px; }
+
+.modupkintro_b i { position: relative; left: -2px; }
+
+.modupkintro_b .bd_title div {
+    position: relative;
+    width: 100%; height: 230px;
+    margin-top: 0.5%;
+    background-color: skyblue;
+}
+
+.modupkintro_contents5 {
+    position: relative; width: 100%; height: 250px;
+}
+
+.contents5_img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../resource/images/modu_disc.png);
+}
+
+/*  ------------------------------   거주자우선주차 : 미납요금안내 페이지 - 소스   ------------------------------  */
+
+.defaultChargeInfo {
+    position: relative; width: 100%; top: -30px;
+}
+
+.defaultChargeInfo .bd_title { margin: 0; }
+
+.defaultChargeInfo .bd_title a {
+    display: block;
+    margin-top: 10px;
+    padding-left: 2.2%;
+    line-height: 180%;
+}
+
+.defaultChargeInfo .bd_title a p {
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    text-indent: 11px;
+}
+
+.defaultChargeInfo .bd_title h4 {
+    font-size: 15px;
+    font-weight: normal;
+    color: #3494bd;
+    line-height: 150%;
+    margin: 10px 0 40px 29px;
+}
+
+.defaultChargeInfo .bd_title h4 p {
+    font-size: 15px;
+    font-weight: normal;
+    color: #3494bd;
+    line-height: 150%;
+    margin: 0 0 5px 0;
+    text-indent: 10px;
+}
+
+.defaultChargeInfo i { position: relative; left: -2px; }
+
+.defaultChargeInfo p { margin-top: 2%; }
+
+
+/*  ------------------------------   방문주차 : 방문주차소개 페이지 - 소스   ------------------------------  */
+
+.vst .ct_body { height: 100%; }
+.vst .ct_body > a { cursor: text; }
+
+.visitintro {
+    position: relative; width: 100%; top: -30px;
+}
+
+.visitintro .bd_title { margin: 0; }
+
+.visitintro .bd_title h4 {
+    display: block;
+    color: #777;
+    font-weight: normal;
+    margin: 0;
+    padding-left: 2.2%;
+    line-height: 135%;
+}
+
+.visitintro .bd_title h4 a { color: #da4a4a; }
+
+.bank {
+    font-size: 15px;
+    margin-left: 9px;
+    color: #da4a4a;
+}
+
+.visitintro .bd_title h2 {
+    font-size: 15px;
+    color: #949494;
+    padding-left: 2.2%;
+}
+
+.visitintro .bd_title i i {
+    position: relative;
+    top: 7px;
+    left: 4px;
+    margin: 0 16px;
+    color: #9A9A9A;
+}
+
+.visitintro i { position: relative; left: -2px; }
+
+.visitintro_box_a {
+    position: relative;
+    left: 30px;
+    display: table;
+    margin-bottom: 15px;
+}
+
+.visitintro_box_a .small_box {
+    width: 138.5px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 135%;
+    vertical-align: middle;
+    text-align: center;
+    color: #656565;
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+    background-color: #F1F1F1;
+    display: table-cell;
+}
+
+.visitintro .bd_title .big_box {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5%;
+}
+
+.visitintro .bd_title .big_box .table {
+    position: relative; width: 100%; height: 100%;
+}
+
+.visitintro .bd_title .big_box .table tr th {
+    position: relative;
+    width: 40%;
+    height: 50%;
+    background-color: #C0EAE2;
+}
+
+.visitintro p { margin-top: 2%; }
+
+/*  ------------------------------   공영주차 : 주차장 소개 페이지 - 소스   ------------------------------  */
+
+.pubintro_box {
+    position: relative; left: 30px;
+}
+
+.pubintro_box .small_box {
+    width: 140px;
+    height: 140px;
+    font-size: 15px;
+    line-height: 135%;
+    vertical-align: middle;
+    text-align: center;
+    color: #656565;
+    border-radius: 80px;
+    margin: 0 20px 0 10px;
+    border: 1px solid #D2D2D2;
+    background-color: #F1F1F1;
+    display: inline-block;
+}
+
+.pubintro_box .small_box > a {
+
+}
+
+.pubintrotop {
+    position: relative; width: 100%; height: 285px;
+}
+
+.pubintro_img {
+    position: relative;
+    width: 45%; height: 250px;
+    margin-right: 3%;
+    border-radius: 7px;
+    background-image: url(../images/pubintro_img.png);
+    display: inline-block;
+}
+
+.pubintro_right {
+    position: absolute; top: -0.22%; width: 48%; height: 250px;
+    display: inline-block;
+}
+.pubintro_right h1 { position: relative; font-size: 50px; left: -3px; }
+.pubintro_right h3 { font-size: 23px; }
+.pubintro_right h4 {
+    position: absolute;
+    font-size: 16px;
+    font-weight: normal;
+    color: #777;
+    margin-top: 5%;
+    line-height: 135%;
+}
+
+.pubintro_right h4 a { color: #da4a4a; }
+
+.pubintro {
+    position: relative; width: 100%;
+}
+
+.pubintro .bd_title h2 {
+    font-size: 15px;
+    color: #949494;
+    margin-top: 15px;
+}
+
+.pubintro .bd_title { margin: 0; }
+
+.pubintro i { position: relative; left: -2px; }
+
+.pubintro p { margin-top: 2%; }
+
+
+/*  ------------------------------   공영주차 : 미납요금 안내 페이지 - 소스   ------------------------------  */
+
+.pub_default_won {
+    position: relative;
+    left: 30px;
+    display: table;
+    margin-bottom: 10px;
+    margin: 10px 20px;
+}
+
+.pub_default_won .small_box {
+    width: 140px;
+    height: 140px;
+    font-size: 15px;
+    line-height: 135%;
+    vertical-align: middle;
+    text-align: center;
+    color: #656565;
+    border-radius: 80px;
+    margin: 0 20px 0 10px;
+    border: 1px solid #D2D2D2;
+    background-color: #F1F1F1;
+    display: table-cell;
+}
+
+.pub_default {
+    position: relative; top: -30px; width: 100%;
+}
+
+.pub_default .bd_title h2 {
+    font-size: 15px;
+    color: #949494;
+    margin-top: 15px;
+}
+
+.pub_default .bd_title { margin: 0; }
+
+.pub_default .bd_title a {
+    display: block;
+    padding: 10px 0 10px 0;
+    line-height: 160%;
+}
+
+.pub_default i { position: relative; left: -2px; }
+
+.pub_default_won i {
+    position: relative;
+    top: 49px;
+    margin: 0px 20px;
+}
+
+.mil {
+    font-weight: normal;
+    text-indent: 19px;
+}
+
+.pub_default p { margin-top: 2%; }
+
+
+/*  ------------------------------   고객지원 : 전화번호 안내 페이지 - 소스   ------------------------------  */
+
+.big_box table tbody td .table_name { line-height: 170%; color: #444; padding: 10px 0; }
+
+
+/*  ------------------------------   고객지원 : 자주묻는질문 페이지 - 소스   ------------------------------  */
+
+.qanda {
+    position: relative;
+    width: 900px;
+    height: 1562px;
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    font-size: 0;
+}
+
+.qanda ul li {
+    position: relative;
+    width: 100%;
+    background-color: white;
+}
+
+.qanda ul li .question {
+    position: relative;
+    width: 100%;
+    font-family: arial;
+    font-weight: bold;
+    padding: 20px 0px 1px 17px;
+    color: #c7c7c7;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+}
+
+.qanda ul li .question h6 {
+    position: relative;
+    top: 8px;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 45px;
+    margin: 0;
+    padding: 0;
+    color: #c7c7c7;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.qanda ul li .question hr,
+.qanda ul li .answer hr {
+    position: relative;
+    top: 20px;
+    width: 1px;
+    height: 34px;
+    margin: -27px 60px;
+    opacity: 0.6;
+}
+
+.qanda ul li .question h4 {
+    font-size: 15px;
+    font-weight: normal;
+    color: #777;
+    line-height: 155%;
+    margin: 18px 0 18px 90px;
+    text-shadow: none;
+}
+
+.qanda ul li .answer a {
+    position: absolute;
+    top: -17px;
+    left: 22px;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 45px;
+    color: #c3b4ab;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+}
+
+.qanda ul li .answer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: #f1efed;
+}
+
+
+/*  ------------------------------   견인보관소 : 견인보관소안내 페이지 - 소스   ------------------------------  */
+
+.towintro_box {
+    position: relative; left: 30px;
+}
+
+.towintro_box .small_box {
+    width: 140px;
+    height: 140px;
+    font-size: 15px;
+    line-height: 135%;
+    vertical-align: middle;
+    text-align: center;
+    color: #656565;
+    border-radius: 80px;
+    margin: 0 20px 0 10px;
+    border: 1px solid #D2D2D2;
+    background-color: #F1F1F1;
+    display: inline-block;
+}
+
+.towintro_box .small_box > a {  }
+
+.towintro_top {
+    position: relative; width: 100%; height: 270px;
+}
+
+.towintro_img {
+    position: relative;
+    width: 45%; height: 250px;
+    margin-right: 3%;
+    border-radius: 7px;
+    background-image: url(../images/tow_img.png);
+    display: inline-block;
+}
+
+.towintro_right {
+    position: absolute; top: -3.7%; width: 50%; height: 250px;
+    display: inline-block;
+}
+.towintro_right h1 { position: relative; font-size: 50px; left: -3px; }
+.towintro_right h3 { font-size: 23px; }
+.towintro_right a {
+    position: absolute;
+    font-size: 16px;
+    margin-top: 5%;
+    line-height: 165%;
+}
+
+.towintro {
+    position: relative; width: 100%;
+}
+
+.towintro .bd_title h2 {
+    font-size: 15px;
+    color: #949494;
+    margin-top: 15px;
+}
+
+.towintro .bd_title { margin: 0; }
+
+.towintro .bd_title a {
+    display: block;
+    padding: 0px 0 5px 0;
+    line-height: 150%;
+}
+
+.towintro .bd_title h4 {
+    color: #545454;
+    font-weight: normal;
+    margin: 0;
+}
+
+.towintro .bd_title div {
+    position: relative;
+    width: 100%; height: 230px;
+    margin-top: 0.5%;
+    margin-bottom: 45px;
+    background-color: #FBA026;
+}
+
+.towintro .bd_title .towintro_contact {
+    position: relative;
+    width: 100%; height: 230px;
+    margin-top: 0.5%;
+    margin-bottom: 10px;
+    background-color: #FBA026;
+}
+
+.towintro i { position: relative; left: -2px; }
+
+.towintro p { margin-top: 1.5%; }
+
+
+/*  -------------------------------------   페이지 공통 - 소스   -------------------------------------  */
+
+.big_box > table { margin-bottom: 10px; width: 100%; border: 1px solid #ccc; border-collapse: collapse; }
+.big_box table caption { display: none; }
+.big_box table thead { color: white; }
+.big_box table thead th { padding: 10px 0; }
+.big_box table tbody td {
+    padding: 5px 0;
+    height: 38px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #efefef;
+}
+.big_box table tbody tr:nth-child(even) { background-color: #f8f8f8; }
+.big_box table tbody tr:last-child td { border-bottom: none; }
+.big_box table tbody td.disc { padding: 5px 0 5px 15px; text-align: left; }
+
+.big_box table .disc a { font-weight: bold; color: #2c82c9; }
+.big_box table .disc a:hover { text-decoration: underline; }
+table .btn { display: inline-block; }
+
+.btn:hover, .btn.reverse { background-color: white; color: #777; }
+.btn:hover.reverse { background-color: #ccc; color: white; }
+
+.btn.blue { background-color: #54acd2; border-color: #54acd2; }
+.btn.dblue { background-color: #2c82c9; border-color: #2c82c9; }
+.btn.green { background-color: #1abc9c; border-color: #1abc9c; }
+.btn.lgreen { background-color: #61bd6d; border-color: #61bd6d; }
+
+.btn:hover.blue, .btn:hover.dblue, .btn:hover.green, .btn:hover.lgreen { background-color: white; }
+.btn:hover.blue { border-color: #54acd2; color: #54acd2; }
+.btn:hover.dblue { border-color: #2c82c9; color: #2c82c9; }
+.btn:hover.green { border-color: #1abc9c; color: #1abc9c; }
+.btn:hover.lgreen { border-color: #61bd6d; color: #61bd6d; }
+
+.btn.lgreen.reverse { background-color: white; color: #61bd6d; }
+.btn:hover.lgreen.reverse { background-color: #61bd6d; color: white; }
+
+.btn_group { margin-top: 20px; text-align: center; }
+.btn_group .btn { display: inline-block; }
+
+.btn.add { position: absolute; top: 15px; right: 15px; padding: 7px 10px; }

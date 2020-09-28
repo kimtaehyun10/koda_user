@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2016. by Koticobui All right reserved.
+  -->
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                                 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+">
+
+    <http pattern="/resources/**" security="none"/>
+    <http pattern="/lgdacom/**" security="none"/>
+
+    <http auto-config='true' use-expressions="true" access-denied-page="/?loginError=02">
+        <intercept-url pattern="/res/residentRequest.c" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/vst/visitRequest.c" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/pub/publicRequest.c" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/mypage/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/m/mypage/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/**" access="permitAll" />
+        <form-login login-page="/"
+                    username-parameter="user_id"
+                    password-parameter="user_pw"
+                    login-processing-url="/loginProc"
+                    default-target-url="/"
+                    authentication-failure-url="/?loginError=01"
+                    always-use-default-target='true'
+                    authentication-success-handler-ref="signinSuccessHandler"
+                    authentication-failure-handler-ref="customAuthenticationFailureHandler"
+
+        />
+        <logout logout-url="/logout" logout-success-url="/"/>
+
+        <session-management>
+            <concurrency-control max-sessions="1" expired-url="/"/>
+        </session-management>
+    </http>
+
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+    <beans:bean id="customerService" class="com.koticobui.dfmc.client.security.service.CustomerService"/>
+    <beans:bean id="sessionService" class="com.koticobui.dfmc.client.com.util.SessionService"/>
+    <beans:bean id="authenticationService" class="com.koticobui.dfmc.client.security.service.AuthenticationService"/>
+    <beans:bean id="signinSuccessHandler" class="com.koticobui.dfmc.client.com.SigninSuccessHandler" />
+    <beans:bean id="customAuthenticationFailureHandler" class="com.koticobui.dfmc.client.security.CustomAuthenticationFailureHandler"/>
+
+
+    <authentication-manager>
+        <authentication-provider ref="customerProvider"/>
+    </authentication-manager>
+
+    <beans:bean id="customerProvider" class="com.koticobui.dfmc.client.security.CustomerProvider"/>
+
+</beans:beans>

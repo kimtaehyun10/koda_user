@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+h01 { 
+   position: absolute; 
+   top: 180px; 
+   left: 170; 
+   width: 100%; 
+   font-size: 10mm; 
+   font-weight: bold;
+}
+
+h02 { 
+   position: absolute; 
+   top: 220px; 
+   left: 200; 
+   width: 100%; 
+   font-size: 7mm; 
+   font-weight: bold;
+}
+
+h03 { 
+   position: absolute; 
+   top: 250px; 
+   left: 140; 
+   width: 100%; 
+   font-size: 7mm; 
+   font-weight: bold;
+}
+
+h04 { 
+   position: absolute; 
+   top: 280px; 
+   left: 170; 
+   width: 100%; 
+   font-size: 12mm; 
+   font-weight: bold;
+}
+
+h05 { 
+   position: absolute; 
+   top: 320px; 
+   left: 130; 
+   width: 100%; 
+   font-size: 7mm; 
+   font-weight: bold;
+}
+
+h06 { 
+   position: absolute; 
+   top: 350px; 
+   left: 180; 
+   width: 100%; 
+   font-size: 7mm; 
+   font-weight: bold;
+}

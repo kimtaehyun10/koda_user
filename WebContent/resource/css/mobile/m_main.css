@@ -1,0 +1,236 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Nanum Gothic";
+    font-size: 16px;
+    background-color: #efefef;
+    color: #444;
+    overflow: hidden;
+}
+ul, ol, li { margin: 0; padding: 0; list-style: none; }
+p { margin: 0; }
+a { text-decoration: none; color: #777; cursor: pointer; }
+img { display: block; border: 0; }
+
+h1, h2, h3 { margin: 0; }
+
+.wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: white;
+    line-height: 2em;
+    text-align: center;
+    color: #777;
+    border: 1px solid #ccc;
+    border-radius: .3em;
+}
+.btn.in {
+    background-color: #ccc;
+    color: white;
+    border-color: #ccc;
+}
+
+.AXGrid .btn { margin: 0 2px; padding: 0 5px; line-height: 18px; }
+
+.btn.red { color: #e25041; border-color: #e25041; }
+.btn.orange { color: #f37934; border-color: #f37934; }
+.btn.blue { color: #2c82c9; border-color: #2c82c9; }
+.btn.green { color: #00a885; border-color: #00a885; }
+
+.btn.in.red { background-color: #e25041; color: white; border-color: #e25041; }
+.btn.in.orange { background-color: #f37934; color: white; border-color: #f37934; }
+.btn.in.blue { background-color: #2c82c9; color: white; border-color: #2c82c9; }
+.btn.in.green { background-color: #00a885; color: white; border-color: #00a885; }
+
+.btn.submit {
+    display: block;
+    line-height: 2.5em;
+    font-size: 1.2em;
+    line-height: 2.5em;
+}
+
+.btn.in.disabled, .btn.disabled {
+	background-color: #ccc;
+    border-color: transparent;
+	color: #ddd;
+    cursor: not-allowed;
+	/* pointer-events 는 ie11 부터만 작동됩니다. 현재 webkit 도 없음 */
+    pointer-events: none;
+}
+
+/* import btnIMAGE */
+.add_login, .add_menu, .close_container {
+    background-image: url(../../images/mobile/m_header_btn.png);
+    background-repeat: no-repeat;
+}
+
+/* HEADER */
+.header {
+    position: relative;
+    height: 70px;
+    background-color: white;
+    border-top: 8px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+.header .logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    height: 62px;
+}
+.header .logo > img { width: 100%; height: 100%; }
+.add_login, .add_menu { width: 70px; height: 62px; }
+.add_login { float: left; }
+.add_login.on { background-position: -70px 0; }
+.add_menu { float: right; background-position: -140px 0; }
+
+/* CONTENTS */
+.contents {
+    position: relative;
+}
+
+/* MAIN MENU */
+.ct_menu {
+    position: relative;
+    width: 100%;
+}
+.ct_menu > ul { padding: 10px; font-size: 0; }
+.ct_menu > ul > li {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    width: 50%;
+}
+.ct_menu > ul > li > a {
+    display: block;
+    width: 100%;
+}
+.ct_menu > ul > li > a > img { width: 100%; height: 100%; }
+
+/* FOOTER */
+.footer {
+    position: relative;
+    font-size:14px;
+    line-height:1.267em;
+    letter-spacing: -1px;
+}
+.ft_img { padding: 0 20px; width: 100%; }
+.ft_img > img { width: 100%; height: 100%; }
+.ft_box { padding: 20px; text-align: center; background-color: #ccc; }
+.ft_box .logo { margin: 0 auto; width: 70%; }
+.ft_box .logo > img { width: 100%; height: 100%; }
+.ft_box > address { margin-top: 10px; font-style: normal; color: #777; }
+.ft_box > span { display: inline-block; margin-top: 5px; color: #999; }
+.ft_box > span > a { color: #2c82c9; }
+.ft_box > p { display: block; margin-top: 10px; font-size: 0.9em; color: #aaa; }
+
+/* LOGIN / MENU CONTAINER */
+.login, .menu, .mask { position: absolute; top: 0; bottom: 0; z-index: 10; }
+.login, .menu {
+    width: 90%;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.login { left: -90%; background-color: #2c82c9; }
+.menu { right: -90%; background-color: #54acd2; }
+.mask { width: 100%; background-color: black; opacity: .3; }
+
+.login.active { left: 0; }
+.menu.active { right: 0; }
+
+.login hr {
+    margin: 50px 0;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.login .head, .menu .head {
+    position: absolute;
+    top: 0;
+    padding-left: 20px;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.login .head > h1, .menu .head > h1 { line-height: 70px; color: white; font-size: 1.5em; }
+
+.close_container {
+    float: right;
+    margin: 4px 0;
+    width: 70px;
+    height: 62px;
+    background-position: -210px 0;
+}
+
+.login .body, .menu .body {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.login_box { width: 100%; }
+.login_box > input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    width: 100%;
+    line-height: 2.5em;
+    font-size: 1.2em;
+    border: 1px solid white;
+    border-radius: .3em;
+}
+.login_box > p { display: block; margin: 20px 0; color: white; }
+.login_box > p > span { margin-right: 5px; font-size: 1.5em; font-weight: bold; color: #f7da64; }
+
+.link_box { position: relative; margin-bottom: 30px; }
+.link_box li > a { display: block; color: white; line-height: 2.5em; }
+.link_box li > a:before { content: "ㆍ"; color: white; }
+
+.menu_box { position: relative; margin-bottom: 20px; }
+.menu_box li > a {
+    display: block;
+    margin-bottom: 1px;
+    padding-left: 20px;
+    line-height: 3em;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #efefef;
+    color: #3d8eb9;
+}
+.menu_box li.active > a { background-color: white; color: #475577; }
+.menu_box li > a > i { margin-right: 5px; vertical-align: middle; font-size: 1.5em; }
+.menu_box li > ul { display: none; margin-left: 30px; }
+.menu_box li.active > ul { display: block; }
+.menu_box li li > a {
+    font-size: 1em;
+    background-color: #d1d5d8;
+    color: #475577;
+}
+.menu_box li li.on > a { background-color: white; }

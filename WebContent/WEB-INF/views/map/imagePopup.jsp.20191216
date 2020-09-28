@@ -1,0 +1,226 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2019년 설맞이 연휴 동작구 학교주차장 개방현황</title>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/jquery.cookie.js"></script>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resource/axicon/axicon.min.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/main.css" />
+
+<script language="JavaScript">
+	$(document).ready(function() {
+
+		// 팝업 창 닫으며 쿠키저장 : 하루동안 팝업 노출 막기
+		$("label[for='chkPopup']").click(function() {
+
+			$("#chkPopup").prop("checked", true);
+
+			$.cookie('image_popup', 'close', {
+				expires : 1,
+				path : '/'
+			});
+
+			if ($("#chkPopup").is(":checked") == true) {
+				window.close();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div align="center">
+		<img src="${pageContext.request.contextPath}/resource/images/head.png" width="716" height="135"  style="relative: width:100%; left:0px;">
+        <h1>2019년 설맞이 연휴 동작구 학교주차장 개방현황</h1>
+
+              <table border="1" bordercolor="black" align="center" cellpadding="2">
+                     <tr>
+                         <th width="60px">연번</th>
+                         <th width="110px">동명</th>
+                         <th width="90px">학교명</th>
+                         <th width="230px">개방기간</th>
+                         <th width="180px">개방시간</th>
+                         <th width="200px">비고</th>
+                     </tr>
+
+                     <tbody align="center">
+                         <tr>
+                             <td>1</td>
+                             <td>노량진1동</td>
+                             <td>본동초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~18:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>2</td>
+                             <td>노량진1동</td>
+                             <td>영본초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~20:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>3</td>
+                             <td>노량진1동</td>
+                             <td>동양중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~22:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>4</td>
+                             <td>상도1동</td>
+                             <td>강남초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 5.(화)</td>
+                             <td>09:00~20:00</td>
+                             <td><font color="red">2019.2.6.개방 불가</font></td>
+                         </tr>
+                         <tr>
+                             <td>5</td>
+                             <td>상도2동</td>
+                             <td>장승중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>09:00~21:00<br>2.6(수) 18:00 폐쇄</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>6</td>
+                             <td>상도3동</td>
+                             <td>강현중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~20:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>7</td>
+                             <td>상도4동</td>
+                             <td>상도초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>06:00~22:00<br>2.6(수) 18:00 폐쇄</td>
+                             <td><font color="blue">우리구 협조 개방</font></td>
+                         </tr>
+                         <tr>
+                             <td>8</td>
+                             <td>사당1동</td>
+                             <td>남사초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>07:00~18:00</td>
+                             <td><font color="blue">우리구 협조 개방</font></td>
+                         </tr>
+                         <tr>
+                             <td>9</td>
+                             <td>사당2동</td>
+                             <td>동작초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>06:00~22:00</td>
+                             <td><font color="red">운동장 주차장 개방</font></td>
+                         </tr>
+                         <tr>
+                             <td>10</td>
+                             <td>사당2동</td>
+                             <td>동작중</td>
+                             <td>2019. 2. 4.(월) ~ 2. 6.(수)</td>
+                             <td>08:00~18:00</td>
+                             <td><font color="red">2019.2.2 ~ 2.3 개방불가<br>(운동장대여)</font></td>
+                         </tr>
+                         <tr>
+                             <td>11</td>
+                             <td>사당2동</td>
+                             <td>경문고</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>2. 2~3,6 08:00~18:00<br>2.4~5 08:00~21:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>12</td>
+                             <td>사당3동</td>
+                             <td>남성초</td>
+                             <td>2019. 2. 4.(월) ~ 2. 6.(수)</td>
+                             <td>08:00~21:00</td>
+                             <td><font color="red">2019.2.2 ~ 2.3 개방불가</font></td>
+                         </tr>
+                         <tr>
+                             <td>13</td>
+                             <td>사당3동</td>
+                             <td>사당중</td>
+                             <td>2019. 2. 4.(월) ~ 2. 6.(수)</td>
+                             <td>06:00~22:00</td>
+                             <td><font color="red">2019.2.2 ~ 2.3 개방불가</font></td>
+                         </tr>
+                         <tr>
+                             <td>14</td>
+                             <td>사당4동</td>
+                             <td>남성중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>09:00~22:00</td>
+                             <td><font color="blue">우리구 협조 개방</font></td>
+                         </tr>
+                         <tr>
+                             <td>15</td>
+                             <td>사당5동</td>
+                             <td>동작고</td>
+                             <td>2019. 2. 2.(토) / <br>2. 4.(월) ~ 2. 6.(수)</td>
+                             <td>09:00~17:30</td>
+                             <td><font color="red">2019.2.3. 개방 불가<br>(사유:학교시설 대관)</font></td>
+                         </tr>
+                         <tr>
+                             <td>16</td>
+                             <td>대방동</td>
+                             <td>대방중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~19:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>17</td>
+                             <td>대방동</td>
+                             <td>영등포중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>09:00~18:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>18</td>
+                             <td>대방동</td>
+                             <td>영등포고</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>00:00~22:00<br>2. 6.(수) 18:00 폐쇄</td>
+                             <td><font color="red">※ 운동장 및 부설 주차장<br>장기계약</font></td>
+                         </tr>
+                         <tr>
+                             <td>19</td>
+                             <td>신대방2동</td>
+                             <td>문창중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>07:00~18:00</td>
+                             <td><font color="blue">우리구 협조 개방</font></td>
+                         </tr>
+                         <tr>
+                             <td>20</td>
+                             <td>흑석동</td>
+                             <td>흑석초</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>08:00~21:00</td>
+                             <td></td>
+                         </tr>
+                         <tr>
+                             <td>21</td>
+                             <td>흑석동</td>
+                             <td>중대부중</td>
+                             <td>2019. 2. 2.(토) ~ 2. 6.(수)</td>
+                             <td>07:00~21:00</td>
+                             <td></td>
+                         </tr>
+                     </tbody>
+		</table>
+	</div>
+	<div>
+    	<input type="checkbox" id="chkPopup" />
+        <label for="chkPopup"><span></span>오늘 하루 그만보기</label>
+	</div>
+</body>
+</html>

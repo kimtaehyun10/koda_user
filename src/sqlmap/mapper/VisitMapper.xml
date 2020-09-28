@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.vst.mapper.VisitMapper">
+
+    <select id="selectCarList" resultType="egovMap" parameterType="hashmap">
+        SELECT
+            TC.CAR_KEY
+            , TC.CAR_NUMBER
+            , TC.CAR_NAME
+            , TC.LENT_CAR_YN
+            , MBER.ESNTL_ID
+            , MBER.MBER_FLAG
+        FROM COMTNGNRLMBER MBER INNER JOIN TB_CAR TC ON MBER.ESNTL_ID = TC.ESNTL_ID
+        WHERE MBER.ESNTL_ID = #{esntlId}
+        ORDER BY TC.CAR_NUMBER
+    </select>
+
+    <select id="selectDivisionListTot" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM
+            TB_PARK_SECTION TPS
+            , TB_PARK_BLOCK TPB
+            , TB_PARK_DIVISION TPD
+        WHERE TPS.SECTION_STATUS = '01'
+        AND TPS.SECTION_TYPE = '01'
+        AND TPS.VISIT_PARK_YN = 'Y'
+        AND TPB.BLOCK_STATUS = '01'
+        AND TPD.DIVISION_STATUS = '01'
+        AND TPS.PARK_SECTION_KEY = TPB.PARK_SECTION_KEY
+        AND TPB.PARK_BLOCK_KEY = TPD.PARK_BLOCK_KEY
+        
+        <if test="searchManageZone != null and searchManageZone != ''">
+            AND TPS.MANAGE_ZONE = #{searchManageZone}
+        </if>
+        
+        <if test="searchParkSectionKey != null and searchParkSectionKey != ''">
+            AND TPS.PARK_SECTION_KEY = #{searchParkSectionKey}
+        </if>
+        
+        <if test="searchParkBlockKey != null and searchParkBlockKey != ''">
+            AND TPB.PARK_BLOCK_KEY = #{searchParkBlockKey}
+        </if>
+        
+        <if test="searchParkDivisionKey != null and searchParkDivisionKey != ''">
+            AND TPD.PARK_DIVISION_KEY = #{searchParkDivisionKey}
+        </if>
+    </select>
+    
+    <select id="selectDivisionList" resultType="egovMap" parameterType="hashmap">
+        SELECT
+            *
+        FROM (
+            SELECT
+                A.*
+                , ROWNUM RNUM
+            FROM (
+                SELECT
+                    TPS.PARK_SECTION_NAME||'/'||TPB.PARK_BLOCK_NAME||'/'||TPD.DIVISION_NAME AS SECTION_INFO
+                    , (
+                        SELECT COUNT(1)
+                        FROM 
+                            TB_HOPE_REQUEST_SECTION THRS
+                            , TB_CONTRACT_INFO TCI
+                        WHERE TPB.PARK_BLOCK_KEY = THRS.PARK_BLOCK_KEY
+                        AND TCI.USE_TIME IS NULL
+                        AND THRS.CONTRACT_INFO_KEY = TCI.CONTRACT_INFO_KEY
+                    ) STANDBY_COUNT
+                    , TPS.PARK_SECTION_KEY
+					, TPS.PARK_SECTION_NAME
+					, TPS.SECTION_TYPE
+					, FN_CODENM('DFM025', SECTION_TYPE) SECTION_TYPE_NAME --구간종류
+					, TPS.MANAGE_ZONE
+					, FN_CODENM('DFM013', MANAGE_ZONE) MANAGE_ZONE_NAME --관리지구
+					, TPS.SECTION_CLASSIFY
+					, FN_CODENM('DFM006', SECTION_CLASSIFY) SECTION_CLASSIFY_NAME --구간구분
+					, TPS.SECTION_TRAIT
+					, FN_CODENM('DFM007', SECTION_TRAIT) SECTION_TRAIT_NAME --구간특성
+					, TPS.ASSIGN_UNIT
+					, FN_CODENM('DFM005', ASSIGN_UNIT) ASSIGN_UNIT_NAME --구간속성
+					, TPS.SECTION_STATUS
+					, TPS.VISIT_PARK_YN --방문주차여부
+					, TPS.TIME_PARK_YN --시간주차여부
+					, TPS.TOTAL_DIVISION --총구획
+					, TPS.COMPACT_DIVISION --경차전용구획
+					, TPS.FEMALE_DIVISION --여성전용구획
+					, TPS.HANDICAP_DIVISION --장애인전용구획
+					, TPS.TIME_PARK_CHARGE
+					, TRIM(TO_CHAR(TIME_PARK_CHARGE, '999,999,999,999,999')) TIME_PARK_CHARGE_COMMA --분단위이용요금
+					, TPS.ALL_DAY_CHARGE
+					, TRIM(TO_CHAR(ALL_DAY_CHARGE, '999,999,999,999,999')) ALL_DAY_CHARGE_COMMA --전일이용요금
+					, TPS.DAY_TIME_CHARGE
+					, TRIM(TO_CHAR(DAY_TIME_CHARGE, '999,999,999,999,999')) DAY_TIME_CHARGE_COMMA --주간이용요금
+					, TPS.NIGHT_TIME_CHARGE
+					, TRIM(TO_CHAR(NIGHT_TIME_CHARGE, '999,999,999,999,999')) NIGHT_TIME_CHARGE_COMMA --야간이용요금
+					, TPS.TIME_PARK_INTERVAL --시간주차간격
+					, TPS.OPERATION_START_TIME
+					, REGEXP_REPLACE(OPERATION_START_TIME,'(^.{2})','\1:') OPERATION_START_TIME_STR --운영시작시간
+					, TPS.OPERATION_END_TIME
+					, REGEXP_REPLACE(OPERATION_END_TIME,'(^.{2})','\1:') OPERATION_END_TIME_STR --운영종료시간
+					, TPS.VISIT_PARK_CHARGE
+					, TRIM(TO_CHAR(VISIT_PARK_CHARGE, '999,999,999,999,999')) VISIT_PARK_CHARGE_COMMA --방문주차요금
+					, TPS.SECTION_LON
+					, TPS.SECTION_LAT
+					, TPS.MAP_PANO_ID AS SECTION_MAP_PANO_ID
+					, TPS.MAP_PAN AS SECTION_MAP_PAN
+					, TPS.MAP_TILT AS SECTION_MAP_TILT
+					, TPS.MAP_ZOOM AS SECTION_MAP_ZOOM
+					, TPB.PARK_BLOCK_KEY
+					, TPB.PARK_BLOCK_NAME
+					, TPB.BLOCK_STATUS
+					, TPD.PARK_DIVISION_KEY
+					, TPD.DIVISION_NAME
+					, TPD.DIVISION_STATUS
+					, TPD.DIVISION_LON
+					, TPD.DIVISION_LAT
+					, TPD.MAP_PANO_ID AS DIVISION_MAP_PANO_ID
+					, TPD.MAP_PAN AS DIVISION_MAP_PAN
+					, TPD.MAP_TILT AS DIVISION_MAP_TILT
+					, TPD.MAP_ZOOM AS DIVISION_MAP_ZOOM
+                FROM
+                    TB_PARK_SECTION TPS
+                    , TB_PARK_BLOCK TPB
+                    , TB_PARK_DIVISION TPD
+                WHERE TPS.SECTION_STATUS = '01'
+                AND TPS.SECTION_TYPE = '01'
+                AND TPS.VISIT_PARK_YN = 'Y'
+                AND TPB.BLOCK_STATUS = '01'
+                AND TPD.DIVISION_STATUS = '01'
+                AND TPS.PARK_SECTION_KEY = TPB.PARK_SECTION_KEY
+                AND TPB.PARK_BLOCK_KEY = TPD.PARK_BLOCK_KEY
+                
+                <if test="searchManageZone != null and searchManageZone != ''">
+                    AND TPS.MANAGE_ZONE = #{searchManageZone}
+                </if>
+                
+                <if test="searchParkSectionKey != null and searchParkSectionKey != ''">
+                    AND TPS.PARK_SECTION_KEY = #{searchParkSectionKey}
+                </if>
+                
+                <if test="searchParkBlockKey != null and searchParkBlockKey != ''">
+                    AND TPB.PARK_BLOCK_KEY = #{searchParkBlockKey}
+                </if>
+                
+                <if test="searchParkDivisionKey != null and searchParkDivisionKey != ''">
+                    AND TPD.PARK_DIVISION_KEY = #{searchParkDivisionKey}
+                </if>
+                
+                ORDER BY TPS.PARK_SECTION_NAME, TPB.PARK_BLOCK_NAME, TPD.DIVISION_NAME
+
+                ) A
+            )
+            
+        <choose>
+            <when test="mobileYn eq 'Y'.toString()">
+            </when>
+            <otherwise>
+                <if test="pageNo != null and pageNo != ''">
+	            WHERE RNUM BETWEEN ((${pageNo} -1) * ${pageSize}) + 1  AND (((${pageNo} -1) * ${pageSize})) + ${pageSize}
+	        </if>
+            </otherwise>
+        </choose>
+        
+    </select>
+
+    <select id="selectBlockListTot" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM
+            TB_PARK_SECTION TPS
+            , TB_PARK_BLOCK TPB
+        WHERE TPS.SECTION_STATUS = '01'
+        AND TPS.SECTION_TYPE = '01'
+        AND TPS.VISIT_PARK_YN = 'Y'
+        AND TPB.BLOCK_STATUS = '01'
+        AND TPS.PARK_SECTION_KEY = TPB.PARK_SECTION_KEY
+        
+        <if test="searchManageZone != null and searchManageZone != ''">
+            AND TPS.MANAGE_ZONE = #{searchManageZone}
+        </if>
+        
+        <if test="searchParkSectionKey != null and searchParkSectionKey != ''">
+            AND TPS.PARK_SECTION_KEY = #{searchParkSectionKey}
+        </if>
+        
+        <if test="searchParkBlockKey != null and searchParkBlockKey != ''">
+            AND TPB.PARK_BLOCK_KEY = #{searchParkBlockKey}
+        </if>
+        
+    </select>
+
+    <select id="selectBlockList" resultType="egovMap" parameterType="hashmap">
+        SELECT
+            *
+        FROM (
+            SELECT
+                A.*
+                , ROWNUM RNUM
+            FROM (
+                SELECT
+                    TPS.PARK_SECTION_NAME||'/'||TPB.PARK_BLOCK_NAME AS SECTION_INFO
+                    , (
+                        SELECT COUNT(1)
+                        FROM 
+                            TB_HOPE_REQUEST_SECTION THRS
+                            , TB_CONTRACT_INFO TCI
+                        WHERE TPB.PARK_BLOCK_KEY = THRS.PARK_BLOCK_KEY
+                        AND TCI.USE_TIME IS NULL
+                        AND THRS.CONTRACT_INFO_KEY = TCI.CONTRACT_INFO_KEY
+                    ) STANDBY_COUNT
+                    , TPS.PARK_SECTION_KEY
+					, TPS.PARK_SECTION_NAME
+					, TPS.SECTION_TYPE
+					, FN_CODENM('DFM025', SECTION_TYPE) SECTION_TYPE_NAME --구간종류
+					, TPS.MANAGE_ZONE
+					, FN_CODENM('DFM013', MANAGE_ZONE) MANAGE_ZONE_NAME --관리지구
+					, TPS.SECTION_CLASSIFY
+					, FN_CODENM('DFM006', SECTION_CLASSIFY) SECTION_CLASSIFY_NAME --구간구분
+					, TPS.SECTION_TRAIT
+					, FN_CODENM('DFM007', SECTION_TRAIT) SECTION_TRAIT_NAME --구간특성
+					, TPS.ASSIGN_UNIT
+					, FN_CODENM('DFM005', ASSIGN_UNIT) ASSIGN_UNIT_NAME --구간속성
+					, TPS.SECTION_STATUS
+					, TPS.VISIT_PARK_YN --방문주차여부
+					, TPS.TIME_PARK_YN --시간주차여부
+					, TPS.TOTAL_DIVISION --총구획
+					, TPS.COMPACT_DIVISION --경차전용구획
+					, TPS.FEMALE_DIVISION --여성전용구획
+					, TPS.HANDICAP_DIVISION --장애인전용구획
+					, TPS.TIME_PARK_CHARGE
+					, TRIM(TO_CHAR(TIME_PARK_CHARGE, '999,999,999,999,999')) TIME_PARK_CHARGE_COMMA --분단위이용요금
+					, TPS.ALL_DAY_CHARGE
+					, TRIM(TO_CHAR(ALL_DAY_CHARGE, '999,999,999,999,999')) ALL_DAY_CHARGE_COMMA --전일이용요금
+					, TPS.DAY_TIME_CHARGE
+					, TRIM(TO_CHAR(DAY_TIME_CHARGE, '999,999,999,999,999')) DAY_TIME_CHARGE_COMMA --주간이용요금
+					, TPS.NIGHT_TIME_CHARGE
+					, TRIM(TO_CHAR(NIGHT_TIME_CHARGE, '999,999,999,999,999')) NIGHT_TIME_CHARGE_COMMA --야간이용요금
+					, TPS.TIME_PARK_INTERVAL --시간주차간격
+					, TPS.OPERATION_START_TIME
+					, REGEXP_REPLACE(OPERATION_START_TIME,'(^.{2})','\1:') OPERATION_START_TIME_STR --운영시작시간
+					, TPS.OPERATION_END_TIME
+					, REGEXP_REPLACE(OPERATION_END_TIME,'(^.{2})','\1:') OPERATION_END_TIME_STR --운영종료시간
+					, TPS.VISIT_PARK_CHARGE
+					, TRIM(TO_CHAR(VISIT_PARK_CHARGE, '999,999,999,999,999')) VISIT_PARK_CHARGE_COMMA --방문주차요금
+					, TPS.SECTION_LON
+					, TPS.SECTION_LAT
+					, TPS.MAP_PANO_ID AS SECTION_MAP_PANO_ID
+					, TPS.MAP_PAN AS SECTION_MAP_PAN
+					, TPS.MAP_TILT AS SECTION_MAP_TILT
+					, TPS.MAP_ZOOM AS SECTION_MAP_ZOOM
+					, TPB.PARK_BLOCK_KEY
+					, TPB.PARK_BLOCK_NAME
+					, TPB.BLOCK_STATUS
+                FROM
+                    TB_PARK_SECTION TPS
+                    , TB_PARK_BLOCK TPB
+                WHERE TPS.SECTION_STATUS = '01'
+                AND TPS.SECTION_TYPE = '01'
+                AND TPS.VISIT_PARK_YN = 'Y'
+                AND TPB.BLOCK_STATUS = '01'
+                AND TPS.PARK_SECTION_KEY = TPB.PARK_SECTION_KEY
+                
+                <if test="searchManageZone != null and searchManageZone != ''">
+                    AND TPS.MANAGE_ZONE = #{searchManageZone}
+                </if>
+                
+                <if test="searchParkSectionKey != null and searchParkSectionKey != ''">
+                    AND TPS.PARK_SECTION_KEY = #{searchParkSectionKey}
+                </if>
+                
+                <if test="searchParkBlockKey != null and searchParkBlockKey != ''">
+                    AND TPB.PARK_BLOCK_KEY = #{searchParkBlockKey}
+                </if>
+                
+                ORDER BY TPS.PARK_SECTION_NAME, TPB.PARK_BLOCK_NAME
+
+                ) A
+            )
+            
+        <choose>
+            <when test="mobileYn eq 'Y'.toString()">
+            </when>
+            <otherwise>
+                <if test="pageNo != null and pageNo != ''">
+	            WHERE RNUM BETWEEN ((${pageNo} -1) * ${pageSize}) + 1  AND (((${pageNo} -1) * ${pageSize})) + ${pageSize}
+	        </if>
+            </otherwise>
+        </choose>
+        
+    </select>
+
+    <insert id="insertAssignSection" parameterType="hashmap">
+        INSERT INTO TB_ASSIGN_SECTION (
+            ASSIGN_SECTION_KEY,
+            PARK_SECTION_KEY,
+            PARK_BLOCK_KEY,
+            PARK_DIVISION_KEY
+        ) VALUES (
+            #{assignSectionKey},
+            #{parkSectionKey},
+            #{parkBlockKey},
+            #{parkDivisionKey}
+        )
+    </insert>
+    
+    <insert id="insertContractInfo" parameterType="hashmap">
+        INSERT INTO TB_CONTRACT_INFO (
+            CONTRACT_INFO_KEY,
+            CAR_KEY,
+            ASSIGN_SECTION_KEY,
+            PARKING_PRODUCT,
+            SHARE_PRINT_YN,
+            SHARE_PRINT_DATE,
+            REQUEST_DATE,
+            STANDBY_DATE,
+            USE_TIME,
+            USE_MONTH,
+            REQUEST_WAY
+        ) VALUES (
+            #{contractInfoKey},
+            #{carKey},
+            #{assignSectionKey},
+            #{parkingProduct},
+            #{sharePrintYn},
+            #{sharePrintDate},
+            sysdate,
+            sysdate,
+            #{useTime},
+            #{useMonth},
+            #{requestWay}
+        )
+    </insert>
+    
+    <insert id="insertContractHistory" parameterType="hashmap">
+        INSERT INTO TB_CONTRACT_HISTORY (
+            CONTRACT_HISTORY_KEY,
+            CONTRACT_INFO_KEY,
+            PARKING_PRODUCT,
+            ASSIGN_STATUS,
+            SHARE_PRINT_YN,
+            SHARE_PRINT_DATE,
+            USE_BEGIN_DATE,
+            USE_END_DATE,
+            REQUEST_DATE,
+            STANDBY_DATE,
+            ASSIGN_DATE,
+            USE_TIME,
+            USE_CHARGE
+        ) VALUES (
+            #{contractHistoryKey},
+            #{contractInfoKey},
+            #{parkingProduct},
+            #{assignStatus},
+            #{sharePrintYn},
+            #{sharePrintDate},
+            #{useBeginDate},
+            #{useEndDate},
+            #{requestDate},
+            #{standbyDate},
+            #{assignDate},
+            #{useTime},
+            #{useCharge}
+        )
+    </insert>
+    
+    <select id="selectVisitParkCharge" resultType="Integer" parameterType="hashmap">
+        SELECT
+            NVL(VISIT_PARK_CHARGE, 0) AS VISIT_PARK_CHARGE
+        FROM
+            TB_PARK_SECTION
+        WHERE PARK_SECTION_KEY = #{parkSectionKey}
+    </select>
+    
+    <insert id="insertQuarterPayment" parameterType="hashmap">
+        INSERT INTO
+        TB_QUARTER_PAYMENT
+        (
+            PURCHASE_KEY
+            , CONTRACT_INFO_KEY
+            , QUARTER_SEQ
+            , YEAR
+            , STAT_CD
+            , COST
+            , DISCNT_COST
+            , PAY_METHOD_CD
+            , PAY_LIMIT_DT
+            , STATUS_CD
+            , NOTI_DT
+            , CREATOR
+            , MODIFIER
+            , CREATION_DATE
+            , MODIFY_DATE
+            , ASSIGN_STATUS
+            , ASSIGN_DATE
+            , USE_BEGIN_DATE
+            , USE_END_DATE
+        ) VALUES (
+            #{purchaseKey}
+            , #{contractInfoKey}
+            , #{quarterSeq}
+            , #{year}
+            , #{statCd}
+            , #{cost}
+            , #{discntCost}
+            , #{payMethodCd}--'00'
+            , #{payLimitDt}
+            , #{statusCd}--'00'
+            , #{notiDt}
+            , #{creator}
+            , #{modifier}
+            , sysdate
+            , sysdate
+            , #{assignStatus}--'02'
+            , #{assignDate}
+            , TO_DATE(#{useBeginDate}, 'YYYY-MM-DD')
+            , TO_DATE(#{useEndDate}, 'YYYY-MM-DD')
+        )
+    </insert>
+
+    <update id="updateMberFlag" parameterType="egovMap"> 
+    	UPDATE COMTNGNRLMBER 
+    	SET MBER_FLAG = #{mberFlag},
+    		MODIFY_DATE = SYSDATE 
+    	WHERE ESNTL_ID = #{esntlId}
+    </update>
+
+</mapper>

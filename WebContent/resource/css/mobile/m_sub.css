@@ -1,0 +1,329 @@
+@charset "UTF-8";
+
+/* SUB PAGE */
+.page { margin-bottom: 30px; background-color: white; }
+
+.ct_head { width: 100%; height: 100px; color: white; overflow: hidden; }
+
+.ct_head .head { position: relative; padding: 0 20px; width: 100%; height: 100%; background-position: 0 100%; }
+
+.res .head { background-image: url(../../images/sub_head_res.png); }
+.vst .head { background-image: url(../../images/sub_head_vst.png); }
+.pub .head { background-image: url(../../images/sub_head_pub.png); }
+.tow .head { background-image: url(../../images/sub_head_tow.png); }
+.mypage .head { background-image: url(../../images/sub_head_mypage.png); }
+.sup .head { background-image: url(../../images/sub_head_sup.png); }
+
+.title { position: absolute; top: 30px; }
+.title h1 { font-size: 1.5em; }
+.title h2 { margin-top: 5px; font-size: 1.3em; font-weight: normal; }
+
+.ct_body { padding: 20px; }
+
+.caption { margin-bottom: 20px; padding: 20px; background-color: #efefef; }
+.caption p { line-height: 30px; }
+
+.bd_title { margin: 20px 0 10px 0; line-height: 40px; }
+.bd_title p { display: inline-block; font-weight: bold; }
+
+.title_img { width: 100%; }
+.title_img > img { width: 100%; height: 100%; }
+
+.block, .table_box { position: relative; margin-bottom: 20px; }
+
+.block .caption {
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.block .block_highlight { margin: 20px 0; color: #2c82c9; line-height: 32px; }
+.block > p { margin: 20px 0; line-height: 32px; }
+
+/* Q&A */
+.qna { border: 1px solid #ddd; }
+.qna > ul > li { border-bottom: 1px solid #ddd; }
+.qna > ul > li:last-child { border-bottom: none; }
+.qna > ul > li > a { display: block; }
+.qna > ul > li > a:hover p { color: #2c82c9; }
+.qna .a { display: none; background-color: #f1efed; }
+.qna li.active .q { border-bottom: 1px dashed #ddd; }
+.qna li.active .a { display: block; }
+.qna .q, .qna .a { position: relative; }
+.qna .q > span { color: #c7c7c7; text-shadow: 0 1px 0 rgba(0,0,0,.4); }
+.qna .a > span { color: #c3b4ab; text-shadow: 0 1px 0 white; }
+.qna .q > span, .qna .a > span {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+.qna .q > div { padding: 10px 0; min-height: 60px; line-height: 26px; }
+.qna .a > div { padding: 10px; }
+.qna .q > div, .qna .a > div {
+    margin-left: 60px;
+    padding-left: 20px;
+}
+.qna .a > div > p { line-height: 30px; font-size: 14px; }
+
+/* MODAL */
+.modal {
+    position: absolute;
+    top: -130%;
+    right: 10px;
+    bottom: 120%;
+    left: 10px;
+    background-color: white;
+    border: 1px solid #2c82c9;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    z-index: 10;
+}
+
+.modal.active { top: 10px; bottom: 10px; }
+
+.modal .head {
+    position: absolute;
+    top: 0;
+    padding-left: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: #2c82c9;
+}
+.modal .head > h1 { line-height: 70px; color: white; font-size: 1.5em; }
+.modal .body {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; }
+table caption { display: none; }
+table thead, table th { color: white; }
+table th { font-weight: normal; }
+table thead th { padding: 10px 0; font-weight: bold; background-color: #aaa; }
+table tbody td {
+    padding: 5px 0;
+    height: 38px;
+    text-align: center;
+    font-size: 14px;
+}
+table tbody tr:nth-child(even) { background-color: #f8f8f8; }
+table tbody tr:last-child td { border-bottom: none; }
+table tbody td.disc { padding: 5px 0 5px 15px; text-align: left; }
+
+table .disc a { font-weight: bold; color: #2c82c9; }
+table .disc a:hover { text-decoration: underline; }
+table .btn { display: inline-block; }
+
+.pop_up .table { border: 1px solid #2c82c9; }
+.pop_up .table thead th, .pop_up .table tbody th { background-color: #2c82c9; font-size: .8em; }
+.pop_up .table tbody tr, .table tbody tr { border-bottom: 1px solid #ddd; }
+.pop_up .table tbody tr:last-child, .table tbody tr:last-child { border-bottom: none; }
+.pop_up .table tbody tr p, .table tbody tr p { margin: 10px; }
+.pop_up .table.non_head thead th, .table.non_head thead th { padding: 0; }
+.pop_up .table tbody td.left, .table tbody td.left { text-align: left; }
+
+.pop_up .table tbody td.text_view { padding: 10px 20px; }
+.table { border: 1px solid #ddd; }
+
+/* 그리드 thead 색상 */
+.AXGrid .AXgridScrollBody {}
+
+.res .AXGrid .AXgridScrollBody, .res .AXGrid .AXgridPageBody, .res .table_box .table { border-color: #54acd2; }
+.vst .AXGrid .AXgridScrollBody, .vst .AXGrid .AXgridPageBody, .vst .table_box .table { border-color: #1abc9c; }
+.pub .AXGrid .AXgridScrollBody, .pub .AXGrid .AXgridPageBody, .pub .table_box .table { border-color: #61bd6d; }
+.tow .AXGrid .AXgridScrollBody, .tow .AXGrid .AXgridPageBody, .tow .table_box .table { border-color: #fba026; }
+.mypage .AXGrid .AXgridScrollBody, .mypage .AXGrid .AXgridPageBody, .mypage .table_box .table { border-color: #eb6b56; }
+.sup .AXGrid .AXgridScrollBody, .sup .AXGrid .AXgridPageBody, .sup .table_box .table { border-color: #a38f84; }
+.pop_up .AXGrid .AXgridScrollBody, .pop_up .AXGrid .AXgridPageBody { border-color: #2c82c9; }
+
+.res .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.res .AXGrid .AXgridScrollBody .AXGridColHead { background: #54acd2; }
+.vst .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.vst .AXGrid .AXgridScrollBody .AXGridColHead { background: #1abc9c; }
+.pub .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.pub .AXGrid .AXgridScrollBody .AXGridColHead { background: #61bd6d; }
+.tow .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.tow .AXGrid .AXgridScrollBody .AXGridColHead { background: #fba026; }
+.mypage .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.mypage .AXGrid .AXgridScrollBody .AXGridColHead { background: #eb6b56; }
+.sup .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.sup .AXGrid .AXgridScrollBody .AXGridColHead { background: #a38f84; }
+.pop_up .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td,
+.pop_up .AXGrid .AXgridScrollBody .AXGridColHead { background: #2c82c9; }
+
+.AXGrid .AXgridScrollBody .AXGridColHead { background-image: inherit; }
+
+.AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td { padding: 8px 0; font-size: inherit; }
+
+.res .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.res .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #3d8eb9; }
+.vst .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.vst .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #00a885; }
+.pub .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.pub .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #41a85f; }
+.tow .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.tow .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #f37934; }
+.mypage .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.mypage .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #d14841; }
+.sup .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.sup .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #75706b; }
+.pop_up .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc,
+.pop_up .AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td:hover { background: #2c82c9; }
+
+.AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td .colHeadTdText { color: white; text-shadow: none; }
+
+.AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortDesc .colHeadNode,
+.AXGrid .AXgridScrollBody .AXGridColHead .colHeadTable tbody tr td.sortAsc .colHeadNode { background-position: center -3px; }
+
+table tbody td { padding: 5px 0; height: 38px; font-size: 14px; }
+
+.res table th { background-color: #54acd2; }
+.vst table th  { background-color: #1abc9c; }
+.pub table th  { background-color: #61bd6d; }
+.tow table th  { background-color: #fba026; }
+.mypage table th  { background-color: #eb6b56; }
+.sup table th  { background-color: #a38f84; }
+
+.AXSelect { height: 28px; }
+.AXanchorSelect .selectBoxArrow { width: 28px; }
+.AXGrid .AXgridPageBody { overflow: hidden; }
+.AXSelect, .AXanchor, .AXanchorSelect, .AXanchorSelect .selectedTextBox, .AXGrid .AXgridPageBody {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.AXgridPageNumber select { width: 100px; }
+
+.AXGrid .AXgridScrollBody .AXGridBody .gridBodyTable tbody tr td .bodyTdText,
+.AXGrid .AXgridScrollBody .AXGridBody .gridBodyTable tfoot tr td .bodyTdText,
+.AXGrid .AXgridScrollBody .AXGridBody .gridBodyTable thead tr td .bodyTdText { text-shadow: none; }
+
+/* 그리드 두줄보기 설정 */
+.wrap_normal { white-space: normal !important; }
+
+/* SELECT */
+.select_box {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #efefef;
+    background: #efefef url(../../images/select_arrow.png) 95% 50% no-repeat;
+}
+.select_box select {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    -webkit-border-radius: .5em;
+    border-radius: .5em;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.select_box select:focus { outline: none; }
+
+/**/
+.before_mask {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    color: #999;
+}
+
+/* 수정해야함 */
+.visitintro {
+    position: relative; width: 100%;
+}
+
+.visitintro .bd_title { margin: 0; }
+
+.visitintro .bd_title h4 {
+    display: block;
+    color: #777;
+    font-weight: normal;
+    margin: 0;
+    padding-left: 2.2%;
+    line-height: 135%;
+}
+
+.visitintro .bd_title h4 a { color: #da4a4a; }
+
+.bank {
+    font-size: 15px;
+    margin-left: 9px;
+    color: #da4a4a;
+}
+
+.visitintro .bd_title h2 {
+    font-size: 15px;
+    color: #949494;
+    padding-left: 2.2%;
+}
+
+.visitintro .bd_title i i {
+    position: relative;
+    top: 7px;
+    left: 4px;
+    margin: 0 16px;
+    color: #9A9A9A;
+}
+
+.visitintro i { position: relative; left: -2px; }
+
+.visitintro_box_a {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.visitintro_box_a .small_box {
+    width: 100%;
+    height: 50px;
+    font-size: 0.8em;
+    vertical-align: middle;
+    text-align: center;
+    color: #656565;
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+    background-color: #F1F1F1;
+}
+
+.visitintro .bd_title .big_box {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5%;
+}
+
+.visitintro .bd_title .big_box .table {
+    position: relative; width: 100%; height: 100%;
+}
+
+.visitintro .bd_title .big_box .table tr th {
+    position: relative;
+    width: 40%;
+    height: 50%;
+    background-color: #C0EAE2;
+}
+
+.visitintro p { margin-top: 2%; }

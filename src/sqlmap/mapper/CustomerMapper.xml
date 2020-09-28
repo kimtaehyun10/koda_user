@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (C) 2016. by Koticobui All right reserved.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.res.mapper.CustomerMapper">
+    <select id="selectCustomerInfo" resultType="egovMap">
+        SELECT A.*, SYSDATE CURRENT_DT
+          FROM COMTNGNRLMBER A
+         WHERE MBER_ID = #{mberId}
+         	AND MBER_STTUS = 'P'
+    </select>
+    
+    <insert id="insertSession" parameterType="String">
+        INSERT INTO TB_CLIENTSESSION VALUES (#{session}, SYSDATE)
+    </insert>
+
+    <update id="updateSession" parameterType="String">
+        UPDATE TB_CLIENTSESSION SET LAST_DT = SYSDATE WHERE ID = #{session}
+    </update>
+    
+    <select id="selectSession" resultType="egovMap">
+        SELECT (SYSDATE - LAST_DT) * 24 * 60 * 60 PAST_SECONDS
+          FROM TB_CLIENTSESSION
+         WHERE ID = #{session}
+    </select>
+    
+</mapper>

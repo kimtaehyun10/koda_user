@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2016. by Koticobui All right reserved.
+  -->
+
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	                             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <annotation-driven>
+        <message-converters>
+            <beans:ref bean="jacksonMessageConverter"/>
+            <beans:ref bean="httpMessageConverter"/>
+        </message-converters>
+        <argument-resolvers>
+            <beans:bean class="org.springframework.mobile.device.DeviceWebArgumentResolver"/>
+            <beans:bean class="org.springframework.mobile.device.site.SitePreferenceWebArgumentResolver" />
+        </argument-resolvers>
+    </annotation-driven>
+
+    <resources mapping="/resource/**" location="/resource/"/>
+
+    <context:component-scan base-package="com.koticobui.dfmc.client.**.web" use-default-filters="false">
+        <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+        <context:exclude-filter expression="org.springframework.stereotype.Service" type="annotation"/>
+        <context:exclude-filter expression="org.springframework.stereotype.Repository" type="annotation"/>
+    </context:component-scan>
+
+    <interceptors>
+        <!-- On pre-handle, resolve the device that originated the web request -->
+        <beans:bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+        <!-- On pre-handle, manage the user's site preference (declare after DeviceResolverHandlerInterceptor) -->
+        <beans:bean class="org.springframework.mobile.device.site.SitePreferenceHandlerInterceptor" />
+    </interceptors>
+
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="suffix" value=".jsp"/>
+    </beans:bean>
+
+    <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+    <beans:bean class="org.springframework.mobile.device.view.LiteDeviceDelegatingViewResolver">
+        <beans:constructor-arg>
+            <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <beans:property name="prefix" value="/WEB-INF/views/" />
+                <beans:property name="suffix" value=".jsp" />
+            </beans:bean>
+        </beans:constructor-arg>
+        <beans:property name="enableFallback" value="true" />
+        <beans:property name="mobilePrefix" value="mobile/" />
+        <beans:property name="tabletPrefix" value="mobile/" />
+    </beans:bean>
+
+</beans:beans>
