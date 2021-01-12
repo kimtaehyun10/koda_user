@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (C) 2016. by Koticobui All right reserved.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.security.mapper.CustomerMapper">
+    <select id="selectCustomerInfo" resultType="egovMap">
+        SELECT A.*, DATE_FORMAT(now(), '%Y-%m-%d %H:%i:%s') AS currentDt
+          FROM KODA_MEMBER A
+         WHERE id = #{userId}
+         	AND appr_flag = 'Y' and use_flag = 'Y' 
+    </select>
+    
+    <select id="encodingPw" resultType="String">
+        SELECT PASSWORD(#{user__Pw}) as encodedPw
+    </select>
+    
+    <select id="checkApprFlag" resultType="Integer">
+        SELECT COUNT(1) as CHKAPPRFLG
+          FROM KODA_MEMBER A
+         WHERE id = #{userId}
+         	AND appr_flag <![CDATA[ <> ]]> 'Y' and use_flag = 'Y' 
+    </select>
+    
+    <insert id="insertSession" parameterType="String">
+        INSERT INTO TB_CLIENTSESSION VALUES (#{session}, now())
+    </insert>
+
+    <update id="updateSession" parameterType="String">
+        UPDATE TB_CLIENTSESSION SET LAST_DT = now() WHERE ID = #{session}
+    </update>
+    
+    <select id="selectSession" resultType="egovMap">
+        SELECT (now() - LAST_DT) * 24 * 60 * 60 PAST_SECONDS
+          FROM TB_CLIENTSESSION
+         WHERE ID = #{session}
+    </select>
+    
+</mapper>

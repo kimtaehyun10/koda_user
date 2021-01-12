@@ -1,0 +1,60 @@
+td{font-family:±¼¸²,Seoul,Arial,Verdana; font-size:10pt; color: #666666}
+input,form,select,button,option { font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:10pt; color:#333333}
+textarea { font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:10pt; color:#FFFFFF; line-height:20px}
+
+A:link {color: #ff6600; text-decoration: none}
+A:visited {color: #ff6600; text-decoration: none}
+A:hover {color: #Fff6600; text-decoration: none} 
+A:active {color: #ff6600; text-decoration: none}
+
+.nevi {font-size:13pt; color:#FFFFFF; text-decoration: none} 
+.text01 {FONT-FAMILY: " ±¼¸² ", ¡° Arial "; font-size: 10pt; color: #666666; text-decoration: none; line-height: 20px }
+.text02 {FONT-FAMILY: " ±¼¸² ", ¡° Arial "; font-size: 10pt; color: #545454; text-decoration: none; line-height: 18px }
+.strong01 {
+	color: #e45e1d;
+	text-decoration: none;
+	line-height: normal;
+	font-weight: bold;
+
+}
+
+body { 
+	scrollbar-background-attachment: fixed; 
+	scrollbar-bgcolor: 	  	#CCCCCC; 
+	scrollbar-face-color: 		#FFFFFF; 
+	scrollbar-shadow-color: 	#CCCCCC; 
+	scrollbar-highlight-color: 	#CCCCCC; 
+	scrollbar-3dlight-color: 	#FFFFFF; 
+	scrollbar-darkshadow-color: 	#FFFFFF; 
+	scrollbar-track-color: 		#FFFFFF; 
+	scrollbar-arrow-color: 		#CCCCCC;
+        font-size:10pt; font-family:µ¸¿ò; color:#595959; line-height:130%; 
+}
+
+
+A.poplink:link {color:#996600;text-decoration:none;} 
+A.poplink:visited {color:#996600;text-decoration:none;} 
+A.poplink:active {color:#ff6600;text-decoration:none;} 
+A.poplink:hover {color:#ff6600;text-decoration:none;}
+
+A.poplink2:link {font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:12px; color:blue;text-decoration:underline;} 
+A.poplink2:visited {font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:12px; color:blue;text-decoration:underline;} 
+A.poplink2:active {font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:12px; color:#ff6600;text-decoration:underline;} 
+A.poplink2:hover {font-family: ±¼¸²,Seoul,Arial,Verdana; font-size:12px; color:#ff6600;text-decoration:underline;}
+
+
+.strong02 {
+	color: #006699;
+	text-decoration: none;
+	line-height: normal;
+	font-weight: normal;
+
+
+}
+.strong03 {
+
+	color: #FFFFFF;
+	text-decoration: none;
+	line-height: normal;
+	font-weight: bold;
+}

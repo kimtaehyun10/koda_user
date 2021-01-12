@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.mem.mapper.MemberMapper">
+    
+    <!-- 아이디 중복확인 -->
+    <select id="mberIdDuplCheck" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM KODA_MEMBER
+        WHERE ID = #{id}
+    </select>
+    
+    <!-- 닉네임 중복확인 -->
+    <select id="mberNickNameDuplCheck" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM KODA_MEMBER
+        WHERE NICK_NAME = #{nick_name}
+    </select>
+    
+	<!-- 회원정보 저장 -->
+    <insert id="insertMember" parameterType="hashmap">
+        INSERT INTO KODA_MEMBER 
+            (ID, 
+             NAME, 
+             PHONE, 
+             EMAIL, 
+             APPR_FLAG, 
+             GUBN, 
+             PASSWORD, 
+             GENDER, 
+             BIRTHDAY, 
+             EMAIL_FLAG, 
+             SMS_FLAG, 
+             POST, 
+             ADDRESS, 
+             ADDRESS_DETAIL, 
+             PRT_NAME, 
+             PRT_BIRTHDAY, 
+             PRT_GENDER, 
+             PRT_PHONE, 
+             USE_FLAG, 
+             INP_ID, 
+             INP_DATE, 
+             INP_TIME, 
+             MOD_ID, 
+             MOD_DATE, 
+             MOD_TIME, 
+             EMAIL2, 
+             NICK_NAME,
+             NEWS_FLAG,
+             EMAIL3
+             ) 
+		VALUES     (
+		     #{id}, 
+             #{name},  
+             #{phone}, 
+             #{email}, 
+             'N', 
+             #{gubn}, 
+             PASSWORD(#{password}), 
+             #{gender}, 
+             #{birthday}, 
+             #{email_flag}, 
+             #{sms_flag}, 
+             #{post}, 
+             #{address},  
+             #{address_detail},  
+             #{prt_name}, 
+             #{prt_birthday},  
+             #{prt_gender},  
+             #{prt_phone}, 
+             #{id}, 
+             DATE_FORMAT(now(), '%Y%m%d'), 
+             DATE_FORMAT(now(), '%H%i%s'), 
+             #{email2}, 
+             #{nick_name},
+             #{news_flag},
+             #{email3}
+            )
+    </insert>
+
+	<!-- 회원정보 수정 -->
+    <update id="updateMember" parameterType="hashmap">
+        UPDATE KODA_MEMBER 
+		SET    PHONE = #{phone}, 
+		       EMAIL = #{email}, 
+		       PASSWORD = PASSWORD(#{password}), 
+		       GENDER = #{gender}, 
+		       BIRTHDAY = #{birthday}, 
+		       EMAIL_FLAG = #{email_flag}, 
+		       SMS_FLAG = #{sms_flag}, 
+		       POST = #{post}, 
+		       ADDRESS = #{address}, 
+		       ADDRESS_DETAIL = #{address_detail}, 
+		       PRT_NAME = #{prt_name}, 
+		       PRT_BIRTHDAY = #{prt_birthday}, 
+		       PRT_GENDER = #{prt_gender}, 
+		       PRT_PHONE = #{prt_phone}, 
+	           MOD_ID = #{id}, 
+	           MOD_DATE = DATE_FORMAT(now(), '%Y%m%d'), 
+	           MOD_TIME = DATE_FORMAT(now(), '%H%i%s'), 
+		       EMAIL2 = #{email2}, 
+		       NICK_NAME = #{nick_name}, 
+		       NEWS_FLAG = #{news_flag}, 
+		       EMAIL3 = #{email3} 
+		WHERE  ID = #{id}
+    </update>
+    
+    <!-- 기증자 정보 입력 -->
+    <insert id="insertDonor" parameterType="hashmap">    
+		INSERT INTO DONOR_LIST 
+		            (ID, 
+		             DONOR_NAME, 
+		             DONOR_BIRTH, 
+		             HOSPITAL_IDX, 
+		             DONOR_DATE,
+		             DONOR_RELATION) 
+		VALUES     (#{id}, 
+		            #{donor_name}, 
+		            #{donor_birth}, 
+		            #{dhospital_idx}, 
+		            #{donor_date},
+		            #{donor_relation})
+    </insert>
+    
+     <!-- 수혜자 정보 입력 -->
+    <insert id="insertBenefi" parameterType="hashmap">    
+		INSERT INTO BENEFI_LIST 
+		            (ID, 
+		             BENEFI_NAME, 
+		             BENEFI_BIRTH, 
+		             HOSPITAL_IDX, 
+		             BENEFI_PARTS) 
+		VALUES     (#{id}, 
+		            #{benefi_name}, 
+		            #{benefi_birth}, 
+		            #{bhospital_idx}, 
+		            #{benefi_parts}) 
+    </insert>
+    
+    <!-- 회원정보 조회-->
+    <select id="searchMember" resultType="egovMap" parameterType="hashmap">
+        SELECT A.ID, 
+		       A.NAME, 
+		       A.PHONE, 
+		       A.EMAIL,  
+		       A.GUBN, 
+		       A.PASSWORD, 
+		       A.GENDER, 
+		       A.BIRTHDAY, 
+		       A.EMAIL_FLAG, 
+		       A.SMS_FLAG, 
+		       A.POST, 
+		       A.ADDRESS, 
+		       A.ADDRESS_DETAIL, 
+		       A.PRT_NAME, 
+		       A.PRT_BIRTHDAY, 
+		       A.PRT_GENDER, 
+		       A.PRT_PHONE,
+		       A.EMAIL2, 
+		       A.NICK_NAME, 
+		       A.NEWS_FLAG, 
+		       A.EMAIL3,  
+		       B.DONOR_NAME, 
+		       B.DONOR_BIRTH, 
+		       D.HOSPITAL_NAME AS DONOR_HOSPITAL, 
+		       B.DONOR_DATE, 
+		       B.DONOR_RELATION,
+		       C.BENEFI_NAME, 
+		       C.BENEFI_BIRTH, 
+		       E.HOSPITAL_NAME AS BENEFI_HOSPITAL, 
+		       F.NAME AS BENEFI_PART  
+		FROM   KODA_MEMBER A
+		LEFT JOIN DONOR_LIST B
+		ON A.ID = B.ID
+		LEFT JOIN BENEFI_LIST C
+		ON A.ID = C.ID
+		LEFT JOIN HOSPITAL D
+		ON B.HOSPITAL_IDX = D.HOSPITAL_IDX
+		LEFT JOIN HOSPITAL E
+		ON C.HOSPITAL_IDX = E.HOSPITAL_IDX
+		LEFT JOIN COMMON F
+		ON C.BENEFI_PARTS = F.CODE
+		AND F.GUBN = '02'
+        AND F.USE_FLAG = 'Y'
+		WHERE A.ID = #{id}
+          AND A.appr_flag = 'Y' and A.use_flag = 'Y' 
+    </select>
+    
+    <!-- 패스워드 확인 -->
+    <select id="chkPassword" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM KODA_MEMBER
+        WHERE ID = #{id}
+        AND password = PASSWORD(#{password})
+    </select>
+    
+    <!-- 회원탈퇴 --> 
+    <update id="extMember" parameterType="hashmap">
+        UPDATE
+            KODA_MEMBER
+        SET
+            USE_FLAG = 'N'
+        WHERE ID = #{id}
+        AND password = PASSWORD(#{password})
+    </update>
+    
+    <!-- 비멀번호 수정 -->
+    <update id="updatePw" parameterType="hashmap">
+        UPDATE
+            KODA_MEMBER
+        SET
+            PASSWORD = PASSWORD(#{password}),
+	        MOD_ID = #{id}, 
+	        MOD_DATE = DATE_FORMAT(now(), '%Y%m%d'), 
+	        MOD_TIME = DATE_FORMAT(now(), '%H%i%s') 
+        WHERE ID = #{id}
+    </update>
+    
+    
+    <!-- ............. -->
+    
+    <select id="searchUseMember" resultType="Integer" parameterType="hashmap">
+        SELECT
+            COUNT(1)
+        FROM COMTNGNRLMBER
+        WHERE MBER_NM = #{mberNm}
+        AND MBER_BIRTH = #{mberBirth}
+        AND MBER_EMAIL_ADRES = #{mberEmailAdres}
+    </select>
+    
+    
+    
+    <select id="carNumberDupCheck" resultType="Integer" parameterType="hashmap">
+		SELECT
+            COUNT(1)
+        FROM TB_CAR A INNER JOIN COMTNGNRLMBER B ON B.ESNTL_ID = A.ESNTL_ID
+        WHERE CAR_NUMBER = #{carNumber} AND B.MBER_STTUS = 'P'        
+    </select>
+    
+    <insert id="insertCar" parameterType="hashmap">
+        INSERT INTO TB_CAR (
+        CAR_KEY,
+        ESNTL_ID,
+        CAR_NUMBER,
+        CAR_NAME,
+        CAR_ZIP,
+        CAR_ADRES,
+        CAR_DETAIL_ADRES,
+        CREATION_DATE,
+        MODIFY_DATE,
+        LENT_CAR_YN
+        ) VALUES (
+        #{carKey},
+        #{esntlId},
+        #{carNumber},
+        #{carName},
+        #{carZip},
+        #{carAdres},
+        #{carDetailAdres},
+        sysdate,
+        sysdate,
+        #{lentCarYn}
+        )
+    </insert>
+
+    <insert id="insertDiscountDetail" parameterType="hashmap">
+        INSERT INTO TB_DISCOUNT_DETAIL (
+            DISCOUNT_DETAIL_KEY,
+            ESNTL_ID,
+            DISCOUNT_ITEM_KEY,
+            CAR_CC,
+            WELFARE_NUMBER,
+            VETERAN_NUMBER,
+            DISABILITY_GRADE,
+            CREATION_DATE,
+            MODIFY_DATE,
+            CONTRACT_INFO_KEY,
+            DISCOUNT_SELECT_YN,
+            DISCOUNT_START_DATE
+        ) VALUES (
+            #{discountDetailKey},
+            #{esntlId},
+            #{discountItemKey},
+            #{carCc},
+            #{welfareNumber},
+            #{veteranNumber},
+            #{disabilityGrade},
+            sysdate,
+            sysdate,
+            #{contractInfoKey},
+            #{discountSelectYn},
+            #{discountStartDate}
+        )
+    </insert>
+    
+    <select id="findMemberId" resultType="egovMap" parameterType="hashmap">
+        SELECT
+            MBER.MBER_ID
+        FROM
+            COMTNGNRLMBER MBER
+        WHERE MBER_NM = #{mberNm}
+        AND MBER_BIRTH = #{mberBirth}
+        AND MBER_EMAIL_ADRES = #{mberEmailAdres}
+        AND ROWNUM = 1
+    </select>
+    
+    
+    
+</mapper>

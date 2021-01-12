@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="euc-kr"?>  
+<flv>
+	<parent txt="0" link=""/>
+	<parent txt="1" link=""/>
+	<parent txt="2" link=""/>
+	<parent txt="3" link=""/>
+	<parent txt="4" link=""/>
+	<parent txt="5" link=""/>
+	<parent txt="6" link=""/>
+	<parent txt="7" link=""/>
+	<parent txt="8" link=""/>
+	<parent txt="9" link=""/>
+	<parent txt="10" link=""/>
+	<parent txt="11" link="../flv/01_01.flv"/>
+	
+</flv>

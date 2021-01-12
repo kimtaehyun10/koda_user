@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemesh>
+	<mapping path="/*.c" decorator="/decorators/mainLayout.jsp" />
+	<mapping path="/*.l" decorator="/decorators/letterLayout.jsp" />
+	<mapping path="/*.p" decorator="/decorators/popupLayout.jsp" />
+
+	<!-- Exclude path from decoration. -->
+	<mapping path="**/memberIpinConfirm.c" exclue="true"/>
+	<mapping path="**/memberJoinIpinConfirm.c" exclue="true"/>
+    <mapping path="**/memberJoinSmsConfirm.c" exclue="true"/>
+    <mapping path="**/parkingMap.c" exclue="true"/>
+    <mapping path="/*.m" exclue="true"/>
+    
+</sitemesh>

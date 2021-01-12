@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.pb.mapper.PublicMapper">
+
+
+	<!-- 게시판 총 카운트 -->
+	<select id="getBoardCount" resultType="Integer" parameterType="PublicSearch">
+		SELECT COUNT(*)
+		  FROM BOARD_CONT BC LEFT OUTER JOIN BOARD_FILE BF
+		  ON BC.BRD_NO = BF.BRD_NO AND BC.BRD_CONT_NO = BF.BRD_CONT_NO AND BF.BRD_FILE_SEQ = 1
+		  WHERE 1=1 
+		  <if test='brdNo != null and brdNo != ""'>
+			<choose>		  
+				<when test='brdNo == -1'>
+		      		AND BC.BRD_NO in (13,21)		
+				</when>
+				<otherwise>
+		  			AND BC.BRD_NO = #{brdNo}
+				</otherwise>
+			</choose>
+		  </if>
+		 <if test='searchValue != null and searchValue != ""'>
+			<choose>		  
+				<when test='searchKey != null and searchKey != "" and searchKey == "title"'>
+		      		AND BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')			
+				</when>
+				<when test='searchKey != null and searchKey != "" and searchKey == "contents"'>
+		      		AND BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%') 		
+				</when>
+				<otherwise>
+				    AND (BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')
+				    OR BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%'))
+				</otherwise>
+			</choose>
+		</if>
+		 <if test='optionStr != null and optionStr != ""'>
+			<choose>		  
+				<when test='optionStr == "1"'>
+					AND BC.BRD_ETC1 = 1
+				</when>  
+				<when test='optionStr == "2"'>
+					AND BC.BRD_ETC1 = 2
+				</when>
+			</choose>
+		 </if>
+    </select>
+    
+    <!-- 게시판 리스트 조회-->
+    <select id="getBoardList" resultType="egovMap" parameterType="PublicSearch">
+    SELECT BC.BRD_NO, BC.BRD_CONT_NO, BC.BRD_CONT_CLASS, BC.BRD_TITLE, BC.BRD_READ_NUM, BC.REG_DM, 
+		   BC.BRD_URL, BC.BRD_DOWN_URL, BC.BRD_CONTENTS, BF.BRD_FILE_NM, BF.BRD_FILE_ORG_NM, 
+		   BC.BRD_ETC1, BC.BRD_ETC2  
+		   FROM BOARD_CONT BC LEFT OUTER JOIN BOARD_FILE BF 
+		   ON BC.BRD_NO = BF.BRD_NO AND BC.BRD_CONT_NO = BF.BRD_CONT_NO AND BF.BRD_FILE_SEQ = 1
+		   WHERE 1=1 
+			<if test='brdNo != null and brdNo != ""'>
+			<choose>		  
+				<when test='brdNo == -1'>
+			    		AND BC.BRD_NO in (13,21)		
+				</when>
+				<otherwise>
+						AND BC.BRD_NO = #{brdNo}
+				</otherwise>
+			</choose>
+			</if>
+			<if test='searchValue != null and searchValue != ""'>
+				<choose>		  
+					<when test='searchKey != null and searchKey != "" and searchKey == "title"'>
+			      		AND BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')			
+					</when>
+					<when test='searchKey != null and searchKey != "" and searchKey == "contents"'>
+			      		AND BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%') 		
+					</when>
+					<otherwise>
+					    AND (BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')
+					    OR BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%'))
+					</otherwise>
+				</choose>
+			</if>
+			<if test='optionStr != null and optionStr != ""'>
+				<choose>		  
+					<when test='optionStr == "1"'>
+						AND BC.BRD_ETC1 = 1
+					</when>  
+					<when test='optionStr == "2"'>
+						AND BC.BRD_ETC1 = 2
+					</when>
+				</choose>
+		 	</if>
+			<choose>		  
+				<when test='brdNo != null and brdNo != "" and (brdNo =="31" or brdNo =="7")'>
+				ORDER BY BRD_CONT_CLASS DESC, BRD_CONT_NO DESC
+				</when>
+				<otherwise>
+	 			ORDER BY BC.REG_DM DESC
+				</otherwise>
+			</choose>
+		LIMIT  #{beginArticleNum}, #{articleCount} 
+    </select>
+    
+    <!-- 게시판 정보 조회-->
+    <select id="getBoard" resultType="egovMap" parameterType="PublicSearch">
+		SELECT BC.BRD_CONT_NO, BC.BRD_CONT_CLASS, BC.BRD_TITLE, BC.BRD_READ_NUM, BC.REG_DM, 
+			   BC.BRD_CONTENTS, BC.BRD_URL, BC.BRD_DOWN_URL, BF.BRD_FILE_NM, BF.BRD_FILE_ORG_NM, 
+			   BC.BRD_ETC1, BC.BRD_ETC2 
+			   FROM BOARD_CONT BC LEFT OUTER JOIN BOARD_FILE BF 
+			   ON BC.BRD_NO = BF.BRD_NO AND BC.BRD_CONT_NO = BF.BRD_CONT_NO AND BF.BRD_FILE_SEQ = #{brdFileSeq}
+			   WHERE 1=1
+			  <if test='brdNo != null and brdNo != ""'>
+				<choose>		  
+					<when test='brdNo == -1'>
+			      		AND BC.BRD_NO in (13,21)		
+					</when>
+					<otherwise>
+			  			AND BC.BRD_NO = #{brdNo}
+					</otherwise>
+				</choose>
+			  </if> 
+			  <choose>		  
+				<when test='optionStr != null and optionStr != "" and (optionStr == "prev" or optionStr == "next")'>
+					<if test='searchValue != null and searchValue != ""'>
+						<choose>		  
+							<when test='searchValue != null and searchValue != "" and searchKey == "title"'>	
+			      				AND BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')				
+							</when>
+							<when test='searchValue != null and searchValue != "" and searchKey == "contents"'>
+			      				AND BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%') 		
+							</when>
+							<otherwise>
+							    AND (BC.BRD_TITLE LIKE CONCAT('%',#{searchValue},'%')
+							    OR BC.BRD_CONTENTS LIKE CONCAT('%',#{searchValue},'%'))
+							</otherwise>
+						</choose>
+					</if>
+					<choose>		  
+						<when test='optionStr != null and optionStr != "" and optionStr == "prev"'>	
+						       AND BC.BRD_CONT_NO <![CDATA[ < ]]> #{brdContNo} 
+						       ORDER BY BC.REG_DM DESC, BC.BRD_CONT_NO DESC 
+						</when>
+						<otherwise>	
+						       AND BC.BRD_CONT_NO <![CDATA[ > ]]> #{brdContNo} 
+						       ORDER BY BC.REG_DM DESC, BC.BRD_CONT_NO ASC 
+						</otherwise>
+					</choose>
+				   	limit 1 
+				</when>					  
+				<when test='optionStr != null and optionStr != "" and optionStr == "first"'>
+			     	AND BC.BRD_CONT_NO = (SELECT MAX(BRD_CONT_NO) FROM BOARD_CONT WHERE BRD_NO = #{brdNo})
+				</when>
+				<otherwise>	
+			     	AND BC.BRD_CONT_NO = #{brdContNo} 
+				</otherwise>
+			</choose>		
+    </select>
+    
+    <!--조회수 증가 -->
+    <update id="updateReadNum" parameterType="PublicSearch">
+		UPDATE BOARD_CONT SET BRD_READ_NUM = BRD_READ_NUM + 1 WHERE BRD_NO = #{brdNo} AND BRD_CONT_NO = #{brdContNo} 
+    </update>
+    
+    <!-- 협약기관 리스트 조회-->
+    <select id="getHospitalList" resultType="egovMap" parameterType="BrainSearch">    
+		SELECT HOSPITAL_IDX, HOSPITAL_NAME, HOSPITAL_AREA, HOSPITAL_TYPE 
+		FROM HOSPITAL 
+		WHERE 1=1 AND HOSPITAL_AREA = #{hospitalArea} AND HOSPITAL_TYPE = #{hospitalType} 
+		ORDER BY HOSPITAL_IDX ASC 
+    </select>
+    
+    <!-- 기증현황 연도 리스트-->
+    <select id="getBrainDonateStatsYearList" resultType="egovMap">    
+		SELECT DISTINCT SUBSTRING(stats_date, 1, 4) AS YEAR FROM brain_donate_stats WHERE stats_view = 'Y' GROUP BY YEAR DESC
+    </select>
+    
+    <!-- 기증현황 월 리스트-->
+    <select id="getBrainDonateStatsMonthList" resultType="egovMap" parameterType="String">    
+		SELECT DISTINCT SUBSTRING(STATS_DATE, 6, 2) AS MONTH FROM BRAIN_DONATE_STATS
+		WHERE STATS_VIEW = 'Y' AND SUBSTRING(STATS_DATE, 1, 4) = #{year} GROUP BY MONTH ASC
+    </select>
+    
+    <!-- 뇌사자 월별 리스트-->
+    <select id="getBrainDonateStatsMonthSum" resultType="egovMap" parameterType="PublicSearch">    
+		SELECT BDS.STATS_DATE, 
+		BDS.STATS_SPHERE_EDONOR1, BDS.STATS_SPHERE_EDONOR2, 
+		BDS.STATS_SPHERE_EDONOR3, BDS.STATS_SPHERE_TDONOR1, 
+		BDS.STATS_SPHERE_TDONOR2, BDS.STATS_SPHERE_TDONOR3 
+		FROM BRAIN_DONATE_STATS BDS 
+		WHERE SUBSTRING(BDS.STATS_DATE, 1, 4) = #{year} AND STATS_VIEW = 'Y' 
+		AND BDS.STATS_DATE = (SELECT MAX(STATS_DATE) FROM BRAIN_DONATE_STATS WHERE SUBSTRING(STATS_DATE, 1, 7) = SUBSTRING(BDS.STATS_DATE, 1, 7))
+		ORDER BY SUBSTRING(BDS.STATS_DATE, 1, 7) ASC
+    </select>
+    
+    <!-- 뇌사자 리스트-->
+    <select id="getBrainDonateStats" resultType="egovMap" parameterType="PublicSearch">    
+		SELECT * FROM BRAIN_DONATE_STATS WHERE 1=1 AND STATS_VIEW = 'Y' 
+		AND SUBSTRING(STATS_DATE, 1, 4) = #{year} AND SUBSTRING(STATS_DATE, 6, 2) = #{month} 
+		ORDER BY STATS_DATE DESC 
+    </select>
+    
+    
+    <!-- 이식 현황 -->
+    <select id="getOrganDonateStats" resultType="egovMap">    
+		SELECT * FROM ORGAN_DONATE_STATS ORDER BY STATS_DATE ASC
+    </select>
+    
+    <!-- 이식 현황_파일 -->
+    <select id="getFile" resultType="egovMap" parameterType="PublicSearch">    
+		SELECT BRD_FILE_NM, BRD_FILE_ORG_NM FROM BOARD_FILE 
+		WHERE 1=1 AND BRD_NO = #{brdNo} AND BRD_CONT_NO = #{brdContNo} AND BRD_CONT_RE = #{brdContRe} AND BRD_FILE_SEQ = #{brdFileSeq}
+    </select>
+    
+    <!-- 기증 희망 등록 현황 -->
+    <select id="getHopeDonateStats" resultType="egovMap">    
+		SELECT * FROM HOPE_DONATE_STATS ORDER BY STATS_IDX ASC
+    </select>
+    
+</mapper>

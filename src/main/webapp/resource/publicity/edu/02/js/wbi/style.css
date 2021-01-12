@@ -1,0 +1,156 @@
+ body, table, td, tr, div, select, option, input, textarea {
+		 font-family:gulim,arial ;
+		 font-size: 9pt;
+		 color: #000000;
+       		 line-height: 150%;
+                 
+		scrollbar-face-color: #F2F2F2;
+		scrollbar-shadow-color:#8D8D8D; 
+		scrollbar-highlight-color: #8D8D8D;
+		scrollbar-3dlight-color: #FFFFFF; 
+		scrollbar-darkshadow-color: #FFFFFF;      
+		scrollbar-track-color: #F2F2F2;
+		scrollbar-arrow-color: #8D8D8D;
+		scrollbar-base-color: #E9E8E8;
+		}
+
+  a:link	{color: #000000;  text-decoration: none;}
+  a:visited	{color: #000000;  text-decoration: none;}
+  a:active	{color: #000000;  text-decoration: none;}
+  a:hover	{color: #cc0000;  text-decoration: none;}
+		
+input.nof {
+	FONT-SIZE: 8pt;
+	font-weight: bold;
+	color:#000000;
+	border:0px;
+	height:13px;
+	background-image: url(../common-img/numbg.gif);
+}
+
+input.nof01 {
+	FONT-SIZE: 10pt;
+	font-weight: none;
+	color:#08529A;
+	border: 1px solid #9E9E9E
+	height:15px;
+}
+.com{
+FONT-SIZE:9pt;
+color:
+#000000;
+
+}
+.com2{
+FONT-SIZE: 10pt;
+color:
+#0066FF;
+
+
+font-weight:bold;
+
+}
+
+.com3{
+FONT-SIZE: 11pt;
+color:
+#000066;
+font-weight:bold;
+
+}
+
+.aa{ /* Áö½Ã¾î */
+	color: #4A8846;	
+	}
+	
+
+	
+.eng{
+	font-family:gulim;
+	font-size:10pt;
+	color: #000000;
+    	line-height: 150%;	
+	}
+	
+.eng01{
+	font-family:gulim;
+	font-size:10pt;
+	color: #004D95;
+    	line-height: 150%;	
+	}
+
+.300k{
+	font-family:gulim;
+	font-size:8pt;	
+	}
+	
+	
+.s_title{
+	font-family:gulim;
+	font-size:10pt;	
+	font-weight:bold;
+	color: #006A47;
+	}
+	
+	
+.ex{
+	font-family:gulim;
+	color: #9A0D2E;
+	font-size:10pt;
+       	line-height: 150%;	
+	}
+	.ex2{
+	font-family:gulim;
+	color: #E06900;
+	font-size:10pt;
+       	line-height: 150%;	
+	}
+	
+.cf{
+	font-family:gulim;
+	color: #1F3893;
+	font-size:10pt;
+       	line-height: 150%;	
+	}	
+		
+.q{
+	font-family:gulim;
+	color: #111111;
+	font-size:9pt;
+     line-height: 150%;
+	}		
+	
+.org{
+	font-family:gulim;
+	color: #E06900;
+     line-height: 150%;
+	}			
+	
+.tra{
+	font-family:gulim;
+	color: #777777;
+     line-height: 150%;
+	}				
+	
+input.line {
+	FONT-SIZE: 10pt;
+	font-weight: none;
+	color:#000000;
+	border:0px;
+	height:150%;
+	background-image: url(../common-img/input_line.gif);
+}
+
+input.line01 {
+	FONT-SIZE: 10pt;
+	font-weight: none;
+	color:#000000;
+	border:0px;
+	height:150%;
+	background-image: url(../common-img/input_line01.gif);
+}	
+
+.textarea2 {
+	border: 0px solid #FFFFFF;
+	background-color: #FFFFFF;
+}

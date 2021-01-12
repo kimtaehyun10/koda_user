@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.let.mapper.LetterMapper">
+
+
+	<!-- 편지저장-->
+    <insert id="insertLetter" parameterType="hashmap" useGeneratedKeys="true" keyProperty="letter_id">
+		INSERT INTO LETTER 
+		            (GROUP_ID, 
+		             GROUP_ORDER, 
+		             DEPTH , 
+		             SENDER_ID, 
+		             SENDER_DATE, 
+		             SKIN_ID, 
+		             TITLE, 
+		             CONTENT, 
+		             STATUS, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		VALUES     ((SELECT M.MAX_GROUP_ID FROM (SELECT IFNULL(MAX(GROUP_ID)+1,1) AS MAX_GROUP_ID FROM LETTER) M), 
+					0, 
+					1, 
+					#{id}, 
+					<choose>
+					  <when test='gubn != null and gubn == "T"'>
+						null,
+					  </when>
+					  <otherwise>
+						now(),	
+					  </otherwise>
+					</choose>
+					#{skin_id}, 
+					#{title}, 
+					#{content}, 
+					'notApproval', 
+					now(), 
+					#{id}, 
+					now(), 
+					#{id}); 
+    </insert>
+    
+    <!-- 담장저장-->
+    <insert id="insertLetterReturn" parameterType="hashmap" useGeneratedKeys="true" keyProperty="letter_id">
+		INSERT INTO LETTER 
+		            (GROUP_ID, 
+		             GROUP_ORDER, 
+		             DEPTH , 
+		             SENDER_ID, 
+		             SENDER_DATE, 
+		             SKIN_ID, 
+		             TITLE, 
+		             CONTENT, 
+		             STATUS, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		SELECT      A.GROUP_ID, 
+		            IFNULL(MAX(A.GROUP_ORDER)+1,1) AS GROUP_ORDER,
+		            IFNULL(MAX(DEPTH)+1,1) AS DEPTH, 
+					#{id}, 
+					<choose>
+					  <when test='gubn != null and gubn == "T"'>
+						null,
+					  </when>
+					  <otherwise>
+						now(),	
+					  </otherwise>
+					</choose>
+					#{skin_id}, 
+					#{title}, 
+					#{content},
+					'notApproval', 
+					now(), 
+					#{id}, 
+					now(), 
+					#{id}  
+		   FROM     LETTER A
+     INNER JOIN     LETTER_RECEIVER B
+             ON     A.LETTER_ID = B.LETTER_ID
+		  WHERE     A.LETTER_ID = #{rletter_id} 
+		    AND     B.RECEIVER_ID = #{id} 
+	   GROUP BY     A.GROUP_ID
+    </insert>
+    
+    <!-- 편지쓰기_받는 사람 저장-->
+    <insert id="insertReceiver" parameterType="hashmap">
+		INSERT INTO LETTER_RECEIVER 
+		            (LETTER_ID, 
+		             RECEIVER_ID, 
+		             RECEIVER_DATE, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		SELECT      #{letter_id}, 
+		            CHILD_ID, 
+		            null, 
+		            now(), 
+		            #{id}, 		            
+		            now(), 
+		            #{id}
+		   FROM     RELA_MATCH_LIST
+		  WHERE     ID = #{id} 
+    </insert>
+    
+    <!-- 답장_받는 사람 저장-->
+    <insert id="insertReceiverReturn" parameterType="hashmap">
+		INSERT INTO LETTER_RECEIVER 
+		            (LETTER_ID, 
+		             RECEIVER_ID, 
+		             RECEIVER_DATE, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		SELECT      #{letter_id}, 
+		            A.SENDER_ID, 
+		            null, 
+		            now(), 
+		            #{id}, 		            
+		            now(), 
+		            #{id}
+		   FROM     LETTER A
+     INNER JOIN     LETTER_RECEIVER B
+             ON     A.LETTER_ID = B.LETTER_ID
+		  WHERE     A.LETTER_ID = #{rletter_id} 
+		    AND     B.RECEIVER_ID = #{id}
+    </insert>
+    
+    <!-- 임시저장 편지 받을 사람 저장  -->
+    <insert id="insertTempReceiver" parameterType="hashmap">
+    INSERT INTO LETTER_RECEIVER 
+		            (LETTER_ID, 
+		             RECEIVER_ID, 
+		             RECEIVER_DATE, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		SELECT      #{letter_id}, 
+		            D.CHILD_ID, 
+		            null, 
+		            now(), 
+		            #{id}, 		            
+		            now(), 
+		            #{id}
+			   	 FROM LETTER A
+		   INNER JOIN LETTER_RECEIVER B
+		           ON A.LETTER_ID = B.LETTER_ID
+		   INNER JOIN KODA_MEMBER C
+		           ON B.RECEIVER_ID = C.ID
+		   INNER JOIN RELA_MATCH_LIST D
+		           ON A.SENDER_ID = D.ID
+		          AND B.RECEIVER_ID = D.CHILD_ID
+		   	 WHERE A.LETTER_ID = #{rletter_id}
+		   	   AND A.SENDER_ID = #{id}
+    </insert>
+    
+    
+    <!-- 받은 시간 처리 -->
+    <update id="updateReceiver" parameterType="hashmap">
+		UPDATE LETTER_RECEIVER 
+		   SET RECEIVER_DATE = now()
+		 WHERE LETTER_ID = #{letter_id} 
+		   AND RECEIVER_ID = #{id}       
+    </update>
+    
+     <!-- 받은 시간 처리 완료 여부 확인 -->
+    <select id="selectChkReceiver" resultType="Integer" parameterType="hashmap">
+		SELECT COUNT(1) AS CNT
+		  FROM   LETTER_RECEIVER
+		 WHERE LETTER_ID = #{letter_id} 
+		   AND RECEIVER_ID = #{id}    
+		   AND RECEIVER_DATE IS NULL   
+    </select>
+    
+    <!-- 보낼 때 매칭대상(받는 사람 조회)_닉네임-->
+    <select id="searchReceiverByMath" resultType = "egovMap" parameterType="hashmap">
+        SELECT GROUP_CONCAT(B.NICK_NAME) AS RECEIVER_NAME
+    	  FROM RELA_MATCH_LIST A
+     LEFT JOIN KODA_MEMBER B
+            ON A.CHILD_ID = B.ID
+         WHERE A.ID = #{id}
+    </select>
+    
+    <!-- 답장 받을 사람 조회  -->
+    <select id="searchReturnReceiver" resultType = "egovMap" parameterType="hashmap">
+    	SELECT C.NICK_NAME AS RECEIVER_NAME
+    	  FROM LETTER A
+    INNER JOIN LETTER_RECEIVER B
+            ON A.LETTER_ID = B.LETTER_ID
+    INNER JOIN KODA_MEMBER C
+            ON A.SENDER_ID = C.ID
+    	 WHERE A.LETTER_ID = #{rletter_id}
+    	   AND B.RECEIVER_ID = #{id}
+    </select>
+    
+    <!-- 임시저장 편지 받을 사람 조회  -->
+    <select id="searchTempReceiver" resultType = "egovMap" parameterType="hashmap">
+    	SELECT GROUP_CONCAT(C.NICK_NAME) AS RECEIVER_NAME
+    	  FROM LETTER A
+    INNER JOIN LETTER_RECEIVER B
+            ON A.LETTER_ID = B.LETTER_ID
+    INNER JOIN KODA_MEMBER C
+            ON B.RECEIVER_ID = C.ID
+    INNER JOIN RELA_MATCH_LIST D
+            ON A.SENDER_ID = D.ID
+           AND B.RECEIVER_ID = D.CHILD_ID
+    	 WHERE A.LETTER_ID = #{rletter_id}
+    	   AND A.SENDER_ID = #{id}
+    </select>
+    
+    <!-- 첨부파일 저장 -->
+    <insert id="insertLetterFile" parameterType="hashmap">
+
+		INSERT INTO LETTER_FILE 
+		            (LETTER_ID,
+		             LETTER_FILE_SEQ, 
+		             LETTER_FILE_NM, 
+		             LETTER_FILE_ORG_NM, 
+		             CREATE_TIME, 
+		             CREATE_ID, 
+		             UPDATE_TIME, 
+		             UPDATE_ID) 
+		VALUES     (#{letter_id},
+					(SELECT M.MAX_LETTER_FILE_SEQ FROM (SELECT IFNULL(MAX(LETTER_FILE_SEQ)+1,1) AS MAX_LETTER_FILE_SEQ FROM LETTER_FILE WHERE LETTER_ID = #{letter_id}) M), 
+					#{letter_file_nm}, 
+					#{letter_file_org_nm}, 
+					now(), 
+					#{id}, 
+					now(), 
+					#{id})
+    </insert>
+    
+    <!-- 첨부파일 수정 -->
+    <update id="updateLetterFile" parameterType="hashmap">
+		UPDATE LETTER_FILE 
+		SET    LETTER_FILE_NM = #{letter_file_nm}, 
+		       LETTER_FILE_ORG_NM = #{letter_file_org_nm}, 
+		       UPDATE_TIME = now(), 
+		       UPDATE_ID = #{id} 
+		WHERE  LETTER_ID = #{letter_id} 
+		       AND LETTER_FILE_SEQ = #{letter_file_seq}       
+    </update>
+    
+    <!-- 첨부파일 삭제 -->
+    <delete id="deleteLetterFile" parameterType="hashmap">
+		DELETE
+		  FROM LETTER_FILE 
+		WHERE  LETTER_ID = #{letter_id} 
+		       AND LETTER_FILE_SEQ = #{letter_file_seq}       
+    </delete>
+    
+    <!-- 첨부파일 조회 -->
+    <select id="searchLetterFile" resultType="egovMap" parameterType="hashmap">
+		SELECT LETTER_ID, 
+		       LETTER_FILE_SEQ, 
+		       LETTER_FILE_NM, 
+		       LETTER_FILE_ORG_NM
+		FROM   LETTER_FILE
+	   WHERE   LETTER_ID = #{letter_id} 
+    ORDER BY   LETTER_FILE_SEQ
+    </select>
+    
+    
+    <!-- 첨부파일 다운로드 정보 조회 -->
+    <select id="LetterDownFileRN" resultType="egovMap" parameterType="hashmap">
+		SELECT C.LETTER_ID, 
+		       C.LETTER_FILE_SEQ, 
+		       C.LETTER_FILE_NM, 
+		       C.LETTER_FILE_ORG_NM
+		FROM   LETTER A
+  INNER JOIN   LETTER_RECEIVER B
+          ON   A.LETTER_ID = B.LETTER_ID
+  INNER JOIN   LETTER_FILE C
+          ON   A.LETTER_ID = C.LETTER_ID
+	   WHERE   A.LETTER_ID = #{f_letter_id} 
+		 AND   C.LETTER_FILE_SEQ = #{f_letter_file_seq}
+		 AND   B.RECEIVER_ID = #{id}
+    </select>
+    
+    <!-- 첨부파일 다운로드 정보 조회 -->
+    <select id="LetterDownFileST" resultType="egovMap" parameterType="hashmap">
+    	SELECT C.LETTER_ID, 
+		       C.LETTER_FILE_SEQ, 
+		       C.LETTER_FILE_NM, 
+		       C.LETTER_FILE_ORG_NM
+		FROM   LETTER A
+  INNER JOIN   LETTER_FILE C
+          ON   A.LETTER_ID = C.LETTER_ID
+	   WHERE   A.LETTER_ID = #{f_letter_id} 
+		 AND   C.LETTER_FILE_SEQ = #{f_letter_file_seq}
+		 AND   A.SENDER_ID = #{id}
+    </select>
+    
+	<!-- 보낸편지조회 -->
+    <select id="searchLetterSend" resultType="egovMap" parameterType="hashmap">
+    	       SELECT A.LETTER_ID, 
+				       date_format(a.sender_date, '%Y-%m-%d %H:%i:%s') as SENDER_DATE, 
+				       A.RETURN_DATE, 
+				       A.SKIN_ID, 
+				       A.TITLE, 
+				       A.CONTENT, 
+				       A.STATUS, 
+				       A.RETURN_REASON,
+				       GROUP_CONCAT(C.NICK_NAME) AS SENDRECINAME 
+				FROM   LETTER A
+				INNER JOIN LETTER_RECEIVER B
+				ON A.LETTER_ID = B.LETTER_ID
+				INNER JOIN KODA_MEMBER C
+				ON B.RECEIVER_ID = C.ID
+				WHERE  A.LETTER_ID = #{letter_id}
+				  AND  A.SENDER_ID = #{id}
+				  <if test='gubn != null and gubn == "T"'>
+					AND (A.SENDER_DATE is NULL OR LENGTH(A.SENDER_DATE) <![CDATA[ < ]]> 8) 
+				  </if>
+				  <if test='gubn != null and gubn == "S"'>
+					AND A.SENDER_DATE IS NOT NULL 
+				  </if>
+				GROUP BY A.LETTER_ID, A.SENDER_DATE, A.RETURN_DATE, A.SKIN_ID, A.TITLE, A.CONTENT, A.STATUS, A.RETURN_REASON
+    </select>
+    
+    <!-- 보낸편지함조회 -->
+    <select id="searchLetterSendList" resultType="egovMap" parameterType="hashmap">
+    SELECT 
+    		<choose>
+			  <when test='rnum != null and rnum != ""'>
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.LETTER_ID END AS PRE_LETTER_ID, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.SENDER_DATE END AS PRE_SENDER_DATE, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.TITLE END AS PRE_TITLE,  
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RESE_NAME END AS PRE_RESE_NAME, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RECEIVE_YN END AS PRE_RECEIVE_YN,
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.FILE_CNT END AS PRE_FILE_CNT, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RNUM END AS PRE_RNUM,
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.LETTER_ID END AS AFT_LETTER_ID, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.SENDER_DATE END AS AFT_SENDER_DATE, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.TITLE END AS AFT_TITLE,  
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RESE_NAME END AS AFT_RESE_NAME, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RECEIVE_YN END AS AFT_RECEIVE_YN,
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.FILE_CNT END AS AFT_FILE_CNT, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RNUM END AS AFT_RNUM
+			  </when>
+			  <otherwise>
+				T. *
+			  </otherwise>
+			</choose>
+	  FROM (SELECT M.LETTER_ID,
+		           M.SENDER_DATE,
+		           M.TITLE,
+		           M.RESE_NAME,
+		           M.RECEIVE_YN,
+				   COUNT(E.LETTER_ID) as FILE_CNT,
+				   row_number() over(order by M.LETTER_ID DESC) as RNUM
+				   FROM (
+		    	       SELECT  A.LETTER_ID,
+		    	       		   A.GROUP_ID,
+		    	       		   A.GROUP_ORDER,
+		    	       		   A.DEPTH, 
+						       date_format(sender_date, '%Y-%m-%d %H:%i:%s') as SENDER_DATE,   
+						       A.TITLE,
+						       GROUP_CONCAT(C.NICK_NAME) AS RESE_NAME, 
+						       IF(B.RECEIVER_DATE is NULL,'F','T') AS RECEIVE_YN 
+						FROM   LETTER A
+						INNER JOIN LETTER_RECEIVER B
+						ON A.LETTER_ID = B.LETTER_ID
+						INNER JOIN KODA_MEMBER C
+						ON B.RECEIVER_ID = C.ID
+						WHERE A.SENDER_ID = #{id}
+				        <if test='gubn != null and gubn == "T"'>
+								AND (A.SENDER_DATE is NULL OR LENGTH(A.SENDER_DATE) <![CDATA[ < ]]> 8) 
+				        </if>
+				        <if test='gubn != null and gubn == "S"'>
+								AND A.SENDER_DATE IS NOT NULL 
+				        </if>
+						<if test='searchTxt != null and searchTxt != ""'>
+							AND (A.TITLE LIKE CONCAT('%',#{searchTxt},'%') 
+								OR A.CONTENT LIKE CONCAT('%',#{searchTxt},'%'))
+						</if>
+				        GROUP BY A.LETTER_ID, A.GROUP_ID, A.GROUP_ORDER, A.DEPTH, A.SENDER_DATE, A.TITLE, B.RECEIVER_DATE) M	
+					LEFT JOIN LETTER_FILE E
+					ON M.LETTER_ID = E.LETTER_ID	
+				    GROUP BY M.LETTER_ID, M.SENDER_DATE, M.TITLE, M.RESE_NAME, M.RECEIVE_YN) T
+		        <if test='curPage != null and curPage != ""'>
+		            WHERE T.RNUM BETWEEN ((${curPage} -1) * ${pageSize}) + 1  AND (((${curPage} -1) * ${pageSize})) + ${pageSize}
+		        </if>
+		        <if test='rnum != null and rnum != ""'>
+		            WHERE T.RNUM IN (#{rnum} -1 , #{rnum} + 1)
+		        </if>		        
+		        ORDER BY T.RNUM
+              
+    </select>
+    
+    <!-- 보낸편지함개수 조회 -->
+    <select id="searchLetterSendListTot" resultType="integer" parameterType="hashmap">
+    SELECT Count(1) as TOT 
+    FROM (SELECT DISTINCT(A.LETTER_ID) as TOT
+				FROM   LETTER A
+				INNER JOIN LETTER_RECEIVER B
+				ON A.LETTER_ID = B.LETTER_ID
+				INNER JOIN KODA_MEMBER C
+				ON B.RECEIVER_ID = C.ID
+				WHERE A.SENDER_ID = #{id}
+		        <if test='gubn != null and gubn == "T"'>
+						AND (A.SENDER_DATE is NULL OR LENGTH(A.SENDER_DATE) <![CDATA[ < ]]> 8) 
+		        </if>
+		        <if test='gubn != null and gubn == "S"'>
+						AND A.SENDER_DATE IS NOT NULL 
+		        </if>
+		        GROUP BY A.LETTER_ID ) M
+    </select>
+    
+    <!-- 받는편지도회 -->
+    <select id="searchLetterReci" resultType="egovMap" parameterType="hashmap">
+    	       SELECT A.LETTER_ID, 
+				       date_format(a.sender_date, '%Y-%m-%d %H:%i:%s') as SENDER_DATE, 
+				       A.SKIN_ID, 
+				       A.TITLE, 
+				       A.CONTENT, 
+				       A.STATUS, 
+				       D.NICK_NAME AS SENDRECINAME 
+				FROM   LETTER A
+				INNER JOIN LETTER_RECEIVER B
+				ON A.LETTER_ID = B.LETTER_ID
+				INNER JOIN KODA_MEMBER C
+				ON B.RECEIVER_ID = C.ID
+				INNER JOIN KODA_MEMBER D
+				ON A.SENDER_ID = D.ID 
+				WHERE A.LETTER_ID = #{letter_id}
+				<if test='gubn != null and gubn == "N"'>
+					AND (B.RECEIVER_DATE is NULL OR LENGTH(B.RECEIVER_DATE) <![CDATA[ < ]]>  8) 
+		        </if>
+				  AND B.RECEIVER_ID = #{id}
+				  AND A.SENDER_DATE IS NOT NULL
+    </select>
+    
+    <!-- 받는편지함, 안읽은 편지함 조회 -->
+    <select id="searchLetterReciList" resultType="egovMap" parameterType="hashmap">
+    
+					
+      SELECT 
+      		<choose>
+			  <when test='rnum != null and rnum != ""'>
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.LETTER_ID END AS PRE_LETTER_ID, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.SENDER_DATE END AS PRE_SENDER_DATE, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.TITLE END AS PRE_TITLE,  
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RESE_NAME END AS PRE_RESE_NAME, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RECEIVE_YN END AS PRE_RECEIVE_YN,
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.FILE_CNT END AS PRE_FILE_CNT, 
+				CASE WHEN T.RNUM = #{rnum} - 1 THEN T.RNUM END AS PRE_RNUM,
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.LETTER_ID END AS AFT_LETTER_ID, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.SENDER_DATE END AS AFT_SENDER_DATE, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.TITLE END AS AFT_TITLE,  
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RESE_NAME END AS AFT_RESE_NAME, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RECEIVE_YN END AS AFT_RECEIVE_YN,
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.FILE_CNT END AS AFT_FILE_CNT, 
+				CASE WHEN T.RNUM = #{rnum} + 1 THEN T.RNUM END AS AFT_RNUM
+			  </when>
+			  <otherwise>
+				T. *
+			  </otherwise>
+			</choose>
+	  	FROM (
+    	       SELECT A.LETTER_ID, 
+				       date_format(a.sender_date, '%Y-%m-%d %H:%i:%s') as SENDER_DATE, 
+				       A.TITLE,  
+				       D.NICK_NAME AS RESE_NAME, 
+				       IF(B.RECEIVER_DATE is NULL,'F','T') AS RECEIVE_YN,
+				       COUNT(E.LETTER_ID) as FILE_CNT, 
+				   	   row_number() over(order by A.LETTER_ID DESC) as RNUM
+				FROM   LETTER A
+				INNER JOIN LETTER_RECEIVER B
+				ON A.LETTER_ID = B.LETTER_ID
+				INNER JOIN KODA_MEMBER C
+				ON B.RECEIVER_ID = C.ID
+				INNER JOIN KODA_MEMBER D
+				ON A.SENDER_ID = D.ID 
+				LEFT JOIN LETTER_FILE E
+				ON A.LETTER_ID = E.LETTER_ID
+				WHERE B.RECEIVER_ID = #{id}
+				<if test='gubn != null and gubn == "N"'>
+						AND (B.RECEIVER_DATE is NULL OR LENGTH(B.RECEIVER_DATE) <![CDATA[ < ]]>  8) 
+		        </if>
+				<if test='searchTxt != null and searchTxt != ""'>
+					AND (A.TITLE LIKE CONCAT('%',#{searchTxt},'%') 
+						OR A.CONTENT LIKE CONCAT('%',#{searchTxt},'%'))
+				</if>
+		              AND A.SENDER_DATE IS NOT NULL
+		        GROUP BY A.LETTER_ID, A.SENDER_DATE,A.TITLE,D.NICK_NAME, B.RECEIVER_DATE) T
+		        <if test='curPage != null and curPage != ""'>
+		            WHERE T.RNUM BETWEEN ((${curPage} -1) * ${pageSize}) + 1  AND (((${curPage} -1) * ${pageSize})) + ${pageSize}
+		        </if>		        
+		        <if test='rnum != null and rnum != ""'>
+		            WHERE T.RNUM IN (#{rnum} -1 , #{rnum} + 1)
+		        </if>		        
+		        ORDER BY T.RNUM
+    </select>
+    
+    <!-- 받는편지함, 안읽은 편지함 총카운트-->
+    <select id="searchLetterReciListTot" resultType="integer" parameterType="hashmap">
+    	       SELECT Count(1) AS TOT
+				FROM   LETTER A
+				INNER JOIN LETTER_RECEIVER B
+				ON A.LETTER_ID = B.LETTER_ID
+				INNER JOIN KODA_MEMBER C
+				ON B.RECEIVER_ID = C.ID
+				INNER JOIN KODA_MEMBER D
+				ON A.SENDER_ID = D.ID 
+				WHERE B.RECEIVER_ID = #{id}				
+				<if test='gubn != null and gubn == "N"'>
+						AND (B.RECEIVER_DATE is NULL OR LENGTH(B.RECEIVER_DATE) <![CDATA[ < ]]>  8) 
+		        </if>				
+		              AND A.SENDER_DATE IS NOT NULL
+				ORDER BY A.LETTER_ID, A.GROUP_ID, A.GROUP_ORDER, A.DEPTH
+    </select>
+    
+    
+    <!-- 편지 삭제 -->
+    <delete id="deleteLetter" parameterType="hashmap">
+		DELETE
+		  FROM LETTER 
+		 WHERE LETTER_ID = #{rletter_id}
+		   AND SENDER_ID = #{id}      
+    </delete>
+    
+    <!-- 편지 수신자 삭제 -->
+    <delete id="deleteLetterReceiver" parameterType="hashmap">
+		DELETE
+		  FROM LETTER_RECEIVER 
+		 WHERE LETTER_ID = #{rletter_id}      
+    </delete>
+    
+    <!-- 편지 첨부파일 삭제 -->
+    <delete id="deleteFileAll" parameterType="hashmap">
+		DELETE
+		  FROM LETTER_FILE
+		  WHERE LETTER_ID = #{rletter_id}
+    </delete>
+    
+    <!-- group_id max 조회 -->
+    <select id="searchMaxGroup" resultType="egovMap" parameterType="hashmap">
+    	SELECT MAX(GROUP_ID) AS MX_GROUP_ID 
+		  FROM LETTER
+	  GROUP BY GROUP_ID
+    </select>    
+    
+</mapper>

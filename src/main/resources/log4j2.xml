@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2016. by Koticobui All right reserved.
+  -->
+
+<Configuration>
+
+    <!-- Appender, Layout 설정 -->
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        <!--<File name="file" fileName="./logs/dfmc-web-console.log" append="false">
+            <PatternLayout pattern="%d %5p [%c] %m%n" />
+        </File>-->
+    </Appenders>
+
+    <!-- Logger 설정 -->
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="console" />
+        </Root>
+
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <!-- dfmc-api Package -->
+        <logger name="com.koticobui.dfmc.client" level="DEBUG" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <!-- log4jdbc.log4j2 설정 -->
+        <logger name="log4jdbc.log4j2" level="DEBUG" additivity="false">
+            <MarkerFilter marker="LOG4JDBC_OTHER" onMatch="DENY" onMismatch="NEUTRAL" />
+            <appender-ref ref="console" />
+        </logger>
+        <logger name="log4jdbc.log4j2" level="DEBUG" additivity="false">
+            <MarkerFilter marker="LOG4JDBC_JDBC" onMatch="DENY" onMismatch="NEUTRAL" />
+            <appender-ref ref="console" />
+        </logger>
+    </Loggers>
+
+</Configuration>
