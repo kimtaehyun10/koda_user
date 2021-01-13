@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ko">
 <head>
 <script type="text/javascript">
 $(document.body).ready(function(){
-	$(document).on('click', '.notice-tabs a', function () {
+	
+	//메인 게시판 toggle
+	$(document).on('click', '.notice-tabs a', function () {		 
         $('.sub__tabs a').removeClass("active");
         $("a[href='"+ $(this).attr("href") +"']").addClass("active");
         
@@ -16,8 +19,116 @@ $(document.body).ready(function(){
   	  	$('.sub__tabs .select button').html($(this).html());
   	  	
         return false;
-    })	
-
+    });
+	
+	//메인 게시판 data
+	$.ajax({
+		type: "get",
+		url: "/main/mainBoardList.json",				
+		dataType: "json",		
+		success: function(data){
+			var html1='<div class="main__notice-body">';
+			var html2='<div class="main__notice-body">';
+			var html3='<div class="main__notice-body">';
+			var html4='<div class="main__notice-body">';
+			var html5='<div class="main__notice-body">';
+			var html6='<div class="main__notice-body">';
+			
+			//전체
+			for(var i=0;i<data.mainTotalList.length;i++){				
+				if(data.mainTotalList[i].brdNo === 7){										
+					html1 += '<a href="" class="main__notice-item attach">';
+					html1 += '<span class="type notice-color-1">공지</span>'
+					html1 += '<p>'+data.mainTotalList[i].brdTitle+'</p>'
+					html1 += '</a>'										
+				}
+				
+				if(data.mainTotalList[i].brdNo === 43){										
+					html1 += '<a href="" class="main__notice-item attach">';
+					html1 += '<span class="type notice-color-2">채용</span>'
+					html1 += '<p>'+data.mainTotalList[i].brdTitle+'</p>'
+					html1 += '</a>'										
+				}
+				
+				if(data.mainTotalList[i].brdNo === 31){										
+					html1 += '<a href="" class="main__notice-item attach">';
+					html1 += '<span class="type notice-color-3">보도</span>'
+					html1 += '<p>'+data.mainTotalList[i].brdTitle+'</p>'
+					html1 += '</a>'										
+				}
+				
+				if(data.mainTotalList[i].brdNo === 36){										
+					html1 += '<a href="" class="main__notice-item attach">';
+					html1 += '<span class="type notice-color-4">홍보</span>'
+					html1 += '<p>'+data.mainTotalList[i].brdTitle+'</p>'
+					html1 += '</a>'										
+				}
+			}
+			if(data.mainSurveyList.length != 0){
+				html1 += '<a href="" class="main__notice-item attach">';
+				html1 += '<span class="type notice-color-5">설문</span>'
+				html1 += '<p>'+data.mainSurveyList[0].surveyTitle+'</p>'
+				html1 += '</a>'	
+			}			
+						
+			for(var i=0;i<data.mainBoardList.length;i++){
+				//공지
+				if(data.mainBoardList[i].brdNo === 7){										
+					html2 += '<a href="" class="main__notice-item attach">';
+					html2 += '<span class="type notice-color-1">공지</span>'
+					html2 += '<p>'+data.mainBoardList[i].brdTitle+'</p>'
+					html2 += '</a>'										
+				}
+				
+				//채용
+				if(data.mainBoardList[i].brdNo === 43){										
+					html3 += '<a href="" class="main__notice-item attach">';
+					html3 += '<span class="type notice-color-2">채용</span>'
+					html3 += '<p>'+data.mainBoardList[i].brdTitle+'</p>'
+					html3 += '</a>'										
+				}
+				
+				//보도
+				if(data.mainBoardList[i].brdNo === 31){										
+					html4 += '<a href="" class="main__notice-item attach">';
+					html4 += '<span class="type notice-color-3">보도</span>'
+					html4 += '<p>'+data.mainBoardList[i].brdTitle+'</p>'
+					html4 += '</a>'										
+				}
+				
+				//홍보
+				if(data.mainBoardList[i].brdNo === 36){										
+					html5 += '<a href="" class="main__notice-item attach">';
+					html5 += '<span class="type notice-color-4">홍보</span>'
+					html5 += '<p>'+data.mainBoardList[i].brdTitle+'</p>'
+					html5 += '</a>'										
+				}
+			}
+			
+			//설문
+			for(var i=0;i<data.mainSurveyList.length;i++){				
+				html6 += '<a href="" class="main__notice-item attach">';
+				html6 += '<span class="type notice-color-5">설문</span>'
+				html6 += '<p>'+data.mainSurveyList[i].surveyTitle+'</p>'
+				html6 += '</a>'
+			}
+			html1 += '</div>';
+			html2 += '</div>';
+			html3 += '</div>';
+			html4 += '</div>';
+			html5 += '</div>';
+			html6 += '</div>';
+			$("#tab1").html(html1);
+			$("#tab2").html(html2);
+			$("#tab3").html(html3);
+			$("#tab4").html(html4);
+			$("#tab5").html(html5);
+			$("#tab6").html(html6);
+		},
+		error: function (request, status, error){
+			console.log(error);
+		}
+	});
     
 });
 
@@ -29,52 +140,33 @@ $(document.body).ready(function(){
         <!-- visual -->
         <div class="visual">
             <div class="slider">
-               
-                   <div class="visual__item" style="background-image: url('${pageContext.request.contextPath}/resource/assets/images/visual1.png');">
-                       <div class="wrap">
-                           <div>
-                               <span>KBS 오수진 기상캐스터</span>
-                               <h2>생명나눔 홍보대사 위촉</h2>
-                           </div>
-                           <p>
-                               기증자께서 제게 주신 것은 단순히 심장 하나가 아닙니다.<br/>
-                               지금 이 순간 살아 숨 쉴수 있다는 감사함.<br/>
-                               이 세상에 긍정적인 영향을 미치고 싶다는 바람까지 주셨습니다.<br/>
-                               앞으로 홍보대사로서 뜻 깊은 나눔의 가치를 많은 분들에게 알리겠습니다.
-                           </p>
-                       </div>
-                   </div>
-                
-                   <div class="visual__item" style="background-image: url('${pageContext.request.contextPath}/resource/assets/images/visual1.png');">
-                       <div class="wrap">
-                           <div>
-                               <span>KBS 오수진 기상캐스터</span>
-                               <h2>생명나눔 홍보대사 위촉</h2>
-                           </div>
-                           <p>
-                               기증자께서 제게 주신 것은 단순히 심장 하나가 아닙니다.<br/>
-                               지금 이 순간 살아 숨 쉴수 있다는 감사함.<br/>
-                               이 세상에 긍정적인 영향을 미치고 싶다는 바람까지 주셨습니다.<br/>
-                               앞으로 홍보대사로서 뜻 깊은 나눔의 가치를 많은 분들에게 알리겠습니다.
-                           </p>
-                       </div>
-                   </div>
-                
-                   <div class="visual__item" style="background-image: url('${pageContext.request.contextPath}/resource/assets/images/visual1.png');">
-                       <div class="wrap">
-                           <div>
-                               <span>KBS 오수진 기상캐스터</span>
-                               <h2>생명나눔 홍보대사 위촉</h2>
-                           </div>
-                           <p>
-                               기증자께서 제게 주신 것은 단순히 심장 하나가 아닙니다.<br/>
-                               지금 이 순간 살아 숨 쉴수 있다는 감사함.<br/>
-                               이 세상에 긍정적인 영향을 미치고 싶다는 바람까지 주셨습니다.<br/>
-                               앞으로 홍보대사로서 뜻 깊은 나눔의 가치를 많은 분들에게 알리겠습니다.
-                           </p>
-                       </div>
-                   </div>
-                
+            	<c:forEach items="${mainBannerList}" var="mainBannerList">
+            		<c:choose>
+            			<c:when test="${mainBannerList.mainBannerIdx eq '86'}">
+            				<div class="visual__item" style="background-image: url(/imageView.do?imageName=${mainBannerList.mainBannerFileName});">
+		                       <div class="wrap">
+		                           <div>
+		                               <span>KBS 오수진 기상캐스터</span>
+		                               <h2>생명나눔 홍보대사 위촉</h2>
+		                           </div>
+		                           <p>
+					                               기증자께서 제게 주신 것은 단순히 심장 하나가 아닙니다.<br/>
+					                               지금 이 순간 살아 숨 쉴수 있다는 감사함.<br/>
+					                               이 세상에 긍정적인 영향을 미치고 싶다는 바람까지 주셨습니다.<br/>
+					                               앞으로 홍보대사로서 뜻 깊은 나눔의 가치를 많은 분들에게 알리겠습니다.
+		                           </p>
+		                       </div>
+		                   </div>
+            			</c:when>
+            			<c:otherwise>
+            				<div class="visual__item" style="background-image: url(/imageView.do?imageName=${mainBannerList.mainBannerFileName});">
+		                       <div class="wrap">
+		                           
+		                       </div>
+		                   </div>
+            			</c:otherwise>
+            		</c:choose>
+            	</c:forEach>                                                                                                                                                
             </div>
             <!-- visual controller -->
             <div class="slider-controller">
@@ -82,10 +174,10 @@ $(document.body).ready(function(){
                     <span id="current">1</span>/<span id="total">3</span>
                 </div>
                 <div class="controller">
-                    <button class="prev"></button>
-                    <button class="stop"></button>
-                    <button class="play" style="display: none;"></button>
-                    <button class="next"></button>
+                    <button type="button" class="prev"></button>
+                    <button type="button" class="stop"></button>
+                    <button type="button" class="play" style="display: none;"></button>
+                    <button type="button" class="next"></button>
                 </div>
             </div>
         </div>
@@ -95,49 +187,49 @@ $(document.body).ready(function(){
             <div class="wrap">
                 <div class="left">
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="navlist__link">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav1.png" alt="">
                         </span>
                         <p>기증자예우</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('4','1','0')">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav2.png" alt="">
                         </span>
                         <p>기증희망등록</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('8','1','0')">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav3.png" alt="">
                         </span>
                         <p>KODA LAB</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('1','1','0')">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav4.png" alt="">
                         </span>
                         <p>장기·조직기증</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav5.png" alt="">
                         </span>
                         <p>홍보자료</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('7','1','0')">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav6.png" alt="">
                         </span>
                         <p>기관안내</p>
                     </a>
                     
-                    <a href="">
+                    <a href="javascript:fn_MoveUrl('5','5','1','/pr/notice.c')"">
                         <span class="icon">
                             <img src="${pageContext.request.contextPath}/resource/assets/images/main-nav7.png" alt="">
                         </span>
@@ -146,7 +238,7 @@ $(document.body).ready(function(){
                     
                 </div>
                 <div class="right">
-                    <a href="" class="row">
+                    <a href="javascript:fn_MoveUrl('8','1','0')" class="row">
                         <span>
                             <h3>의료진 전용</h3>
                             <p>
@@ -154,7 +246,7 @@ $(document.body).ready(function(){
                             </p>
                         </span>
                     </a>
-                    <a href="" class="row">
+                    <a href="javascript:fn_MoveUrl('4','1','0')" class="row">
                         <span>
                             <h3>일반인 전용</h3>
                             <p>
@@ -171,6 +263,12 @@ $(document.body).ready(function(){
             <div class="wrap flex pc">
                 <div class="main__chart-item">
                     <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart1.png" alt="">
+                    <!-- <div class="current">
+                    	<div>
+                    		<strong>100</strong>명
+                    	</div>
+                    	<p>2021-01-12 현재</p>
+                    </div> -->                    
                 </div>
                 <div class="main__chart-item">
                     <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart2.png" alt="">
@@ -269,223 +367,25 @@ $(document.body).ready(function(){
                         </div>
                     </div>
                     
-                    <div class="content" id="tab1">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab1"></div>
                     
-                    <div class="content" id="tab2" style="display: none;">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab2" style="display: none;"></div>
                     
-                    <div class="content" id="tab3" style="display: none;">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab3" style="display: none;"></div>
                     
-                    <div class="content" id="tab4" style="display: none;">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab4" style="display: none;"></div>
                     
-                    <div class="content" id="tab5" style="display: none;">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab5" style="display: none;"></div>
                     
-                    <div class="content" id="tab6" style="display: none;">
-                    <div class="main__notice-body">
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-5">설문</span>
-                            <p>
-                                자기의사결정 존중에 대해 어떻게 생각하시나요?
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item attach">
-                            <span class="type notice-color-2">입찰</span>
-                            <p>
-                                [입찰결과] 공식 홈페이지 개편 및 생명나눔 희망 우체통 개발 사업 입찰 결과발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-3">보도</span>
-                            <p>
-                               두 개의 심장을 가진 KBS 오수진 기상캐스터,받은 생명 나누기 위해 한국장기조직기증원 홍보대사로 임명
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-1">채용</span>
-                            <p>
-                               2020년 제4차 공개채용 최종 합격자 발표
-                            </p>
-                        </a>
-                        <a href="" class="main__notice-item">
-                            <span class="type notice-color-4">홍보</span>
-                            <p>
-                                2020년 제3차 공개채용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표용 최종 합격자 발표
-                            </p>
-                        </a>
-                    </div>
-                    </div>
+                    <div class="content" id="tab6" style="display: none;"></div>
                     
                 </div>
                 <div class="right">
                     <div class="main__content-header">
                         <h3 class="title">기관소식</h3>
                         <div class="actions">
-                            <button class="btn main__news-prev"></button>
-                            <button class="btn main__news-next"></button>
+                            <button type="button" class="btn main__news-prev"></button>
+                            <button type="button" class="btn main__news-next"></button>
                             <a href="" class="btn main__more"></a>
                         </div>
                     </div>

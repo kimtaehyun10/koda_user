@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koticobui.dfmc.client.main.mapper.MainMapper">
+
+	<select id="mainBoardList" resultType = "egovMap" parameterType="hashmap">
+		(select * from board_cont where brd_no='7' order by reg_dm desc limit ${limit})		
+		union all		
+		(select * from board_cont where brd_no='43' order by reg_dm desc limit ${limit})
+		union all
+		(select * from board_cont where brd_no='31' order by reg_dm desc limit ${limit})
+		union all
+		(select * from board_cont where brd_no='36' order by reg_dm desc limit ${limit})
+	</select>
+	
+	<select id="mainSurveyList" resultType = "egovMap" parameterType="hashmap">
+		select *
+		from survey
+		order by survey_regdate desc
+		limit 5
+	</select>
+	
+	<select id="mainBannerList" resultType = "egovMap" parameterType="hashmap">		
+		select * 
+		from main_banner 
+		where main_banner_view='Y'
+		order by main_banner_idx desc
+	</select>
+</mapper>

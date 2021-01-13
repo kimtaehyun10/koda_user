@@ -85,20 +85,18 @@ $.fn.clearForm = function () {
 
 </head>
 <body>
-	<div class="wrapper">
+	<div class="wrapper">				 
 		<div class="topMessage">
-			<div class="wrap flex items-center">
-				<div class="logo">
-					<img
-						src="${pageContext.request.contextPath}/resource/assets/images/header-message-logo.png"
-						alt="">
-				</div>
-				<p class="text font-myeongjo">“지금 우리의 헤어짐이 영원한 이별이 아닌 잠시 동안 작별이라
-					생각하고 그리움은 간직하겠지만 슬픔은 잊어볼게 언니야 사랑해”..........</p>
-				<span class="author font-myeongjo">추모자 : 한**</span>
-			</div>
-		</div>
-
+		    <div class="wrap flex items-center">
+		        <div class="logo">
+		            <img src="${pageContext.request.contextPath}/resource/assets/images/header-message-logo.png" alt="">
+		        </div>
+		        <Marquee class="text font-myeongjo">
+		            “지금 우리의 헤어짐이 영원한 이별이 아닌 잠시 동안 작별이라 생각하고 그리움은 간직하겠지만 슬픔은 잊어볼게 언니야 사랑해”..........
+		        </Marquee>
+		        <span class="author font-myeongjo">추모자 : 한**</span>
+		    </div>
+		</div>		
 		<header class="header">
 			<div class="header__top">
 				<div class="wrap flex items-center">
@@ -131,7 +129,7 @@ $.fn.clearForm = function () {
 				<div class="wrap flex items-center">
 					<div class="navlist flex-1">
 						<div class="navlist__item">
-							<a href="#" class="navlist__link">장기조직기능</a>
+							<a href="#" class="navlist__link">장기조직기증</a>
 							<div class="navlist__depth">
 								<div class="wrap flex">
 									<div class="depth-name">
@@ -169,7 +167,7 @@ $.fn.clearForm = function () {
 											<div class="depth-links-inner">
 												<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">뇌사장기기증자 관리업무협약</a>
 												<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')">DIP 협약병원</a>
-												<a href="javascript:fn_MoveUrl('1','6','3')">검사실 협약</a>
+												<!-- <a href="javascript:fn_MoveUrl('1','6','3')">검사실 협약</a> -->
 											</div>
 										</div>
 									</div>
@@ -259,7 +257,7 @@ $.fn.clearForm = function () {
 								<div class="col__depth">
 									<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">뇌사장기기증자 관리업무협약</a>
 									<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')">DIP 협약병원</a>
-									<a href="javascript:fn_MoveUrl('1','6','3')">검사실 협약</a>
+									<!-- <a href="javascript:fn_MoveUrl('1','6','3')">검사실 협약</a> -->
 								</div>
 							</div>
 						</div>
@@ -396,7 +394,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('7','4','0')">연혁</a>
 							</div>
 							<div class="col__item">
-								<a href="javascript:fn_MoveUrl('7','5','0','/com/comrecruit.c')">KODA 인재채용</a>
+								<a href="javascript:fn_MoveUrl('7','5','0')">KODA 인재채용</a>
 							</div>
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('7','6','0')">CI소개 및 캐릭터</a>
@@ -553,7 +551,7 @@ $.fn.clearForm = function () {
 							<a href="javascript:fn_MoveUrl('7','4','0')">연혁</a>
 						</div>
 						<div class="col__item">
-							<a href="javascript:fn_MoveUrl('7','5','0','/com/comrecruit.c')">KODA 인재채용</a>
+							<a href="javascript:fn_MoveUrl('7','5','0')">KODA 인재채용</a>
 						</div>
 						<div class="col__item">
 							<a href="javascript:fn_MoveUrl('7','6','0')">CI소개 및 캐릭터</a>
@@ -697,7 +695,7 @@ $.fn.clearForm = function () {
 								<div class="depth">
 									<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')" id = "161" class="depth-link">뇌사장기기증자 관리업무협약</a>
 									<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')" id = "162" class="depth-link">DIP 협약병원</a>
-									<a href="javascript:fn_MoveUrl('1','6','3')" id = "163" class="depth-link">검사실 협약</a>
+									<!-- <a href="javascript:fn_MoveUrl('1','6','3')" id = "163" class="depth-link">검사실 협약</a> -->
 								</div>
 							</div>
 						</div>
@@ -804,7 +802,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('7','4','0')" id = "740" class="link">연혁</a>
 							</div>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('7','5','0','/com/comrecruit.c')" id = "750" class="link">KODA 인재채용</a>
+								<a href="javascript:fn_MoveUrl('7','5','0')" id = "750" class="link">KODA 인재채용</a>
 							</div>
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('7','6','0')" id = "760" class="link">CI소개 및 캐릭터</a>
