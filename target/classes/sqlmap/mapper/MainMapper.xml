@@ -25,4 +25,16 @@
 		where main_banner_view='Y'
 		order by main_banner_idx desc
 	</select>
+	
+	<select id="bannerList" resultType = "egovMap" parameterType="hashmap">		
+		select * 
+		from banner 		
+		order by banner_idx desc
+	</select>
+	
+	<select id="scheduleList" resultType = "egovMap" parameterType="hashmap">
+		select * 
+		from schedule
+		where #{fullDate} between sch_start_dt and sch_end_dt
+	</select>
 </mapper>

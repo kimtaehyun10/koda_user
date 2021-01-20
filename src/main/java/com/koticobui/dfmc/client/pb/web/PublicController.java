@@ -838,5 +838,53 @@ public class PublicController {
 
 		return "/info/infohope";
 	}
+	
+	//채용 게시판
+	@RequestMapping(value = "/pr/hire.c", method = RequestMethod.POST)
+	public String hire(@RequestParam("menuCd") String menuCd, @RequestParam("seqCd1") String seqCd1,
+			@RequestParam("seqCd2") String seqCd2, HttpServletRequest request) throws Exception {
+		Map requestMap = new HashMap<String, Object>();
+		requestMap.put("menuCd", menuCd);
+		requestMap.put("seqCd1", seqCd1);
+		requestMap.put("seqCd2", seqCd2);
+
+		publicService.hire(request);
+
+		if (menuCd != null || seqCd1 != null || seqCd2 != null) {
+			List<Map<String, Object>> mlist = commonService.searchSubMenuList(requestMap);
+
+			request.setAttribute("mlist", mlist);
+		}
+
+		request.setAttribute("menuCd", menuCd);
+		request.setAttribute("seqCd1", seqCd1);
+		request.setAttribute("seqCd2", seqCd2);
+
+		return "pr/hire";
+	}
+	
+	//채용 게시판_뷰
+	@RequestMapping(value = "/pr/hire_view.c", method = RequestMethod.POST)
+	public String hire_view(@RequestParam("menuCd") String menuCd, @RequestParam("seqCd1") String seqCd1,
+			@RequestParam("seqCd2") String seqCd2, HttpServletRequest request) throws Exception {
+		Map requestMap = new HashMap<String, Object>();
+		requestMap.put("menuCd", menuCd);
+		requestMap.put("seqCd1", seqCd1);
+		requestMap.put("seqCd2", seqCd2);
+
+		publicService.hire_view(request);
+
+		if (menuCd != null || seqCd1 != null || seqCd2 != null) {
+			List<Map<String, Object>> mlist = commonService.searchSubMenuList(requestMap);
+
+			request.setAttribute("mlist", mlist);
+		}
+
+		request.setAttribute("menuCd", menuCd);
+		request.setAttribute("seqCd1", seqCd1);
+		request.setAttribute("seqCd2", seqCd2);
+
+		return "pr/hire_view";
+	}
 }
 

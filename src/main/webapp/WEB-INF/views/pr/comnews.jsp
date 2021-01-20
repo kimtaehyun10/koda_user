@@ -72,9 +72,15 @@
                 		<c:forEach var="forum" items="${forumList }" varStatus="status">
                         <div class="item">
                             <a href="javascript:goView(<c:out value="${forum.brdContNo }"/>)" class="flex">
-                                <div class="img">
-                                	<!-- <img src="/upFile/${forum.brdFileNm }" alt="${forum.brdTitle }"> -->
-                                    <img src="${pageContext.request.contextPath}/resource/assets/images/news-img.png" alt="">
+                                <div class="img">                                	                                	                                    
+                                    <c:choose>
+                                    	<c:when test="${forum.brdFileNm ne ''}">
+                                    		<img src="/imageView.do?imageName=${forum.brdFileNm}" alt="" style="width: 360px; height: 250px;">
+                                    	</c:when>
+                                    	<c:otherwise>
+                                    		<img src="${pageContext.request.contextPath}/resource/assets/images/news-img.png" alt="">
+                                    	</c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <div class="txtBox">
                                     <div class="tit">

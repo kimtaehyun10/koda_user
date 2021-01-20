@@ -71,9 +71,9 @@
 						<c:forEach var="casebook" items="${casebookList }" varStatus="status">
                             <div class="item">
                                 <div class="imgBox relative">
-                                    <div class="img">
-                                    	<!-- <img src="/upFile/${casebook.brdFileNm }" alt="<c:out value="${casebook.brdTitle }" />"> -->
-                                        <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg.png" alt="">
+                                    <div class="img">                                    	
+                                        <!-- <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg.png" alt=""> -->
+                                        <img src="/imageView.do?imageName=${casebook.brdFileNm}" alt="" style="width: 360px; height: 430px;">
                                     </div>
                                     <div class="button flex absolute">
                                     	<c:set var="downUrl" />

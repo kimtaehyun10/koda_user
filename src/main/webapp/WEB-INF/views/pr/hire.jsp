@@ -21,7 +21,7 @@
 		$('#searchKey').val($('#searchKeySelect').val());
 		$('#currentPage').val(0);
 		$('#method').val('');
-		$('#frm_url').attr('action', '/pr/notice.c').submit();
+		$('#frm_url').attr('action', '/pr/hire.c').submit();
 	}
 
 	function goList(page){
@@ -34,13 +34,13 @@
 		}
 		
 		$('#currentPage').val(page);
-		$('#frm_url').attr('action', '/pr/notice.c').submit();
+		$('#frm_url').attr('action', '/pr/hire.c').submit();
 	}
 	
 	function goView(idx){
 		$('#method').val('view');
 		$('#idx').val(idx);
-		$('#frm_url').attr('action', '/pr/notice_view.c').submit();
+		$('#frm_url').attr('action', '/pr/hire_view.c').submit();
 	}
 </script>
 </head>
@@ -52,17 +52,9 @@
 	<input type="hidden" name="idx" id="idx">
 	<div class="wrap">
                 <div class="sub__header">
-                    <h2>공지사항</h2>
+                    <h2>채용</h2>
                 </div>
-                <div class="memorial__search-form mb-8">
-                    <div class="select" style="margin:0;margin-right: 10px;">
-                        <select name="optionStr" id="optionStr">
-                            <option value="">전체분류</option>
-                            <option value="1" <c:if test="${kodaSearch.optionStr eq '1' }">selected</c:if>>공지사항</option>                            
-                            <option value="2" <c:if test="${kodaSearch.optionStr eq '2' }">selected</c:if>>입찰</option>
-                            <option value="3" <c:if test="${kodaSearch.optionStr eq '3' }">selected</c:if>>홍보</option>
-                        </select>
-                    </div>
+                <div class="memorial__search-form mb-8">                    
                     <div class="select" style="margin:0;margin-right: 10px;">
                         <select name="searchKeySelect" id="searchKeySelect" title="검색범위선택">
                            <option value="">전체</option>
@@ -79,16 +71,14 @@
                     <div class="table promote__table effectNone">
                         <table>
                             <colgroup>
-                                <col class="col1">
-                                <col class="col1">
+                                <col class="col1">                                
                                 <col class="col">
                                 <col class="col3">
                                 <col class="col4">
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th>번호</th>
-                                    <th>구분</th>
+                                    <th>번호</th>                                                                        
                                     <th>제목</th>
                                     <th>등록일</th>
                                     <th>조회수</th>
@@ -97,17 +87,7 @@
                             <tbody>
                             	<c:forEach var="notice" items="${noticeList }" varStatus="status">
                                 <tr>
-                                    <td><c:out value="${totalCount - ((kodaSearch.currentPage - 1) * kodaSearch.articleCount) - status.index }"/></td>
-                                    <td>
-	                                    <c:choose>
-											<c:when test="${notice.brdEtc1 eq '1'}">공지사항</c:when>
-											<c:when test="${notice.brdEtc1 eq '2'}">입찰</c:when>
-											<c:when test="${notice.brdEtc1 eq '3'}">홍보</c:when>
-											<c:otherwise>
-												구분없음
-											</c:otherwise>
-										</c:choose>
-									</td>
+                                    <td><c:out value="${totalCount - ((kodaSearch.currentPage - 1) * kodaSearch.articleCount) - status.index }"/></td>                                                                        
                                     <td>
                                         <a href="javascript:goView(${notice.brdContNo })">
                                            <c:out value="${notice.brdTitle }"/>

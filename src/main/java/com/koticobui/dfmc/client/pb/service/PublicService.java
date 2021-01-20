@@ -77,4 +77,8 @@ public interface PublicService {
 	HttpServletRequest infotrans(HttpServletRequest request);
 
 	HttpServletRequest infohope(HttpServletRequest request);
+	
+	HttpServletRequest hire(HttpServletRequest request);
+
+	HttpServletRequest hire_view(HttpServletRequest request);
 }

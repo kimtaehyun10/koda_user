@@ -41,6 +41,9 @@
 				<when test='optionStr == "2"'>
 					AND BC.BRD_ETC1 = 2
 				</when>
+				<when test='optionStr == "3"'>
+					AND BC.BRD_ETC1 = 3
+				</when>
 			</choose>
 		 </if>
     </select>
@@ -84,6 +87,9 @@
 					</when>  
 					<when test='optionStr == "2"'>
 						AND BC.BRD_ETC1 = 2
+					</when>
+					<when test='optionStr == "3"'>
+						AND BC.BRD_ETC1 = 3
 					</when>
 				</choose>
 		 	</if>

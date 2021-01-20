@@ -339,6 +339,9 @@ $.fn.clearForm = function () {
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('5','6','0')">소통게시판</a>
 							</div>
+							<div class="col__item">
+								<a href="javascript:fn_MoveUrl('5','7','0','/pr/hire.c')">채용</a>
+							</div>
 						</div>
 					</div>
 
@@ -512,6 +515,9 @@ $.fn.clearForm = function () {
 						</div>
 						<div class="col__item">
 							<a href="javascript:fn_MoveUrl('5','6','0')">소통게시판</a>
+						</div>
+						<div class="col__item">
+							<a href="javascript:fn_MoveUrl('5','7','0','/pr/hire.c')">채용</a>
 						</div>
 					</div>
 				</div>
@@ -755,6 +761,9 @@ $.fn.clearForm = function () {
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('5','6','0')" id = "560" class="link">소통게시판</a>
 							</div>
+							<div class="row">
+								<a href="javascript:fn_MoveUrl('5','7','0','/pr/hire.c')" id = "570" class="link">채용</a>
+							</div>
 						</div>
 					</c:if>
 					<c:if test="${menuCd eq '6'}">
@@ -856,7 +865,18 @@ $.fn.clearForm = function () {
 			<div class="footer__partners">
 				<div class="wrap">
 					<div class="slider">
-
+						<!--
+						하단배너 작업완료 - 배너 최종 수정되면 주석 풀자 
+						<c:forEach items="${bannerList}" var="bannerList">
+							<div class="footer__partners-item">
+								<a href="${bannerList.bannerUrl}" target="_blank"> <img
+									src="/imageView.do?imageName=${bannerList.bannerImg}"
+									alt="보건복지상담센터">
+								</a>
+							</div>
+						</c:forEach> 
+						-->
+												
 						<div class="footer__partners-item">
 							<a href="http://www.mohw.go.kr/react/index.jsp" target="_blank"> <img
 								src="${pageContext.request.contextPath}/resource/assets/images/footer-partner1.png"

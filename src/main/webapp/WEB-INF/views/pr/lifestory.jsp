@@ -94,8 +94,8 @@
                                 <a href="javascript:goView(<c:out value="${story.brdContNo }"/>)" class="inline-block">
                                     <div class="imgBox">
                                         <div class="img">
-                                            <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg3.png" alt="<c:out value="${story.brdTitle }" />">
-	                    					<!-- <img src="/upFile/${story.brdFileNm }" alt="<c:out value="${story.brdTitle }" />"> -->
+                                            <!-- <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg3.png" alt="<c:out value="${story.brdTitle }" />"> -->	                    					
+	                    					<img src="/imageView.do?imageName=${story.brdFileNm}" alt="" style="width: 360px; height: 265px;">
                                         </div>
                                     </div>
                                     <div class="txtBox">

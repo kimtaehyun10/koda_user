@@ -79,9 +79,9 @@
                             <div class="item">
                                 <a href="javascript:goView(<c:out value="${webContents.brdContNo }"/>)" class="inline-block">
                                     <div class="imgBox">
-                                        <div class="img">
-                                        	<!-- <img class="webcontent" src="/upFile/${webContents.brdFileNm }" alt="<c:out value="${webContents.brdTitle }" />"> -->
-                                            <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg2.png" alt="<c:out value="${webContents.brdTitle }" />">
+                                        <div class="img">                                        	
+                                            <!--<img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg2.png" alt="<c:out value="${webContents.brdTitle }" />">-->
+                                            <img src="/imageView.do?imageName=${webContents.brdFileNm}" alt="" style="width: 360px; height: 265px;">
                                         </div>
                                     </div>
                                     <div class="txtBox">

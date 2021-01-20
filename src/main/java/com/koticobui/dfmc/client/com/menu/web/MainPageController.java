@@ -30,10 +30,22 @@ public class MainPageController {
 	}
 	
 	@RequestMapping(value = "/main.c")
-	public ModelAndView mainPage(ModelAndView modelAndView, String loginError, Map<String, Object> requestMap) {
+	public ModelAndView mainPage(ModelAndView modelAndView, String loginError, Map<String, Object> requestMap, HttpServletRequest request) {
 		//메인 배너
 		List<Map<String, Object>> mainBannerList = mainservice.mainBannerList(requestMap);
 		modelAndView.addObject("mainBannerList",mainBannerList);
+		
+		//메인 기관소식
+		List<Map<String, Object>> mainOrganEventList = mainservice.mainOrganEventList(request);
+		modelAndView.addObject("mainOrganEventList",mainOrganEventList);
+		
+		//메인 생명나눔 스토리
+		List<Map<String, Object>> mainLifeSharingList = mainservice.mainLifeSharingList(request);
+		modelAndView.addObject("mainLifeSharingList",mainLifeSharingList);
+		
+		//하단 배너
+		List<Map<String, Object>> bannerList = mainservice.bannerList(requestMap);
+		modelAndView.addObject("bannerList",bannerList);
 		
 		modelAndView.addObject("loginError", loginError);
 		modelAndView.setViewName("main");

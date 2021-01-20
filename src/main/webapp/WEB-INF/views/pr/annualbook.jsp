@@ -71,9 +71,9 @@
 						<c:forEach var="annual" items="${annualList }" varStatus="status">
                             <div class="item">
                                 <div class="imgBox relative">
-                                    <div class="img">
-                                    	<!-- <img src="/upFile/${annual.brdFileNm }" alt="<c:out value="${annual.brdTitle }" />"> -->
-                                        <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg.png" alt="">
+                                    <div class="img">                                    	
+                                        <!-- <img src="${pageContext.request.contextPath}/resource/assets/images/publication-bg.png" alt=""> -->
+                                        <img src="/imageView.do?imageName=${annual.brdFileNm}" alt="" style="width: 360px; height: 430px;">
                                     </div>
                                     <div class="button flex absolute">
                                     	<c:set var="downUrl" />

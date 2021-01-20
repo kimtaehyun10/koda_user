@@ -102,6 +102,7 @@ public class PublicServiceImpl implements PublicService {
     private int noticeNum;
     private int humanboardNum;
     private int faqNum;
+    private int hireNum;
     
     public PublicServiceImpl()
     {
@@ -113,7 +114,7 @@ public class PublicServiceImpl implements PublicService {
       this.publicationNum = 22;
       this.newsLetterNum = 23;
       this.annualNum = 24;
-      this.casebookNum = 24;
+      this.casebookNum = 22;
       this.storyNum = 30;
     
       this.academicNum = 13;
@@ -129,6 +130,7 @@ public class PublicServiceImpl implements PublicService {
       this.noticeNum = 7;
       this.humanboardNum = 27;
       this.faqNum = 29;
+      this.hireNum = 43;
     }
     
 	@Override
@@ -220,7 +222,7 @@ public class PublicServiceImpl implements PublicService {
 			prSearch.setCurrentPage(1);
 		}
 		prSearch.setBrdFileSeq(1);
-		prSearch.setBrdNo(this.casebookNum); //사례집으로 수정
+		prSearch.setBrdNo(this.casebookNum);
 		prSearch.setSearchKey(request.getParameter("searchKey"));
 		prSearch.setSearchValue(request.getParameter("searchValue"));
 		int totalCnt = publicMapper.getBoardCount(prSearch);
@@ -1011,6 +1013,62 @@ public class PublicServiceImpl implements PublicService {
         
 		return request;
 	}
+	
+	@Override
+	public HttpServletRequest hire(HttpServletRequest request) {
+		String currentPage = request.getParameter("currentPage");
+		PublicSearchVO prSearch = new PublicSearchVO();
+        if(currentPage != null && !"".equals(currentPage)){
+            prSearch.setCurrentPage(Integer.parseInt(currentPage));
+        }else{
+			prSearch.setCurrentPage(1);
+        }
+        prSearch.setBrdNo(this.hireNum);
+        prSearch.setOptionStr(request.getParameter("optionStr"));
+        prSearch.setSearchKey(request.getParameter("searchKey"));
+        prSearch.setSearchValue(request.getParameter("searchValue"));
+        int totalCnt = publicMapper.getBoardCount(prSearch);
+        prSearch.setTotalCount(totalCnt);
+        List<Map<String,Object>> list = publicMapper.getBoardList(prSearch);
+        request.setAttribute("noticeList", list);
+        request.setAttribute("kodaSearch", prSearch);
+        request.setAttribute("totalCount", Integer.valueOf(totalCnt));
+        
+		return request;
+	}
+	
+	@Override
+	public HttpServletRequest hire_view(HttpServletRequest request) {
+		
+		String currentPage = request.getParameter("currentPage");
+        String idx = request.getParameter("idx");
+		PublicSearchVO prSearch = new PublicSearchVO();
+		if ((currentPage != null) && (!"".equals(currentPage))){
+			prSearch.setCurrentPage(Integer.parseInt(currentPage));
+		}else {
+			prSearch.setCurrentPage(1);
+		}
+        if(idx != null && !"".equals(idx)){
+            prSearch.setBrdContNo(Integer.parseInt(idx));
+        }
+        prSearch.setBrdFileSeq(1);
+        prSearch.setBrdNo(this.hireNum);
+        prSearch.setOptionStr(request.getParameter("optionStr"));
+		prSearch.setSearchKey(request.getParameter("searchKey"));
+		prSearch.setSearchValue(request.getParameter("searchValue"));
+        request.setAttribute("kodaSearch", prSearch);
+        publicMapper.updateReadNum(prSearch);
+        Map<String,Object> boardContBean = publicMapper.getBoard(prSearch);
+        request.setAttribute("notice", boardContBean);
+        prSearch.setOptionStr("next");
+        Map<String,Object> boardContBeanNext = publicMapper.getBoard(prSearch);
+        request.setAttribute("noticeNext", boardContBeanNext);
+        prSearch.setOptionStr("prev");
+        Map<String,Object> boardContBeanPrev = publicMapper.getBoard(prSearch);
+        request.setAttribute("noticePrev", boardContBeanPrev);
+        
+		return request;
 
+	}
 
 }
