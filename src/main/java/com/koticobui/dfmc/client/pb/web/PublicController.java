@@ -65,6 +65,40 @@ public class PublicController {
     @Resource(name = "commonService")
     private CommonService commonService;
 
+    
+    
+    //간행물
+   	@RequestMapping(value = "/pr/publicview.c", method = RequestMethod.POST)
+       public String publicview( 
+   			  @RequestParam("menuCd") String menuCd
+   			, @RequestParam("seqCd1") String seqCd1
+   			, @RequestParam("seqCd2") String seqCd2
+   			, HttpServletRequest request)
+       	    throws Exception
+       	  {
+   			Map requestMap = new HashMap<String, Object>();
+   			requestMap.put("menuCd", menuCd);
+   			requestMap.put("seqCd1", seqCd1);
+   			requestMap.put("seqCd2", seqCd2);
+   			
+       	    publicService.annual(request);
+    	    publicService.news_Letter(request);
+    	    publicService.casebook(request);
+    	    
+       		if (menuCd != null || seqCd1 != null || seqCd2 != null) {
+       			List<Map<String, Object>> mlist = commonService.searchSubMenuList(requestMap);	
+
+       		    request.setAttribute("mlist", mlist);
+       		}
+
+       	    request.setAttribute("menuCd", menuCd);
+       	    request.setAttribute("seqCd1", seqCd1);
+       	    request.setAttribute("seqCd2", seqCd2);
+
+       	    return "/pr/publicview";
+       	  }
+    
+    
     //연보
 	@RequestMapping(value = "/pr/annual.c", method = RequestMethod.POST)
     public String annual( 

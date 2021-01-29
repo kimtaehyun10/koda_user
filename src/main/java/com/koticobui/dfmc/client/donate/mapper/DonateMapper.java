@@ -59,6 +59,9 @@ public interface DonateMapper {
 	
 	int updateStoryHits(DonateSearchVO donateSearchBean);
 	
-	int checkPwd(DonateSearchVO donateSearchBean);	
-	
+	int checkPwd(DonateSearchVO donateSearchBean);
+
+	//void insertChoice(DonateVO donateBean);
+
+
 }

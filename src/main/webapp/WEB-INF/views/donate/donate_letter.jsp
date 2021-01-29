@@ -63,13 +63,16 @@
 	<input type="hidden" name="method" id="method">
 	<div class="wrap">
                 <div class="sub__header">
+                	 <div class="memorial__head__cm01a">
+						<span class="dq_t01"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_dq_t01.png" alt=""></span>하늘의 아름다운 별이 된 당신께<span class="dq_b01"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_dq_b01.png" alt=""></span>
+					</div>
                     <h2>하늘나라 편지</h2>
                 </div>
                 <div class="sub__tabs memorial">
-                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="">기증자 추모관</a>
-                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" class="active">하늘나라 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="">수혜자 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="">기증 후 스토리</a>
+                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="dp1a">기증자 추모관</a>
+                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" class="dp1a active active__green1a">하늘나라 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="dp1a">수혜자 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="dp1a">기증 후 스토리</a>
 
 
                     <div class="select">
@@ -131,7 +134,9 @@
                         <div class="input name mobile-mt-10">
                         	<input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${donateSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                         </div>
+                        <div class="submit fobx2">
                         <button type="button" class="submit" title="검색하기" onclick="return goSearch();">검색하기</button>
+                        </div>
                     </div>
 					
 					<c:if test="${!empty letterList }">

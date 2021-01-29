@@ -245,7 +245,7 @@ $(function(){
 	                    <div class="col__item">
 	                        <a href="">장기·조직 기증</a>
 	                    </div>
-	                    <div class="col__item">
+	                 <div class="col__item">
 	                        <a href="">장기·조직 기증이란</a>
 	                        <div class="col__depth">
 	                            <a href="">생명나눔이란 무엇인가요?</a>
@@ -255,7 +255,7 @@ $(function(){
 	                            <a href="">조직기증</a>
 	                            <a href="">한 눈에 보는 기증 흐름도</a>
 	                        </div>
-	                    </div>
+	                    </div> 
 	                    <div class="col__item">
 	                        <a href="">기증팩트체크</a>
 	                    </div>
@@ -773,6 +773,9 @@ $(function(){
     <span class="loader-inner"></span>
   </span>
 </div>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/js/ui.js?v=<?=mktime();?>"></script>
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugins/jquery/jquery.js"></script>

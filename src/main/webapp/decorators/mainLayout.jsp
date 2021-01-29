@@ -4,29 +4,9 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.List"%>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-          
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/plugins/jquery-ui-1.12.1/jquery-ui.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/css/main.css"> 
-
-
-	<script	src="${pageContext.request.contextPath}/resource/assets/plugins/jquery/jquery.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/dist/AXJ.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/lib/AXUtil.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/lib/AXValidator.js"></script>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/axisj/ui/AXJ.min.css"/>
-
-	<title>한국장기조직기증원</title>
-	
+ 
+   
+<jsp:include page="main_part/main_dt.jsp"></jsp:include> 
 <script type="text/javascript">
 function fn_MovePage(url) {
 	document.location.href = url; 
@@ -79,12 +59,14 @@ $.fn.clearForm = function () {
 	  });
 	};
 
+
 </script>
 
 <sitemesh:write property="head" />
 
 </head>
 <body>
+
 	<div class="wrapper">				 
 		<div class="topMessage">
 		    <div class="wrap flex items-center">
@@ -129,7 +111,7 @@ $.fn.clearForm = function () {
 				<div class="wrap flex items-center">
 					<div class="navlist flex-1">
 						<div class="navlist__item">
-							<a href="#" class="navlist__link">장기조직기증</a>
+							<a href="javascript:fn_MoveUrl('1','1','0')" class="navlist__link">장기조직기증</a>
 							<div class="navlist__depth">
 								<div class="wrap flex">
 									<div class="depth-name">
@@ -140,9 +122,13 @@ $.fn.clearForm = function () {
 									</div>
 									<div class="depth-links">
 										<div class="depth-links-item">
-											<a href="javascript:fn_MoveUrl('1','1','0')">장기·조직 기증</a>
+											<a href="javascript:fn_MoveUrl('1','1','0')" class="link gourl1 active" >장기·조직 기증</a>
+										<div class="depth-links-inner">
+										<a href="javascript:fn_MoveUrl('1','2','1')">장기·조직 기증이란 무엇인가요?</a>
+										<a href="javascript:fn_MoveUrl('1','2','3')">기증은 언제할 수 있나요?</a>
+									</div>
 										</div>
-										<div class="depth-links-item">
+								<!-- 		<div class="depth-links-item">
 											<a href="javascript:fn_MoveUrl('1','2','1')" class="link">장기·조직 기증이란</a>
 											<div class="depth-links-inner">
 												<a href="javascript:fn_MoveUrl('1','2','1')">생명나눔이란 무엇인가요?</a>
@@ -152,18 +138,18 @@ $.fn.clearForm = function () {
 												 <a href="javascript:fn_MoveUrl('1','2','5')">조직기증</a>
 												 <a href="javascript:fn_MoveUrl('1','2','6')">한 눈에 보는 기증 흐름도</a>
 											</div>
+										</div> -->
+										<div class="depth-links-item">
+											<a href="javascript:fn_MoveUrl('1','3','0','/organ/organ_fact.c')" class="link nodepth">기증팩트체크</a>
 										</div>
 										<div class="depth-links-item">
-											<a href="javascript:fn_MoveUrl('1','3','0','/organ/organ_fact.c')">기증팩트체크</a>
+											<a href="javascript:fn_MoveUrl('1','4','0')" class="link nodepth">KODA코디네이터</a>
 										</div>
 										<div class="depth-links-item">
-											<a href="javascript:fn_MoveUrl('1','4','0')">KODA코디네이터</a>
+											<a href="javascript:fn_MoveUrl('1','5','0')" class="link nodepth">기증용어 설명</a>
 										</div>
 										<div class="depth-links-item">
-											<a href="javascript:fn_MoveUrl('1','5','0')">기증용어 설명</a>
-										</div>
-										<div class="depth-links-item">
-											<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')" class="link"> 협약병원</a>
+											<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')" class="link">KODA협약병원</a>
 											<div class="depth-links-inner">
 												<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">뇌사장기기증자 관리업무협약</a>
 												<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')">DIP 협약병원</a>
@@ -193,13 +179,13 @@ $.fn.clearForm = function () {
 							<a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="navlist__link">기증자예우</a>
 						</div>
 						<div class="navlist__item">
-							<a href="javascript:fn_MovePage('/let/letterMain.l');" class="navlist__link">생명나눔우체통</a>
+							<a href="javascript:fn_MovePage('/let/letterMain.l');" class="navlist__link">생명나눔 희망우체통</a>
 						</div>
 						<div class="navlist__item">
 							<a href="javascript:fn_MoveUrl('4','1','0')" class="navlist__link">기증희망등록</a>
 						</div>
 						<div class="navlist__item">
-							<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')" class="navlist__link">홍보·소식</a>
+							<a href="javascript:fn_MoveUrl('5','1','0','/pr/publicview.c')" class="navlist__link">홍보·자료</a>
 						</div>
 						<div class="navlist__item">
 							<a href="javascript:fn_MoveUrl('6','1','1')" class="navlist__link">정보공개</a>
@@ -212,7 +198,7 @@ $.fn.clearForm = function () {
 				</div>
 			</nav>
 		</header>
-
+<jsp:include page="main_part/main_part1.jsp"></jsp:include> 
 		<div class="sitemap">
 			<div class="wrap">
 				<div class="sitemap__header">
@@ -235,14 +221,14 @@ $.fn.clearForm = function () {
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('1','2','1')">장기·조직 기증이란</a>
 								<div class="col__depth">
-									<a href="javascript:fn_MoveUrl('1','2','1')">생명나눔이란 무엇인가요?</a>
-									<a href="javascript:fn_MoveUrl('1','2','2')">기증은 왜 필요한가요?</a>
-									<a href="javascript:fn_MoveUrl('1','2','3')">기증은 언제 이루어지나요?</a>
-									<a href="javascript:fn_MoveUrl('1','2','4')">장기기증</a> 
-									<a href="javascript:fn_MoveUrl('1','2','5')">조직기증</a>
-									<a href="javascript:fn_MoveUrl('1','2','6')">한 눈에 보는 기증 흐름도</a>
+									<a href="javascript:fn_MoveUrl('1','2','1')">장기·조직 기증이란 무엇인가요?</a>
+							<!-- 		<a href="javascript:fn_MoveUrl('1','2','2')">기증은 왜 필요한가요?</a> -->
+									<a href="javascript:fn_MoveUrl('1','2','3')">기증은 언제할 수 있나요?</a>
+							<!--		<a href="javascript:fn_MoveUrl('1','2','4')">장기기증</a>  -->
+							<!--		<a href="javascript:fn_MoveUrl('1','2','5')">조직기증</a> -->
+								<!--	<a href="javascript:fn_MoveUrl('1','2','6')">한 눈에 보는 기증 흐름도</a> -->
 								</div>
-							</div>
+							</div> 
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('1','3','0','/organ/organ_fact.c')">기증팩트체크</a>
 							</div>
@@ -253,7 +239,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('1','5','0')">기증용어 설명</a>
 							</div>
 							<div class="col__item">
-								<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">협약병원</a>
+								<a href="javascript:fn_MoveUrl('1','6','3')" >KODA협약병원</a>
 								<div class="col__depth">
 									<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">뇌사장기기증자 관리업무협약</a>
 									<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')">DIP 협약병원</a>
@@ -275,9 +261,20 @@ $.fn.clearForm = function () {
 									<a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')">하늘나라 편지</a> 
 									<a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')">수혜자	편지</a>
 									<a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')">기증 후 스토리</a>
-									<a href="javascript:fn_MoveUrl('2','5','0')">기증자 추모 및 가족행사</a>
+									
 								</div>
+		
 							</div>
+							
+								<div class="col__item">
+									<a href="javascript:fn_MoveUrl('','','')">가족지원 서비스</a> 
+								</div>
+								<div class="col__item">
+									<a href="javascript:fn_MoveUrl('','','')">기증 후 행정처리</a> 
+								</div>
+								<div class="col__item">
+									<a href="javascript:fn_MoveUrl('2','5','0')">기증자 추모 및 가족모임</a> 
+								</div>
 						</div>
 					</div>
 
@@ -298,7 +295,12 @@ $.fn.clearForm = function () {
 						</h3>
 						<div class="col__list">
 							<div class="col__item">
-								<a href="javascript:fn_MoveUrl('4','1','0')">기증희망등록</a>
+								<a href="javascript:fn_MoveUrl('4','1','0')">기증희망등록이란?</a>
+							</div>
+						</div>
+						<div class="col__list">
+							<div class="col__item">
+								<a href="javascript:fn_MoveUrl('4','1','1')">기증희망등록 신청</a>
 							</div>
 						</div>
 					</div>
@@ -309,19 +311,19 @@ $.fn.clearForm = function () {
 						</h3>
 						<div class="col__list">
 							<div class="col__item">
-								<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')">간행물</a>
+								<a href="javascript:fn_MoveUrl('5','1','0','/pr/publicview.c')">간행물</a>
 								<div class="col__depth">
-									<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')">연보</a>
+									<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')">연간보고서</a>
 									<a href="javascript:fn_MoveUrl('5','1','2','/pr/news_letter.c')">뉴스레터</a>
 									<a href="javascript:fn_MoveUrl('5','1','3','/pr/casebook.c')">사례집</a>
 								</div>
 							</div>
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')">홍보 콘텐츠</a>
-								<div class="col__depth">
+							<!-- 	<div class="col__depth">
 									<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')">웹콘텐츠</a> 
 									<a href="javascript:fn_MoveUrl('5','2','2','/pr/lifeSharing.c')">생명나눔 스토리</a>
-								</div>
+								</div> -->
 							</div>
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('5','3','0','/pr/movie.c')">영상자료실</a>
@@ -339,9 +341,9 @@ $.fn.clearForm = function () {
 							<div class="col__item">
 								<a href="javascript:fn_MoveUrl('5','6','0')">소통게시판</a>
 							</div>
-							<div class="col__item">
+						<!-- 	<div class="col__item">
 								<a href="javascript:fn_MoveUrl('5','7','0','/pr/hire.c')">채용</a>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
@@ -363,7 +365,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('6','2','1')">정보공개</a>
 								<div class="col__depth">
 									<a href="javascript:fn_MoveUrl('6','2','1')">정보공개제도 안내·청구</a>
-									<a href="javascript:fn_MoveUrl('6','2','2','/info/infobefore.c')">사전정보 공표</a>
+									<a href="javascript:fn_MoveUrl('6','2','2','/info/infobefore.c')">사전정보 공개</a>
 									<a href="javascript:fn_MoveUrl('6','2','3')">사업실명제</a>
 									<a href="javascript:fn_MoveUrl('6','2','4')">경영공시</a>
 									<a href="javascript:fn_MoveUrl('6','2','5','/info/infodata.c')">공공데이터 개방</a>
@@ -425,7 +427,7 @@ $.fn.clearForm = function () {
 
 		<div class="mobile-gnb">
 			<div class="mobile-gnb__header">
-				<a href="javascript:fn_MoveUrl('8','1','0')" class="member">의료진 페이지</a>
+				<a href="javascript:fn_MoveUrl('8','1','0')" class="member">의료인 페이지</a>
 				<div class="sns">
 					<a href="" class="insta">인스타그램</a> <a href="" class="facebook">페이스북</a>
 					<a href="" class="blog">블로그</a> <a href="" class="youtube">유트브</a>
@@ -455,7 +457,7 @@ $.fn.clearForm = function () {
 							<a href="javascript:fn_MoveUrl('1','5','0')">기증용어 설명</a>
 						</div>
 						<div class="col__item">
-							<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')">협약병원</a>
+							<a href="javascript:fn_MoveUrl('1','6','3')" >KODA협약병원</a>
 						</div>
 					</div>
 				</div>
@@ -499,7 +501,7 @@ $.fn.clearForm = function () {
 					</h3>
 					<div class="col__list">
 						<div class="col__item">
-							<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')">간행물</a>
+							<a href="javascript:fn_MoveUrl('5','1','1','/pr/publicview.c')">간행물</a>
 						</div>
 						<div class="col__item">
 							<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')">홍보 콘텐츠</a>
@@ -636,20 +638,58 @@ $.fn.clearForm = function () {
 							<!-- 수정된 서브 셀렉터 -->
 							<div class="select">
 								<c:forEach items="${mlist}" var="map">
+										<c:if test="${map.seqCd1 == 0}">
+											<button>${map.menuNm}</button>
+										</c:if>
+						        </c:forEach>
+									<div class="dropdown">
+										<c:forEach items="${mlist}" var="map">
+												<c:if test="${map.seqCd1 == 0 && map.seqCd2 == 0 && map.menuGubun == 'T'}">
+												
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('1','1','0')" class="navlist__link">장기·조직기증</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="navlist__link">기증자예우</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MovePage('/let/letterMain.l');" class="navlist__link">생명나눔우체통</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('4','1','0')" class="navlist__link">기증희망등록</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')" class="navlist__link">홍보·소식</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('6','1','1')" class="navlist__link">정보공개</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('7','1','0')" class="navlist__link">KODA</a>
+													</div>
+													<div class="navlist__item">
+														<a href="javascript:fn_MoveUrl('8','1','0')" >의료진 페이지</a>
+													</div> 
+												</c:if>
+						          	  </c:forEach>
+									</div>
+								</div>
+							<div class="select">
+								<c:forEach items="${mlist}" var="map">
 										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2}">
 											<button>${map.menuNm}</button>
 										</c:if>
 						        </c:forEach>
 								<div class="dropdown">
 									<c:forEach items="${mlist}" var="map">
-											<c:if test="${map.seqCd1 != 0}">
+											<c:if test="${map.seqCd1 != 0 && map.seqCd2 == 0}">
 												<c:choose>
-													<c:when test="${map.menuUrl != null && map.menuUrl != '' && map.menuGubun == 'T'}">
+													<c:when test="${map.menuUrl != null && map.menuUrl != '' && map.menuGubun == 'T' }">
 							                			<a href="javascript:fn_MoveUrl(${map.menuCd},${map.seqCd1},${map.seqCd2},'${map.menuUrl}')">
-							                			<c:if test="${map.seqCd2 != 0  && map.menuGubun == 'T'}">
-							                			&nbsp;&nbsp;&nbsp;${map.menuNm}
-							                			</c:if>
-							                			<c:if test="${map.seqCd2 == 0  && map.menuGubun == 'T'}">
+							                			<!--<c:if test="${map.seqCd2 != 0  && map.menuGubun == 'T'}">
+							                		${map.menuNm} 
+							                			</c:if>-->
+							                			<c:if test="${map.seqCd2 == 0  && map.menuGubun == 'T'  && map.menuUrl != '/pr/hire.c'}">
 							                			${map.menuNm}
 							                			</c:if>
 							                			</a>
@@ -664,6 +704,50 @@ $.fn.clearForm = function () {
 						            </c:forEach>
 								</div>
 							</div>
+							
+						
+							<div class="select">
+								<c:forEach items="${mlist}" var="map">
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/publicview.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/webcontents.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/movie.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/pressRelease.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/comnews.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+										<c:if test="${map.menuCd == menuCd && map.seqCd1 == seqCd1 && map.seqCd2 == seqCd2 && map.menuUrl ==  '/pr/MoveUrl.c'}">
+											<button>${map.menuNm}</button>
+										</c:if>
+						        </c:forEach>
+								<div class="dropdown">
+									<c:forEach items="${mlist}" var="map">
+											<c:if test="${map.seqCd1 == 5 && map.seqCd2 == 0}">
+												<c:choose>
+													<c:when test="${map.menuUrl == '/pr/annual.c' && map.menuUrl == '/pr/news_letter.c' && map.menuUrl == '/pr/publicview.c'}">
+							                			<a href="javascript:fn_MoveUrl(${map.menuCd},${map.seqCd1},${map.seqCd2},'${map.menuUrl}')">
+
+							                		
+							                			</a>
+													</c:when>
+													<c:otherwise>
+														<c:if test="${map.menuGubun == 'T'}">
+							                				<a href="javascript:fn_MoveUrl(${map.menuCd},${map.seqCd1},1,'${map.menuUrl})'">${map.menuNm}</a>
+							                			</c:if>
+													</c:otherwise>
+												</c:choose>
+											</c:if>
+						            </c:forEach>
+								</div>
+							</div>
+						
 							<!-- // 수정된 서브 셀렉터 -->
 							<a href="" class="link">기증희망등록 신청</a>
 						</div>
@@ -673,11 +757,16 @@ $.fn.clearForm = function () {
 				<div class="sub__content">
 					<c:if test="${menuCd eq '1'}">
 						<div class="sub__lnb" style="z-index:5">
+						<h2>장기조직 기증</h2>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','1','0')" id = "110" class="link">장기·조직기증</a>
+								<a href="javascript:fn_MoveUrl('1','1','0')" id = "120" class="link gourl1 active">장기·조직기증</a>
+									<div class="depth">
+										<a href="javascript:fn_MoveUrl('1','2','1')" id = "121" class="depth-link">장기·조직 기증이란 무엇인가요?</a>
+										<a href="javascript:fn_MoveUrl('1','2','3')" id = "123" class="depth-link">기증은 언제할 수 있나요?</a>
+									</div>
 							</div>
-							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','2','1')" id = "120" class="link">장기·조직기증이란</a>
+							<!-- <div class="row">
+								<a href="javascript:fn_MoveUrl('1','2','1')" id = "110" class="link">장기·조직기증이란</a>
 								<div class="depth">
 									<a href="javascript:fn_MoveUrl('1','2','1')" id = "121" class="depth-link">생명나눔이랑 무언인가요?</a>
 									<a href="javascript:fn_MoveUrl('1','2','2')" id = "122" class="depth-link">기증은 왜 필요한가요?</a>
@@ -686,54 +775,57 @@ $.fn.clearForm = function () {
 									<a href="javascript:fn_MoveUrl('1','2','5')" id = "125" class="depth-link">조직기증</a>
 									<a href="javascript:fn_MoveUrl('1','2','6')" id = "126" class="depth-link">한눈에 보는 기증 흐름도</a>
 								</div>
+							</div> -->
+							<div class="row">
+								<a href="javascript:fn_MoveUrl('1','3','0','/organ/organ_fact.c')" id = "130" class="link nodepth">기증팩트체크</a>
 							</div>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','3','0','/organ/organ_fact.c')" id = "130" class="link">기증팩트체크</a>
+								<a href="javascript:fn_MoveUrl('1','4','0')" id = "140" class="link nodepth">KODA코디네이터</a>
 							</div>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','4','0')" id = "140" class="link">KODA코디네이터</a>
+								<a href="javascript:fn_MoveUrl('1','5','0')" id = "150" class="link nodepth">기증용어 설명</a>
 							</div>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','5','0')" id = "150" class="link">기증용어 설명</a>
-							</div>
-							<div class="row">
-								<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')" id = "160" class="link">협약병원</a>
+								<a href="javascript:fn_MoveUrl('1','6','3')" id = "160" class="link gourl1">KODA협약병원</a>
 								<div class="depth">
 									<a href="javascript:fn_MoveUrl('1','6','1','/organ/organ_agree1.c')" id = "161" class="depth-link">뇌사장기기증자 관리업무협약</a>
 									<a href="javascript:fn_MoveUrl('1','6','2','/organ/organ_agree2.c')" id = "162" class="depth-link">DIP 협약병원</a>
-									<!-- <a href="javascript:fn_MoveUrl('1','6','3')" id = "163" class="depth-link">검사실 협약</a> -->
-								</div>
+								<!--  	 <a href="javascript:fn_MoveUrl('1','6','3')" id = "163" class="depth-link">검사실 협약</a>-->
+								</div> 
 							</div>
 						</div>
 					</c:if>	
 					<c:if test="${menuCd eq '2'}">
 						<div class="sub__lnb" style="z-index:5">
+								<h2>기증자 예우</h2>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" id = "210" class="link">기증자 추모관</a>
+							<a href="#" class="link gourl1 active">가족지원 및 예우</a>
+								<div class="depth">
+									<a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" id = "210" class="depth-link">기증자 추모관</a>
+									<a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" id = "220" class="depth-link">하늘나라 편지</a>
+									<a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" id = "230" class="depth-link">수혜자 편지</a>
+									<a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" id = "240" class="depth-link">기증 후 스토리</a>
+								</div>
+							
+								
 							</div>
-							<div class="row">
-								<a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" id = "220" class="link">하늘나라 편지</a>
-							</div>
-							<div class="row">
-								<a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" id = "230" class="link">수혜자 편지</a>
-							</div>
-							<div class="row">
-								<a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" id = "240" class="link">기증 후 스토리</a>
-							</div>
+						
+					
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('2','5','0')" id = "250" class="link">기증자추모 및 가족행사</a>
-								<div class="depth">
-									<a href="javascript:fn_MoveUrl('2','5','2')" id = "252" class="depth-link">가족지원 서비스</a>
-									<a href="javascript:fn_MoveUrl('2','5','3')" id = "253" class="depth-link">기증 후 행정처리</a>
-								</div>
+						
+									<a href="javascript:fn_MoveUrl('2','5','2')" id = "252" class="link">가족지원 서비스</a>
+									<a href="javascript:fn_MoveUrl('2','5','3')" id = "253" class="link">기증 후 행정처리</a>
+								
 							</div>
 						</div>
 					</c:if><c:if test="${menuCd eq '5'}">
 						<div class="sub__lnb" style="z-index:5">
+							<h2>기증희망등록</h2>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')" id = "510" class="link">간행물</a>
+								<a href="javascript:fn_MoveUrl('5','1','0','/pr/publicview.c')" id = "510" class="link">간행물</a>
 								<div class="depth">
-									<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')" id = "511" class="depth-link">연보</a>
+									<a href="javascript:fn_MoveUrl('5','1','1','/pr/annual.c')" id = "511" class="depth-link">연간보고서</a>
 									<a href="javascript:fn_MoveUrl('5','1','2','/pr/news_letter.c')" id = "512" class="depth-link">뉴스레터</a>
 									<a href="javascript:fn_MoveUrl('5','1','3','/pr/casebook.c')" id = "513" class="depth-link">사례집</a>
 								</div>
@@ -741,7 +833,7 @@ $.fn.clearForm = function () {
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')" id = "520" class="link">홍보콘텐츠</a>
 								<div class="depth">
-									<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')" id = "521" class="depth-link">웹콘텐츠</a>
+									<a href="javascript:fn_MoveUrl('5','2','1','/pr/webcontents.c')" id = "521" class="depth-link">홍보콘텐츠</a>
 									<a href="javascript:fn_MoveUrl('5','2','2','/pr/lifeSharing.c')" id = "522" class="depth-link">생명나눔스토리</a>
 								</div>
 							</div>
@@ -752,7 +844,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('5','4','0','/pr/pressRelease.c')" id = "540" class="link">언론보도</a>
 							</div>							
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('5','5','1','/pr/notice.c')" id = "550" class="link">기관소식</a>
+								<a href="javascript:fn_MoveUrl('5','5','2','/pr/comnews.c')" id = "550" class="link">기관소식</a>
 								<div class="depth">
 									<a href="javascript:fn_MoveUrl('5','5','1','/pr/notice.c')" id = "551" class="depth-link">공지사항</a>
 									<a href="javascript:fn_MoveUrl('5','5','2','/pr/comnews.c')" id = "552" class="depth-link">기관소식</a>
@@ -761,13 +853,14 @@ $.fn.clearForm = function () {
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('5','6','0')" id = "560" class="link">소통게시판</a>
 							</div>
-							<div class="row">
+				<!-- 		<div class="row">
 								<a href="javascript:fn_MoveUrl('5','7','0','/pr/hire.c')" id = "570" class="link">채용</a>
-							</div>
+							</div> -->
 						</div>
 					</c:if>
 					<c:if test="${menuCd eq '6'}">
 						<div class="sub__lnb" style="z-index:5">
+							<h2>정보공개</h2>
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('6','1','1')" id = "610" class="link">기증통계</a>
 								<div class="depth">
@@ -781,7 +874,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('6','2','1')" id = "620" class="link">정보공개</a>
 								<div class="depth">
 									<a href="javascript:fn_MoveUrl('6','2','1')" id = "621" class="depth-link">정보공개제도 안내·청구</a>
-									<a href="javascript:fn_MoveUrl('6','2','2','/info/infobefore.c')" id = "622" class="depth-link">사전정보 공표</a>
+									<a href="javascript:fn_MoveUrl('6','2','2','/info/infobefore.c')" id = "622" class="depth-link">사전정보 공개</a>
 									<a href="javascript:fn_MoveUrl('6','2','3')" id = "623" class="depth-link">사업실명제</a>
 									<a href="javascript:fn_MoveUrl('6','2','4')" id = "624" class="depth-link">경영공시</a>
 									<a href="javascript:fn_MoveUrl('6','2','5','/info/infodata.c')" id = "625" class="depth-link">공공데이터 개방</a>
@@ -798,6 +891,7 @@ $.fn.clearForm = function () {
 					</c:if>
 					<c:if test="${menuCd eq '7'}">
 						<div class="sub__lnb" style="z-index:5">
+							<h2>KODA</h2>
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('7','1','0')" id = "710" class="link">기증원소개</a>
 							</div>
@@ -835,6 +929,7 @@ $.fn.clearForm = function () {
 					</c:if>
 					<c:if test="${menuCd eq '8'}">
 						<div class="sub__lnb" style="z-index:5">
+							<h2>의료진 페이지</h2>
 							<div class="row">
 								<a href="javascript:fn_MoveUrl('8','1','0')" id = "810" class="link">통보센터</a>
 							</div>
@@ -848,7 +943,7 @@ $.fn.clearForm = function () {
 								<a href="javascript:fn_MoveUrl('8','4','0')" id = "840" class="link">장기 분배 시스템</a>
 							</div>
 							<div class="row">
-								<a href="javascript:fn_MoveUrl('8','5','0')" id = "850" class="link">검사실</a>
+								<a href="javascript:fn_MoveUrl('8','5','0')" id = "850" class="link">검사실(KODA LAB)</a>
 							</div>
 						</div>
 					</c:if>
@@ -1064,7 +1159,17 @@ $.fn.clearForm = function () {
  		$("#"+targetId).addClass("active");
  	}
  	
+ 	
+ 
+ 	
 </script>
 </c:if>
+
+
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/js/ui.js?v=<?=mktime();?>"></script>
 </body>
 </html>
+
+

@@ -58,10 +58,10 @@
                 </div>
                 
                 <div class="sub__tabs memorial">
-                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="">기증자 추모관</a>
-                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')">하늘나라 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="active">수혜자 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="">기증 후 스토리</a>
+                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="dp1a">기증자 추모관</a>
+                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" class="dp1a">하늘나라 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="dp1a active active__pink1a">수혜자 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="dp1a">기증 후 스토리</a>
 
 
                     <div class="select">
@@ -93,9 +93,11 @@
                                 <li>게시글 작성시 개인정보 표기는 자제해주시기 바랍니다.</li>
                                 <li>일부 게시글은 한국장기조직기증원 뉴스레터 및 타 매체에 원문의 의미를 훼손하지 않는 범위내 에서 교정을 거쳐 익명으로 게재될 수 있습니다.</li>
                             </ul>
-                            <a href="javascript:goWrite();" class="write-button mt-auto">
-                                <strong class="type2">수혜자 편지쓰기</strong>
-                            </a>
+                            <div class="sub__tabs memorial">
+	                            <a href="javascript:goWrite();" class="dp1a active active__pink1a">
+	                                <strong class="type2">수혜자 편지쓰기</strong>
+	                            </a>
+                            </div>
                         </div>
                     </div>
 
@@ -110,7 +112,9 @@
                         <div class="input name mobile-mt-10">
                             <input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${donateSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                         </div>
+                        <div class="submit fobx2">
                         <button type="button" class="submit" onclick="goSearch();">검색하기</button>
+                        </div>
                     </div>
 
                     <div class="memorial__message-list">

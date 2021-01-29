@@ -12,6 +12,19 @@
                 <div class="sub__header">
                     <h2>인사말</h2>
                 </div>
+                	<div class="sub__tabs tabdsp_btn01a">
+					<a href="#" class="dp1a active">KOR</a>
+					<a href="javascript:fn_MoveUrl('7','2','1')" class="dp1a">ENG</a>
+
+					<div class="select">
+						<button>KOR</button>
+						<div class="dropdown">
+							<a href="#">KOR</a>
+							<a href="#">ENG</a>
+						</div>
+					</div>
+				</div>
+				<br><br>
                 <div class="company__content company__ceo">
                     <div class="ceo__img">
                         <h3 class="text-center">“생명 나눔의 행복”</h3>
@@ -58,6 +71,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 </body>
 </html>

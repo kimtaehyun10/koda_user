@@ -19,21 +19,22 @@
                                 <span></span>뇌사판정위원회
                             </h3>
                         </div>
-                        <div class="txtBox">
-                            <div class="row flex items-center">
-                                <div class="tit">구성</div>
-                                <div class="txt">
-                                    <p>뇌사판정위원회는 전문의사인 위원 2명 이상과 의료인이 아닌 위원 1명 이상을 포함한 과반수의 출석과 출석위원 전원의 찬성으로 뇌사판정을 한다.</p>
-                                </div>
-                            </div>
-                            <div class="row flex items-center">
-                                <div class="tit">자격</div>
-                                <div class="txt">
-                                    <p>- 의료법에 의한 의료인, 변호사의 자격을 가진 자, 공무원, 교원, 종교인, 기타 학식과 사회적 덕망이 풍부한 자 중 뇌사판정의료기관장이 위촉</p>
-                                    <p>- 출석위원 만장일치로 결정 (단 1명이라도 반대 시 뇌사판정 하지 못함)</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="cir_tbx01">
+							<dl>
+								<dt><h4>구성</h4></dt>
+								<dd>
+									뇌사판정위원회는 전문의사인 위원 2명 이상과 의료인이 아닌 위원 1명 이상을 포함한 과반수의 출석과 출석위원 전원의 찬성으로 뇌사판정을 한다.<br>
+								</dd>
+							</dl>
+							<dl>
+								<dt><h4>자격</h4></dt>
+								<dd>
+									- 의료법에 의한 의료인, 변호사의 자격을 가진 자, 공무원, 교원, 종교인, 기타 학식과 사회적 덕망이 풍부한 자 중 뇌사판정의료기관장이 위촉<br>
+									- 출석위원 만장일치로 결정 (단 1명이라도 반대 시 뇌사판정 하지 못함)<br>
+								</dd>
+							</dl>
+						</div>
+            
                     </div>
                     <div class="box box2">
                         <div class="circle-tit">

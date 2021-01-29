@@ -38,46 +38,87 @@ $(document.body).ready(function(){
 			<p>기증 관련 용어를 정리해 놓은 곳입니다.</p>
 		</div>
 
+	
 		<div class="sub__tabs">
-			<a href="#tab1" class="active">권역 구분</a>
-			<a href="#tab2">병원 구분</a>
-			<a href="#tab3">기증자 구분</a> <a href="#tab4"
-				style="width: 35%; flex: none;"> 장기·조직기증 활성화프로그램<br />
-			</a> <a href="#tab5">기타</a>
+					<a href="#tab1" class="dp1a active">지부</a>
+					<a href="#tab2" class="dp1a">병원 구분</a>
+					<a href="#tab3" class="dp1a">기증자 구분</a>
+					<a href="#tab4" class="dp1a dp1a2dot0">
+					장기·조직기증 활성화프로그램<br/>
+					(Donation Improvement Program, DIP)
+					</a>
+					<a href="#tab5" class="dp1a">기타</a>
 
-			<div class="select">
-				<button>권역 구분</button>
-				<div class="dropdown">
-					<a href="#tab1">권역 구분</a>
-					<a href="#tab2">병원 구분</a>
-					<a href="#tab3">기증자구분</a>
-					<a href="#tab4">장기·조직기증 활성화프로그램</a>
-					<a href="#tab5">기타</a>
+					<div class="select">
+						<button>조직기증 동의 시</button>
+						<div class="dropdown">
+							<a href="#tab1">지부</a>
+							<a href="#tab2">병원 구분</a>
+							<a href="#tab3">기증자 구분</a>
+							<a href="#tab4">장기·조직기증 활성화프로그램</a>
+							<a href="#tab5">기타</a>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-
+	
 		<div class="content" id="tab1">
-			<div class="mapcol">
+		    	<div class="section">
+					<p class="text-center text-lg my-4">
+					한국장기조직기증원은 보건복지부가 지정한 국내 유일의 장기 및 조직 구득 기관으로서 국내에 3개 지부로 나뉘어 전국을 관할합니다.
+					</p>
+					<br>
+					<br>
+				</div>
+		    
+			<div class="mapcol1">
 				<div class="col">
 					<img
 						src="${pageContext.request.contextPath}/resource/assets/images/mapcol-map.png"
 						alt="">
 				</div>
-				<div class="col">
-					<ul>
-						<li><img
-							src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col1.png"
-							alt=""> 중부관리지부 (Central Region)</li>
-						<li><img
-							src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col2.png"
-							alt=""> 충정·호남관리지부 (South West Region)</li>
-						<li><img
-							src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col3.png"
-							alt=""> 영남관리지부 (South East Region)</li>
-					</ul>
+						<div class="col">
+							<ul>
+								<li>
+									<dl>
+										<dt><img src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col1.png" alt=""></dt>
+										<dd>
+											중부관리지부 (Central Region)<br>
+											<strong>02-3447-5632</strong><br>
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt><img src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col2.png" alt=""></dt>
+										<dd>
+											충정·호남관리지부 (South West Region)<br>
+											<strong>광주 - 062-528-5632</strong><br>
+											<strong>대전 - 042-526-5632</strong><br>
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt><img src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col3.png" alt=""></dt>
+										<dd>
+											영남관리지부 (South East Region)<br>
+											<strong>부산 - 051-463-5632</strong><br>
+											<strong>대구 - 053-422-5632</strong><br>
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt><img src="${pageContext.request.contextPath}/resource/assets/images/mapcol-col4.png" alt=""></dt>
+										<dd>
+											의료진전용 통보센터<br>
+											<strong style='font-size:1.2em;'>1577-1458</strong><br>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="content" id="tab2" style="display: none;">

@@ -63,7 +63,9 @@
                     <div class="input name mobile-mt-10">
                        <input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${kodaSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                     </div>
-                    <button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+                    <div class="submit fobx2">
+                        <button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+                	</div>
                 </div>
                 <div class="memorial__detail-content">
                     <div class="">

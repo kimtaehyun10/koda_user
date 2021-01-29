@@ -1,6 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="paging" uri="/WEB-INF/tlds/paging.tld"%>
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          
+	 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/plugins/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/css/main.css"> 
+
+
+	<script	src="${pageContext.request.contextPath}/resource/assets/plugins/jquery/jquery.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/dist/AXJ.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/lib/AXUtil.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/axisj/lib/AXValidator.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/axisj/ui/AXJ.min.css"/>
 <title>로그인</title>
 <%
 	String loginError = (String)request.getParameter("loginError");
@@ -115,7 +136,9 @@ if (errorCode == '01') {
 
 </script>
 </head>
+
 <body>
+<jsp:include page="main_part/main_part2.jsp"></jsp:include> 
 	<form name="loginForm" id="loginForm" action ="/loginProc" method ="post">
 		<div class="login">
 			<div class="content">
@@ -146,5 +169,8 @@ if (errorCode == '01') {
 			</div>
 		</div>
 	</form>
+	
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.js"></script>
+
 </body>
 </html>

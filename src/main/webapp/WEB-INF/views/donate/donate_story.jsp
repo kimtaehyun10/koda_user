@@ -61,10 +61,10 @@
                     <h2>기증 후 STORY</h2>
                 </div>
                <div class="sub__tabs memorial">
-                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="">기증자 추모관</a>
-                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')">하늘나라 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="">수혜자 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="active">기증 후 스토리</a>
+                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="dp1a">기증자 추모관</a>
+                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" class="dp1a">하늘나라 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="dp1a">수혜자 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="dp1a active active__violet1a">기증 후 스토리</a>
 
 
                     <div class="select">
@@ -92,10 +92,11 @@
                             <ul>
                                 <li>게시글 작성시 개인정보 표기는 자제해주시기 바랍니다.</li>
                             </ul>
-
-                            <a href="javascript:goWrite();" class="write-button mt-auto">
-                                <strong>이야기 쓰기</strong>
-                            </a>
+						    <div class="sub__tabs memorial" style="margin-top:140px;">
+	                            <a href="javascript:goWrite();" class="dp1a active active__violet1a">
+	                                <strong>이야기 쓰기</strong>
+	                            </a>
+                            </div>
                         </div>
                     </div>
 
@@ -110,7 +111,9 @@
                         <div class="input name mobile-mt-10">
                         	<input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${donateSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                         </div>
-                        <button type="button" class="submit" onclick="return goSearch();">검색하기</button>
+                        <div class="submit fobx2">
+                      	  <button type="button" class="submit" onclick="return goSearch();">검색하기</button>
+                      	</div>
                     </div>
 
 					<c:if test="${!empty storyList }">	

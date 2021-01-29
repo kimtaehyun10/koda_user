@@ -65,11 +65,11 @@
 	<input type="hidden" name="method" id="method">
 	<div class="wrap">
                 <div class="sub__header">
-                    <h2>웹콘텐츠</h2>
+                    <h2>홍보콘텐츠</h2>
                 </div>
                 <div class="promote__select flex ml-auto">
                     <select name="moveselect" id="moveselect" onchange="javascript:fn_select_change();">
-                        <option value="0" selected>웹콘텐츠</option>
+                        <option value="0" selected>홍보콘텐츠</option>
                         <option value="1">생명나눔 스토리</option>
                     </select>
                 </div>

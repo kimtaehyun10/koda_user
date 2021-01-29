@@ -70,7 +70,9 @@
                         <div class="input name mobile-mt-10">
                             <input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${prSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                         </div>
+                        <div class="submit fobx2">
                         <button type="button" class="submit" onclick="return goSearch();">검색하기</button>
+						</div>                    
                     </div>
                     <div class="memorial__detail-content">
                         <div class="table promote__table effectNone">

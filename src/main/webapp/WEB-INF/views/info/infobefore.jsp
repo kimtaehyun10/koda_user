@@ -53,24 +53,36 @@
                     <h2>사전정보 공개</h2>
                 </div>
                 <div class="memorial__search-form mb-8">
-                    <div class="select" style="margin:0;margin-right: 10px;">
-                        <select name="searchKeySelect" id="searchKeySelect">
-                            <option value="">전체</option>
-                            <option value="title" <c:if test="${kodaSearch.searchKey eq 'title' }">selected</c:if>>제목</option>
-                            <option value="contents" <c:if test="${kodaSearch.searchKey eq 'contents' }">selected</c:if>>내용</option>
+                	 <div class="select fobx1" style="margin:0;margin-right: 10px;">
+                        <select name="searchKeySelect" class="selbox_01" id="searchKeySelect">
+                            <option value="">전체분류</option>
+                            <option value="title" <c:if test="${kodaSearch.searchKey eq 'title' }">selected</c:if>>감사·윤리</option>
+                            <option value="contents" <c:if test="${kodaSearch.searchKey eq 'contents' }">selected</c:if>>기획·재정</option>    
+                            <option value="contents" <c:if test="${kodaSearch.searchKey eq 'contents' }">selected</c:if>>인사·총무·회계	</option>
+                            <option value="contents" <c:if test="${kodaSearch.searchKey eq 'contents' }">selected</c:if>>연구사업</option>  
                         </select>
                     </div>
-                    <div class="input name mobile-mt-10">
+                    <div class="select fobx1" style="margin:0;margin-right: 10px;">
+                        <select name="searchKeySelect" class="selbox_01" id="searchKeySelect">
+                            <option value="">제목</option>
+                            <option value="title" <c:if test="${kodaSearch.searchKey eq 'title' }">selected</c:if>>제목</option>
+                            <option value="contents" <c:if test="${kodaSearch.searchKey eq 'contents' }">selected</c:if>>내용</option>      
+                        </select>
+                    </div>
+                    <div class="input fobx1 name mobile-mt-10">
                        <input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${kodaSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                     </div>
-                    <button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+                    <div class="submit fobx2">
+                   	   <button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+                	</div>
                 </div>
                 <div class="memorial__detail-content">
                     <div class="">
                         <div class="table promote__table effectNone">
                             <table>
                                 <colgroup>
-                                    <col class="col1">
+                                    <col class="col3">
+                                    <col class="col3">
                                     <col class="col">
                                     <col class="col3">
                                     <col class="col4">
@@ -78,6 +90,7 @@
                                 <thead>
                                     <tr>
                                         <th>번호</th>
+                                        <th>분류</th>
                                         <th>제목</th>
                                         <th>공개시기</th>
                                         <th>공개방법</th>
@@ -87,6 +100,7 @@
                                 <c:forEach var="makePublic" items="${makePublicList }" varStatus="status">
                                     <tr>
                                         <td><c:out value="${totalCount - ((kodaSearch.currentPage - 1) * kodaSearch.articleCount) - status.index }"/></td>
+                                        <td></td>
                                         <td>
                                             <a href="javascript:goView(${makePublic.brdContNo });">
                                                <c:out value="${makePublic.brdTitle }"/>

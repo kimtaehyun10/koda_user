@@ -54,6 +54,179 @@
                 <div class="sub__header">
                     <h2>기관소식</h2>
                 </div>
+                <div class="pomote__calendar1">
+					<div class="bx1">
+						<div class="he1">
+							<h3>2021.01</h3>
+							<ul>
+								<li><a href="./5-9.html"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_arrow_gray01_prev.png" alt="이전달"></a></li>
+								<li><a href="./5-9.html"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_arrow_gray01_next.png" alt="다음달"></a></li>
+								<li><a href="./5-9.html">오늘</a></li>
+							</ul>
+						</div>
+						<div class="bo1">
+							<table>
+							<thead>
+							<tr>
+								<th>일</th>
+								<th>월</th>
+								<th>화</th>
+								<th>수</th>
+								<th>목</th>
+								<th>금</th>
+								<th>토</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="mt_none1">
+									<h5>27</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>28</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>29</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>30</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>31</h5>
+								</td>
+								<td>
+									<h5>1</h5>
+									<a href="" class="bc_blue1">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+									<a href="">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+								</td>
+								<td>
+									<h5>2</h5>
+									<a href="" class="bc_green1">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+									<a href="" class="bc_violet1">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>3</h5>
+									<a href="" class="bc_yellow1">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+								</td>
+								<td>
+									<h5>4</h5>
+									<a href="" class="bc_pink1">대학생공모전 9월 기관일정 협약 기관 일정은 요렇게</a>
+								</td>
+								<td>
+									<h5>5</h5>
+								</td>
+								<td>
+									<h5>6</h5>
+								</td>
+								<td>
+									<h5>7</h5>
+								</td>
+								<td>
+									<h5>8</h5>
+								</td>
+								<td>
+									<h5>9</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>10</h5>
+								</td>
+								<td>
+									<h5>11</h5>
+								</td>
+								<td>
+									<h5>12</h5>
+								</td>
+								<td>
+									<h5>13</h5>
+								</td>
+								<td>
+									<h5>14</h5>
+								</td>
+								<td>
+									<h5>15</h5>
+								</td>
+								<td>
+									<h5>16</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>17</h5>
+								</td>
+								<td>
+									<h5>18</h5>
+								</td>
+								<td>
+									<h5>19</h5>
+								</td>
+								<td>
+									<h5>20</h5>
+								</td>
+								<td>
+									<h5>21</h5>
+								</td>
+								<td>
+									<h5>22</h5>
+								</td>
+								<td>
+									<h5>23</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>24</h5>
+								</td>
+								<td>
+									<h5>25</h5>
+								</td>
+								<td>
+									<h5>26</h5>
+								</td>
+								<td>
+									<h5>27</h5>
+								</td>
+								<td>
+									<h5>28</h5>
+								</td>
+								<td>
+									<h5>29</h5>
+								</td>
+								<td>
+									<h5>30</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>31</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>1</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>2</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>3</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>4</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>5</h5>
+								</td>
+								<td class="mt_none1">
+									<h5>6</h5>
+								</td>
+							</tr>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
                 <div class="memorial__search-form mb-8">
                     <div class="select" style="margin:0;margin-right: 10px;">
                         <select name="searchKeySelect" id="searchKeySelect">
@@ -65,8 +238,11 @@
                     <div class="input name mobile-mt-10">
                     	<input type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${prSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();" title="검색어 입력창">
                     </div>
+                    <div class="submit fobx2">
                     <button type="button" class="submit" onclick="return goSearch();">검색하기</button>
+                	</div>
                 </div>
+                <br><br>
                 <div class="memorial__detail-content">
                     <div class="pomote__news-list">
                 		<c:forEach var="forum" items="${forumList }" varStatus="status">

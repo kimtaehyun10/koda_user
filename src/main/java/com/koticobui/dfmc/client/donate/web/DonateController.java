@@ -155,6 +155,24 @@ public class DonateController {
         return result;
     }    
     
+//	//이모티콘 선택 저장
+//  @RequestMapping(value = "/donate/choice_insert.json", method = RequestMethod.POST)
+//  @ResponseBody
+//  public Map<String, Objects> choice_insert(HttpServletRequest request) {
+//      
+//      Map result = new HashMap();
+//      
+//      try {
+//      	 donateService.choice_insert(request);
+//          result.put("result", "OK");
+//      } catch (Exception e) {
+//          logger.error(e.getMessage());
+//          result.put("result", "FAIL");
+//      }
+//      
+//      return result;
+//  }  
+    
     //하늘나라 편지함
   	@RequestMapping(value = "/donate/letter.c", method = RequestMethod.POST)
       public String letter( 
@@ -285,6 +303,8 @@ public class DonateController {
         
         return result;
     }  
+    
+
     
     //하늘나라 편지 수정
     @RequestMapping(value = "/donate/letter_update.json", method = RequestMethod.POST)

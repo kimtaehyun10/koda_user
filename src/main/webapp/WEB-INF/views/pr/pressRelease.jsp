@@ -61,6 +61,9 @@
                                 한국장기조직기증원에서 언론에 소개할 자료를 배포하는 공간입니다.<br/>
                                 KODA에서 작성한 언론 보도자료는 각 언론사를 통해 소개됩니다.
                             </p>
+                            <p class="mt-1">
+								대외협력팀 <strong class="notice-color-1">02-542-5635</strong>
+							</p>
                         </div>
                     </div>
                 </div>
@@ -75,7 +78,9 @@
                     <div class="input name mobile-mt-10">
                         <input title="검색어 입력창" type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${kodaSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                     </div>
+                   	<div class="submit fobx2">
                     <button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+                	</div>
                 </div>
                 <div class="memorial__detail-content">
                     <div class="table promote__table">

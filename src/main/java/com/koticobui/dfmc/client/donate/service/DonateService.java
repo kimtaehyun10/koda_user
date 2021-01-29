@@ -24,6 +24,9 @@ public interface DonateService {
 	@Transactional
 	void member_com_insert(HttpServletRequest request);
 
+//	@Transactional
+//	void choice_insert(HttpServletRequest request);
+	
 	HttpServletRequest letter(HttpServletRequest request);
 	
 	HttpServletRequest letter_view(HttpServletRequest request);

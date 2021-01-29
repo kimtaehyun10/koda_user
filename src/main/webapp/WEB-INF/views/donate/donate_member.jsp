@@ -50,6 +50,30 @@
 			$('#frm_url').attr('action', '/donate/letter_form.c').submit();
 		}
 		
+		function choice1(){
+		
+	
+				$.ajax({
+				
+		            url: "/donate/choice_insert.json",
+		            type: "POST",
+		            data: $('#frm_url').serialize(),
+		            dataType: "json",
+		            success: function (data, textStatus, jqXHR) {
+		            	if (data.result == "OK"){
+		            alert("asdd");
+
+		            	}else{
+		            		axf.alert("실패.");
+		            	}		
+		            },
+		            error: function (jqXHR, textStatus, errorThrown) {
+		                axf.alert("code:" + jqXHR.status + "\nmessage:" + textStatus + "\nerror:" + errorThrown);
+		            }
+		        });
+			
+		}
+		
 		
 		// card flip
 		/*$(document).ready(function(){
@@ -67,6 +91,21 @@
 				$(this).parents('li').find('.front').fadeIn();
 			});
 		});*/
+
+		
+			
+
+			
+
+		function choice2(){
+			alert("asdsad");
+		}
+		function choice3(){
+			alert("asdsad");
+		}
+		function choice4(){
+			alert("asdsad");
+		}
 	</script>
 </head>
 <body>
@@ -76,17 +115,27 @@
 	<input type="hidden" name="gubun" id="gubun"/>
 	<input type="hidden" name="donateIdx" id="donateIdx"/>
 	<input type="hidden" name="donateName" id="donateName"/>
+	
+
+	<input type="hidden" name="donatePine" id="donatePine" value=${donate.donatePine }/>
+	<input type="hidden" name="donateProud" id="donateProud" value=${donate.donateProud }/>
+	<input type="hidden" name="donateHard" id="donateHard" value=${donate.donateHard }/>
+	<input type="hidden" name="donateSade" id="donateSade" value=${donate.donateSade }/>
+
 	<div class="wrap">
                 <div class="sub__header">
+                	<div class="memorial__head__cm01a">
+						<span class="dq_t01"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_dq_t01.png" alt=""></span>생의 마지막 순간 누군가의 빛이 되어준 당신을 영원히 기억합니다<span class="dq_b01"><img src="${pageContext.request.contextPath}/resource/assets/images/icon_dq_b01.png" alt=""></span>
+					</div>
                     <h2>기증자 추모관</h2>
                 </div>
                 <div class="sub__tabs memorial">
-                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="active">기증자 추모관</a>
-                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')">하늘나라 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="">수혜자 편지</a>
-                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="">기증 후 스토리</a>
+                    <a href="javascript:fn_MoveUrl('2','1','0','/donate/member.c')" class="dp1a active active__blue1a">기증자 추모관</a>
+                    <a href="javascript:fn_MoveUrl('2','2','0','/donate/letter.c')" class="dp1a">하늘나라 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','3','0','/donate/receipt.c')" class="dp1a">수혜자 편지</a>
+                    <a href="javascript:fn_MoveUrl('2','4','0','/donate/story.c')" class="dp1a">기증 후 스토리</a>
 
-
+				
                     <div class="select">
                         <button>하늘나라 편지</button>
                         <div class="dropdown">
@@ -120,8 +169,10 @@
                             	<option value="${yearL.year }" <c:if test="${donateSearch.searchYear eq yearL.year}"> selected </c:if>  ><c:out value="${yearL.year }"/>년</a></option>
 							</c:forEach>
 			             </select>
-                    </div>
+                    </div> 
+                    <div class="submit fobx2">
                     <button type="button" class="submit" onclick="goSearch(); return false;">검색하기</button>
+                    </div>
                     <!-- <button class="submit">검색하기</button> -->
                 </div>
 
@@ -134,13 +185,21 @@
 								<c:choose>
 									<c:when test="${donate.donateAnonymity eq 'Y' }">
 										<c:set var="donateNm" value="${fn:substring(donate.donateName, 0, 1) }*${fn:substring(donate.donateName, 2, fn:length(donate.donateName)) }"/>
+										<ul class="thum1">
+											<li><img src="${pageContext.request.contextPath}/resource/assets/images/temp_pho02__seojungmin.png" alt=""></li>
+											<li class="ly1"><img src="${pageContext.request.contextPath}/resource/assets/images/pho02_bg1_white01.png" alt=""></li>
+										</ul>
 									</c:when>
 									<c:otherwise>
 										<c:set var="donateNm" value="${donate.donateName }"/>
+											<ul class="thum1">
+											<li><img src="${pageContext.request.contextPath}/resource/assets/images/temp_pho02__seojungmin.png" alt=""></li>
+											<li class="ly1"><img src="${pageContext.request.contextPath}/resource/assets/images/pho02_bg1_white01.png" alt=""></li>
+										</ul>
 									</c:otherwise>
 								</c:choose>
 								<h2 class="name">
-									<c:out value="${donateNm }"/>
+									<c:out value="${donateNm }"/><small>(<c:out value="${donate.donateAge }"/>)</small>
 									<c:if test="${donate.replyCnt > 0 }">&nbsp;<span>[<c:out value="${donate.replyCnt }"/>]</span></c:if>
 								</h2>
 								<c:choose>
@@ -154,15 +213,38 @@
 								<p class="date">기증일: <fmt:parseDate var="regdate" value="${donate.donateDate }" pattern="yyyy-MM-dd"/>
 													  <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd"/></p>
 								<div class="button">
-									<a href="javascript:goForm(${donate.donateIdx}, '${donateNm}');"> <span>하늘나라 편지쓰기</span>
-									</a>
+									<div class="imo1">
+										<a class="btn1" id="ch1"  onclick="choice1();"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i5.png" alt="">${donate.donatePine }</a>
+										<a class="btn1" id="ch2"  onclick="choice2();"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i6.png" alt="">${donate.donateProud }</a>
+										<a class="btn1" id="ch3"  onclick="choice3();"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i8.png" alt="">${donate.donateHard }</a>
+										<a class="btn1" id="ch4"  onclick="choice4();"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i9.png" alt="">${donate.donateSad }</a>
+									</div>
+									<div class="let1">
+										<a href="javascript:goForm(${donate.donateIdx}, '${donateNm}');"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-card-img5.png" alt="">하늘나라 편지쓰기</a>
+									<c:if test="${dateDiff <= 7 }">
+										<span class="new1">NEW</span></c:if>  
+									</div>	
 								</div>
 							</div>
 							<div class="item item--tyep2 type2" style="z-index:1">
+								<ul class="thum1">
+									<li><img src="${pageContext.request.contextPath}/resource/assets/images/temp_pho02__seojungmin.png" alt=""></li>
+									<li class="ly1"><img src="${pageContext.request.contextPath}/resource/assets/images/pho02_bg1_green01.png" alt=""></li>
+								</ul>
 								<h2 class="name">
 									<c:out value="${donateNm }"/>
 									<c:if test="${donate.replyCnt > 0 }">&nbsp;<span>[<c:out value="${donate.replyCnt }"/>]</span></c:if>
-								</h2>				
+								</h2>
+								<div class="button">
+									<div class="imo1">
+									
+										<a href="#" onclick="choice1();" class="btn1"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i5.png" alt="">${donate.donatePine }</a>
+										<a href="#" id="ch2" onclick="choice2();" class="btn1"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i6.png" alt="">${donate.donateProud }</a>
+										<a href="#" id="ch3" onclick="choice3();" class="btn1"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i8.png" alt="">${donate.donateHard }</a>
+										<a href="#" id="ch4" onclick="choice4();" class="btn1"><img src="${pageContext.request.contextPath}/resource/assets/images/memorial-i9.png" alt="">${donate.donateSad }</a>
+									</div>
+							
+								</div>				
 								<p class="description">
 								<c:choose>
 									<c:when test="${not empty donate.replyContents }">
@@ -183,10 +265,11 @@
 									</c:otherwise>
 								</c:choose>				
 								</p>
-								<div class="actions">
-									<a href="javascript:goView(${donate.donateIdx });"> 온라인 추모 </a> <a
-										href="javascript:goForm(${donate.donateIdx }, '${donateNm}');"> 하늘나라<br /> 편지쓰기
-									</a>
+								<div class="button">
+									<ul class="let2">
+										<li><a href="javascript:goView(${donate.donateIdx });">온라인 추모</a></li>
+										<li><a href="javascript:goForm(${donate.donateIdx }, '${donateNm}');">하늘나라<br/>편지쓰기</a></li>
+									</ul>
 								</div>
 							</div>
 						</div>

@@ -13,9 +13,7 @@
                     <h2>기증원 소개</h2>
                     <div class="top-txtBox topbox">
                         <div class="txt text-center">
-                            <h3 class="">
-                                <span>한국장기조직기증원(KODA)은</span>
-                            </h3>
+                           <div><img src="${pageContext.request.contextPath}/resource/assets/images/logo.png" alt=""></div>
                             <p class="">
                                 보건복지부가 지정한 국내 유일한 장기 및 조직 구득기관으로서 뇌사추정자 또는 조직기증 희망자 발생 시 병원으로부터 통보를 받고,<br/>
                                 기증 업무를 수행하는 공공기관입니다.

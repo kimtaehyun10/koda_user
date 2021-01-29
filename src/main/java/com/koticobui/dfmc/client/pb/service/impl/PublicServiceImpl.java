@@ -138,7 +138,15 @@ public class PublicServiceImpl implements PublicService {
 
 		String currentPage = request.getParameter("currentPage");
 		PublicSearchVO prSearch = new PublicSearchVO();
-		prSearch.setArticleCount(9);
+		String seqCd2 =  request.getParameter("seqCd2");
+		int seqCd2Int = Integer.parseInt(seqCd2);
+		if(seqCd2Int == 0) {
+			prSearch.setArticleCount(3);
+		}else {
+			prSearch.setArticleCount(9);
+		}
+		
+	
 		if ((currentPage != null) && (!"".equals(currentPage))){
 			prSearch.setCurrentPage(Integer.parseInt(currentPage));
 		}else {
@@ -187,7 +195,15 @@ public class PublicServiceImpl implements PublicService {
 
 		String currentPage = request.getParameter("currentPage");
 		PublicSearchVO prSearch = new PublicSearchVO();
-		prSearch.setArticleCount(9);
+		
+		String seqCd2 =  request.getParameter("seqCd2");
+		int seqCd2Int = Integer.parseInt(seqCd2);
+		if(seqCd2Int == 0) {
+			prSearch.setArticleCount(3);
+		}else {
+			prSearch.setArticleCount(9);
+		}
+		
 		if ((currentPage != null) && (!"".equals(currentPage))){
 			prSearch.setCurrentPage(Integer.parseInt(currentPage));
 		}else {
@@ -215,7 +231,15 @@ public class PublicServiceImpl implements PublicService {
 
 		String currentPage = request.getParameter("currentPage");
 		PublicSearchVO prSearch = new PublicSearchVO();
-		prSearch.setArticleCount(9);
+		
+		String seqCd2 =  request.getParameter("seqCd2");
+		int seqCd2Int = Integer.parseInt(seqCd2);
+		if(seqCd2Int == 0) {
+			prSearch.setArticleCount(3);
+		}else {
+			prSearch.setArticleCount(9);
+		}
+		
 		if ((currentPage != null) && (!"".equals(currentPage))){
 			prSearch.setCurrentPage(Integer.parseInt(currentPage));
 		}else {

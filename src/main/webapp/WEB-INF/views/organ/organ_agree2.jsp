@@ -148,8 +148,8 @@ $(document.body).ready(function(){
             <div class="content" id="tab2" style="display: none;">
 			<div class="areatab">
 				<a href="#//" class="active" data-id="1">전국</a> <a href="#//"
-					data-id="2">중부권역</a> <a href="#//" data-id="3">충청·호남권역</a> <a
-					href="#//" data-id="4">영남권역</a>
+					data-id="2">중부지부</a> <a href="#//" data-id="3">충청·호남지부</a> <a
+					href="#//" data-id="4">영남지부</a>
 			</div>
 			<div class="areaView">
 				<div class="view view1">
@@ -160,13 +160,16 @@ $(document.body).ready(function(){
 								alt="">
 						</div>
 						<div class="list">
-							<div class="table">
+							<div class="table">	
+							<p class="info-section__description">
+										뇌사장기기증자 관리업무 협약 병원
+										</p>
 								<button class="active">
-									<h3>중부권역</h3>
+									<h3>중부지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table class="active">
+									<table class="active tbl_bg_ty_01a">
 										<tbody>
 											<c:forEach var="hospital" items="${hospitalList1 }" varStatus="status" begin="1">
 											<tr>
@@ -181,12 +184,15 @@ $(document.body).ready(function(){
 							</div>
 
 							<div class="table type2">
+							    	<p class="info-section__description">
+										뇌사장기기증자 관리업무 협약 병원
+										</p>
 								<button>
-									<h3>충청·호남권역</h3>
+									<h3>충청·호남지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table>
+									<table class="active tbl_bg_ty_01a">
 										<tbody>
 
 											<c:forEach var="hospital" items="${hospitalList2 }" varStatus="status" begin="1">
@@ -202,12 +208,15 @@ $(document.body).ready(function(){
 								</div>
 							</div>
 							<div class="table type3">
+								<p class="info-section__description">
+										뇌사장기기증자 관리업무 협약 병원
+										</p>
 								<button>
-									<h3>영남권역</h3>
+									<h3>영남지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table>
+									<table class="active tbl_bg_ty_01a">
 										<tbody>
 
 											<c:forEach var="hospital" items="${hospitalList3 }" varStatus="status" begin="1">
@@ -235,12 +244,15 @@ $(document.body).ready(function(){
 						</div>
 						<div class="list">
 							<div class="table">
+									<p class="info-section__description">
+										뇌사장기기증자 관리업무 협약 병원
+										</p>
 								<button class="active">
-									<h3>중부권역</h3>
+									<h3>중부지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table class="active">
+									<table  class="active tbl_bg_ty_01a">
 										<tbody>
 
 											<c:forEach var="hospital" items="${hospitalList1 }" varStatus="status" begin="1">
@@ -268,12 +280,15 @@ $(document.body).ready(function(){
 						</div>
 						<div class="list">
 							<div class="table type2">
+							   <p class="info-section__description">
+									뇌사장기기증자 관리업무 협약 병원
+								</p>
 								<button class="active">
-									<h3>충청·호남권역</h3>
+									<h3>충청·호남지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table class="active">
+									<table class="active tbl_bg_ty_01a">
 										<tbody>
 
 											<c:forEach var="hospital" items="${hospitalList2 }" varStatus="status" begin="1">
@@ -301,12 +316,15 @@ $(document.body).ready(function(){
 						</div>
 						<div class="list">
 							<div class="table type3">
+								<p class="info-section__description">
+									뇌사장기기증자 관리업무 협약 병원
+								</p>
 								<button class="active">
-									<h3>영남권역</h3>
+									<h3>영남지부</h3>
 									<span></span>
 								</button>
 								<div class="tbox">
-									<table class="active">
+									<table class="active tbl_bg_ty_01a">
 										<tbody>
 
 											<c:forEach var="hospital" items="${hospitalList3 }" varStatus="status" begin="1">

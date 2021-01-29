@@ -9,8 +9,8 @@
                 <h2>뇌사장기기증과 인체조직기증 이렇게 진행됩니다.</h2>
             </div>
             <div class="sub__tabs">
-                <a href="">장기만 기증 시</a>
-                <a href="" class="active">조직기증 동의 시</a>
+                <a href="javascript:fn_MoveUrl('1','1','1')">장기만 기증 시</a>
+                <a href="javascript:fn_MoveUrl('1','1','0')" class="active">장기+조직 기증 시</a>
 
                 <div class="select">
                     <button>조직기증 동의 시</button>

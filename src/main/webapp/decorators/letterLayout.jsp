@@ -141,9 +141,7 @@ function poptastic(url)
 		</span>
 	</div>
 
-	<script src="${pageContext.request.contextPath}/resource/assets/plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
-	<script src="${pageContext.request.contextPath}/resource/assets/plugins/slick/slick.js"></script>
-	<script	src="${pageContext.request.contextPath}/resource/assets/js/ui.js"></script>
+
 
 
 </body>

@@ -8,24 +8,39 @@
 </head>
 <body>
 
+
+		<div class="sub__content">
+			<div class="sub__lnb">
+				<h2>기증희망등록</h2>
+				<div class="row">
+					<a href="javascript:fn_MoveUrl('4','1','0')
+					" class="link active">기증희망등록</a>
+					<div class="depth">
+						<a class="depth-link" href="javascript:fn_MoveUrl('4','1','0')">기증희망등록이란?</a>
+						<a class="depth-link active" href="javascript:fn_MoveUrl('4','1','1')">기증희망등록 신청</a>
+					</div>
+				</div>
+			</div>
 	<div class="sub__header">
-                <h2>기증희망등록 신청하기</h2>
+                <h2>기증희망등록이란?</h2>
             </div>
             <div class="register__content">
 
                 <div class="wrap">
                     <div class="sub__tabs">
-                        <a href="javascript:fn_MoveUrl('4','1','0')">기증희망등록이란?</a>
+                        <a href="javascript:fn_MoveUrl('4','1','0')" >기증희망등록이란?</a>
                         <a href="javascript:fn_MoveUrl('4','1','1')" class="active">기증희망등록 신청하기</a>
 
+
                         <div class="select">
-                            <button>기증희망등록 신청하기</button>
+                            <button>기증희망등록 신청</button>
                             <div class="dropdown">
                                 <a href="javascript:fn_MoveUrl('4','1','0')" class="">기증희망등록이란?</a>
                                 <a href="javascript:fn_MoveUrl('4','1','1')">기증희망등록 신청하기</a>
                             </div>
                         </div>
                     </div>
+            
                 </div>
                 <div class="view-cont view2">
                     <div class="box box1">
@@ -151,6 +166,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 </body>
 </html>

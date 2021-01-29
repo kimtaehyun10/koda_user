@@ -32,9 +32,11 @@
                         </select>
                     </div>
                     <div class="input name mobile-mt-10">
-                        <input type="text" placeholder="">
+                        <input type="text"placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
                     </div>
-                    <button class="submit">검색하기</button>
+                	<div class="submit fobx2">
+                    <button class="submit" >검색하기</button>
+                    </div>
                 </div>
                 <div class="memorial__detail-content">
                     <div class="table promote__table effectNone write">

@@ -187,20 +187,29 @@ public class DonateServiceImpl implements DonateService {
 		String idx = request.getParameter("idx");
 		String field = request.getParameter("field");
 		
-		DonateVO donate = new DonateVO();
+		String donatePine = request.getParameter("donatePine");
+		String donateProud = request.getParameter("donateProud");
+		String donateHard = request.getParameter("donateHard");
+		String donateSad = request.getParameter("donateSad");
+	
+		DonateVO donateBean = new DonateVO();
+		donateBean.setDonatePine(Integer.parseInt(donatePine));
+		donateBean.setDonateProud(Integer.parseInt(donateProud));
+		donateBean.setDonateHard(Integer.parseInt(donateHard));
+		donateBean.setDonateSad(Integer.parseInt(donateSad));
 		if ((idx != null) && (!"".equals(idx))) {
-		  donate.setDonateIdx(Integer.parseInt(idx));
+			donateBean.setDonateIdx(Integer.parseInt(idx));
 		}
-		donate.setField(field);
-		donateMapper.updateLike(donate);
+		donateBean.setField(field);
+		donateMapper.updateLike(donateBean);
 
 		DonateSearchVO donateSearch = new DonateSearchVO();
 		if ((idx != null) && (!"".equals(idx))){
 		  donateSearch.setIdx(Integer.parseInt(idx));
 		}
 		
-		Map<String, Object> donateBean = donateMapper.getDonate(donateSearch);
-		return donateBean;
+		Map<String, Object> donateBeans = donateMapper.getDonate(donateSearch);
+		return donateBeans;
 	}
 	
 	@Override
@@ -218,6 +227,26 @@ public class DonateServiceImpl implements DonateService {
 		donateMapper.donateReplyInsert(donate);
 
 	}
+//	
+//	@Override
+//	@Transactional
+//	public void choice_insert(HttpServletRequest request) {
+//	
+//		
+//		String donatePine = request.getParameter("donatePine");
+//		String donateProud = request.getParameter("donateProud");
+//		String donateHard = request.getParameter("donateHard");
+//		String donateSad = request.getParameter("donateSad");
+//		
+//		DonateVO donate = new DonateVO();
+//		donate.setDonatePine(Integer.parseInt(donatePine));
+//		donate.setDonateProud(Integer.parseInt(donateProud));
+//		donate.setDonateHard(Integer.parseInt(donateHard));
+//		donate.setDonateSad(Integer.parseInt(donateSad));
+//		
+//		donateMapper.insertChoice(donate);
+//
+//	}
 
 	@Override
 	public HttpServletRequest letter(HttpServletRequest request) {

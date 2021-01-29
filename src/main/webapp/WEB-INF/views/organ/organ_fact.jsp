@@ -42,9 +42,14 @@
 	<input type="hidden" name="currentPage" id="currentPage" value="${brainSearch.currentPage }" />
 	<input type="hidden" name="searchKey" id="searchKey" value="${brainSearch.searchKey }">
 	<div class="wrap">
-		<div class="section">
-			<h2 class="section__title text-center">기증팩트체크</h2>
-		</div>
+			<div class="section">
+					<h2 class="section__title text-center" style="background:url('${pageContext.request.contextPath}/resource/assets/images/bg-title-twk.png') no-repeat center;padding:.2em 0;background-size: 7em auto;">
+					기증팩트체크
+					</h2>
+					<p class="text-center section__description" style="margin-top: .5em;">
+					기증에 관한 궁금한 점은 무엇이든 물어보세요
+					</p>
+				</div>
 
 		<div class="memorial__search-form mb-8">
 			<div class="select" style="margin: 0; margin-right: 10px;">
@@ -57,7 +62,9 @@
 			<div class="input name mobile-mt-10">
 				<input type="text" name="searchValue" id="searchValue" value="<c:out escapeXml="true" value="${brainSearch.searchValue }"/>" placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode == 13) goSearch();">
 			</div>
+			<div class="submit fobx2">
 			<button type="button" onclick="return goSearch();" class="submit">검색하기</button>
+			</div>
 		</div>
 
 		<div class="search-tags">
