@@ -486,29 +486,129 @@ function mainOrganDateList(){
         </div>
 
         <!-- chart -->
-        <div class="main__chart">
-            <div class="wrap flex pc">
-                <div class="main__chart-item">
-                    <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart1.png" alt="">
-                    <!-- <div class="current">
-                    	<div>
-                    		<strong>100</strong>명
-                    	</div>
-                    	<p>2021-01-12 현재</p>
-                    </div> -->                    
-                </div>
-                <div class="main__chart-item">
-                    <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart2.png" alt="">
-                </div>
-            </div>
-
-            <div class="wrap tablet">
-                <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart-tablet.png" alt="">
-            </div>
-
-            <div class="wrap mobile">
-                <img src="${pageContext.request.contextPath}/resource/assets/images/main-chart-mobile.png" alt="">
-            </div>
+        <div class="main__chart1 relative">
+			<div class="wrap">
+				<ul class="ch_p">
+					<li>
+						<dl>
+							<dt><h4>뇌사장기기증자</h4></dt>
+							<dd>
+								<ul>
+									<li>2021년</li>
+									<li></li>
+									<li>
+										<strong>320</strong>명
+										<div>2021-01-13 현재</div>
+									</li>
+								</ul>
+								<ul>
+									<li>2019년</li>
+									<li></li>
+									<li>
+										<strong>450</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2018년</li>
+									<li></li>
+									<li>
+										<strong>449</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2017년</li>
+									<li></li>
+									<li>
+										<strong>515</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2016년</li>
+									<li></li>
+									<li>
+										<strong>573</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2015년</li>
+									<li></li>
+									<li>
+										<strong>501</strong>명
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><h4>조직기증자</h4></dt>
+							<dd>
+								<ul>
+									<li>2021년</li>
+									<li></li>
+									<li>
+										<strong>61</strong>명
+										<div>2021-01-13 현재</div>
+									</li>
+								</ul>
+								<ul>
+									<li>2019년</li>
+									<li></li>
+									<li>
+										<strong>113</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2018년</li>
+									<li></li>
+									<li>
+										<strong>115</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2017년</li>
+									<li></li>
+									<li>
+										<strong>111</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2016년</li>
+									<li></li>
+									<li>
+										<strong>248</strong>명
+									</li>
+								</ul>
+								<ul>
+									<li>2015년</li>
+									<li></li>
+									<li>
+										<strong>235</strong>명
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="ch_m">
+					<li>
+						<dl>
+							<dt><img src="./assets/images/icon_main_chart3_01.png" alt=""></dt>
+							<dd>2021년 누적 뇌사장기기증자</dd>
+							<dd><strong>320</strong>명</dd>
+							<dd>2021-01-13 현재</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><img src="./assets/images/icon_main_chart3_02.png" alt=""></dt>
+							<dd>2021년 누적 조직기증자</dd>
+							<dd><strong>61</strong>명</dd>
+							<dd>2021-01-13 현재</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
         </div>
 
         <!-- process -->
