@@ -37,4 +37,19 @@
 		from schedule
 		where #{fullDate} between sch_start_dt and sch_end_dt
 	</select>
+	
+	<select id="mainDonateTrend" resultType = "egovMap" parameterType="hashmap">
+		select * 
+		from donate_stats_trend 
+		order by trend_date desc
+		limit 5
+	</select>
+	
+	<select id="mainDonateToday" resultType = "egovMap" parameterType="hashmap">
+		select 
+			(stats_sphere_edonor1+stats_sphere_edonor2+stats_sphere_edonor3) as edonor, 
+			(stats_sphere_tdonor1+stats_sphere_tdonor2+stats_sphere_tdonor3) as tdonor 
+		from brain_donate_stats 
+		where date_format(stats_date,'%Y') = date_format(now(),'%Y')
+	</select>
 </mapper>

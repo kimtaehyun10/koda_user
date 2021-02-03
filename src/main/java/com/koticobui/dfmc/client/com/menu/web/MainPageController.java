@@ -47,6 +47,21 @@ public class MainPageController {
 		List<Map<String, Object>> bannerList = mainservice.bannerList(requestMap);
 		modelAndView.addObject("bannerList",bannerList);
 		
+		//메인 뇌사장기기증자, 조직기증자
+		int eDonate=0; //조직기증
+		int tDonate=0; //장기기증
+		List<Map<String, Object>> mainDonateTrend = mainservice.mainDonateTrend(requestMap);
+		modelAndView.addObject("mainDonateTrend",mainDonateTrend);
+		List<Map<String, Object>> mainDonateToday = mainservice.mainDonateToday(requestMap);		
+		if(mainDonateToday != null){
+			for(int i=0;i<mainDonateToday.size();i++){
+				eDonate += Integer.parseInt(String.valueOf(mainDonateToday.get(i).get("edonor")));
+				tDonate += Integer.parseInt(String.valueOf(mainDonateToday.get(i).get("tdonor")));
+			}
+		}
+		modelAndView.addObject("eDonate",eDonate);
+		modelAndView.addObject("tDonate",tDonate);
+		
 		modelAndView.addObject("loginError", loginError);
 		modelAndView.setViewName("main");
 		return modelAndView;

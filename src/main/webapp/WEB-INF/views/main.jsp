@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -359,6 +360,25 @@ function mainOrganDateList(){
 		}
 	});
 }
+// 메인 협약기관 서브메뉴
+$(document.body).ready(function(){
+
+    
+    $(document).on('click', '.main__partners-tab a', function () {
+        $('.main__partners-tab a').removeClass("active");
+        $("a[href='"+ $(this).attr("href") +"']").addClass("active");
+        
+        $(".main__partners-body").hide();
+
+        var activeTab = $(this).attr("href");        
+        $(activeTab).fadeIn();
+
+  	  	$('.main__partners-tab .select button').html($(this).html());
+  	  	
+        return false;
+    })		
+   
+});
 </script>
 </head>
 <body>
@@ -398,7 +418,7 @@ function mainOrganDateList(){
             <!-- visual controller -->
             <div class="slider-controller">
                 <div class="paging">
-                    <span id="current">1</span>/<span id="total">3</span>
+                    <span id="current">1</span>/<span id="total">${fn:length(mainBannerList)}</span>
                 </div>
                 <div class="controller">
                     <button type="button" class="prev"></button>
@@ -484,7 +504,15 @@ function mainOrganDateList(){
                 </div>
             </div>
         </div>
-
+		
+		<!-- 오늘 날짜 -->
+		<jsp:useBean id="now" class="java.util.Date" />
+		<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
+        
+        <!-- 현재 년도 -->
+		<jsp:useBean id="year" class="java.util.Date" />
+		<fmt:formatDate value="${year}" pattern="yyyy" var="year" />
+        
         <!-- chart -->
         <div class="main__chart1 relative">
 			<div class="wrap">
@@ -494,48 +522,22 @@ function mainOrganDateList(){
 							<dt><h4>뇌사장기기증자</h4></dt>
 							<dd>
 								<ul>
-									<li>2021년</li>
+									<li>${year}년</li>
 									<li></li>
 									<li>
-										<strong>320</strong>명
-										<div>2021-01-13 현재</div>
+										<strong>${tDonate}</strong>명
+										<div><c:out value="${today}"/> 현재</div>
 									</li>
 								</ul>
-								<ul>
-									<li>2019년</li>
-									<li></li>
-									<li>
-										<strong>450</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2018년</li>
-									<li></li>
-									<li>
-										<strong>449</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2017년</li>
-									<li></li>
-									<li>
-										<strong>515</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2016년</li>
-									<li></li>
-									<li>
-										<strong>573</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2015년</li>
-									<li></li>
-									<li>
-										<strong>501</strong>명
-									</li>
-								</ul>
+								<c:forEach items="${mainDonateTrend}" var="mainDonateTrend">
+									<ul>
+										<li>${mainDonateTrend.trendDate}</li>
+										<li></li>
+										<li>
+											<strong>${mainDonateTrend.trendValue1}</strong>명
+										</li>
+									</ul>
+								</c:forEach>																
 							</dd>
 						</dl>
 					</li>
@@ -544,48 +546,22 @@ function mainOrganDateList(){
 							<dt><h4>조직기증자</h4></dt>
 							<dd>
 								<ul>
-									<li>2021년</li>
+									<li>${year}년</li>
 									<li></li>
 									<li>
-										<strong>61</strong>명
-										<div>2021-01-13 현재</div>
+										<strong>${eDonate}</strong>명
+										<div><c:out value="${today}"/> 현재</div>
 									</li>
 								</ul>
-								<ul>
-									<li>2019년</li>
-									<li></li>
-									<li>
-										<strong>113</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2018년</li>
-									<li></li>
-									<li>
-										<strong>115</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2017년</li>
-									<li></li>
-									<li>
-										<strong>111</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2016년</li>
-									<li></li>
-									<li>
-										<strong>248</strong>명
-									</li>
-								</ul>
-								<ul>
-									<li>2015년</li>
-									<li></li>
-									<li>
-										<strong>235</strong>명
-									</li>
-								</ul>
+								<c:forEach items="${mainDonateTrend}" var="mainDonateTrend">
+									<ul>
+										<li>${mainDonateTrend.trendDate}</li>
+										<li></li>
+										<li>
+											<strong>${mainDonateTrend.trendValue2}</strong>명
+										</li>
+									</ul>
+								</c:forEach>								
 							</dd>
 						</dl>
 					</li>
@@ -941,11 +917,53 @@ function mainOrganDateList(){
                         </div>
                     </div>
                     <div class="main__partners-tab">
-                        <a href="#//" class="active">KODA 협약병원</a>
-                        <a href="#//" class="">DIP 협약병원</a>
-                        <a href="#//" class="">협약기관</a>
+                        <a href="#hos1" class="active">KODA 협약병원</a>
+                        <a href="#hos2" class="">DIP 협약병원</a>
+                        <a href="#hos3" class="">협약기관</a>
                     </div>
-                    <div class="main__partners-body">
+                    <div class="main__partners-body" id="hos1">
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner1.png" alt=""></div>
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner2.png" alt=""></div>
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner3.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner4.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner5.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner6.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner7.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner8.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner9.png" alt=""></div>
+                        
+                    </div>
+                    <div class="main__partners-body" id="hos2" style="display: none;">
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner1.png" alt=""></div>
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner2.png" alt=""></div>
+                        
+                            <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner3.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner4.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner5.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner6.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner7.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner8.png" alt=""></div>
+                        
+                            <div class="main__partners-item "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner9.png" alt=""></div>
+                        
+                    </div>
+                    <div class="main__partners-body" id="hos3" style="display: none;">
                         
                             <div class="main__partners-item  new "><img src="${pageContext.request.contextPath}/resource/assets/images/main-partner1.png" alt=""></div>
                         

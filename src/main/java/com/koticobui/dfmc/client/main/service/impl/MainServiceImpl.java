@@ -73,4 +73,16 @@ public class MainServiceImpl implements MainService {
 
 		return mainMapper.scheduleList(requestMap);
 	}
+
+	@Override
+	public List<Map<String, Object>> mainDonateTrend(Map<String, Object> requestMap) {
+
+		return mainMapper.mainDonateTrend(requestMap);
+	}
+
+	@Override
+	public List<Map<String, Object>> mainDonateToday(Map<String, Object> requestMap) {
+
+		return mainMapper.mainDonateToday(requestMap);
+	}
 }

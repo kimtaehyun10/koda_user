@@ -21,4 +21,8 @@ public interface MainService {
 
 	List<Map<String, Object>> scheduleList(Map<String, Object> requestMap);
 
+	List<Map<String, Object>> mainDonateTrend(Map<String, Object> requestMap);
+
+	List<Map<String, Object>> mainDonateToday(Map<String, Object> requestMap);
+
 }

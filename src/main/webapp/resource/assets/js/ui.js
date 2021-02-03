@@ -41,7 +41,7 @@
   var $total = $('.visual .slider-controller .paging #total');
   $mainVisualSlider.on('init afterChange', function (event, slick, currentSlide, nextSlide) {
     $current.text(slick.currentSlide + 1);
-    $total.text(slick.slideCount);
+    //$total.text(slick.slideCount);    
   });
   $mainVisualSlider.slick({
     infinite: true,

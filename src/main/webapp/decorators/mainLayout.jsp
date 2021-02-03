@@ -1083,11 +1083,11 @@ $.fn.clearForm = function () {
 				<div class="wrap">
 					<div class="flex">
 						<div class="col">
-							<a href=""> <span>기증 희망등록 </span>
+							<a href="javascript:fn_MoveUrl('4','1','0')"> <span>기증 희망등록 </span>
 							</a>
 						</div>
 						<div class="col">
-							<a href=""> <span>아름다운 동행(E-뉴스레터) 신청하기</span>
+							<a href="javascript:fn_MoveUrl('5','1','2','/pr/news_letter.c')"> <span>아름다운 동행(E-뉴스레터) 신청하기</span>
 							</a>
 						</div>
 					</div>
